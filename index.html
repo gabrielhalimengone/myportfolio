@@ -4,489 +4,315 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gabriel-Halim — Chef de Projet IT & Développeur Web</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Mono:wght@400;700&family=Outfit:wght@300;400;500&display=swap"
-    rel="stylesheet">
+  <title>Gabriel-Halim Endam'Engone — Développeur Frontend</title>
+  <meta name="description"
+    content="Portfolio frontend de Gabriel-Halim Endam'Engone : interfaces React, sites responsives, applications web et coordination de projets IT à Casablanca.">
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23131715'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%23F0B84B' font-family='Arial' font-size='23' font-weight='700'%3EGH%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/script.js?v=frontend-pro-pygames-media" defer></script>
 </head>
 
 <body>
-  <div id="xp-bar">
-    <div class="xp-fill" id="xpFill"></div>
-  </div>
-  <div id="cursor"></div>
-  <div id="cursor-ring"></div>
-  <div class="bg-glow" id="bgGlow"></div>
-  <div id="loader">
-    <div class="loader-logo">G-HALIM</div>
-    <div class="loader-sub">Initialisation du dossier agent</div>
-    <div class="loader-bar-wrap">
-      <div class="loader-bar" id="loaderBar"></div>
-    </div>
-    <div class="loader-pct" id="loaderPct">0%</div>
-  </div>
-  <nav>
-    <div class="nav-logo">GH//</div>
-    <div class="nav-links">
-      <a href="#missions" class="nav-link">Missions</a>
-      <a href="#skills" class="nav-link">Compétences</a>
-      <a href="#formation" class="nav-link">Formation</a>
-      <a href="#projets" class="nav-link">Projets</a>
-      <a href="#contact" class="nav-link">Contact</a>
-    </div>
-    <div class="nav-status">
-      <div class="status-dot-nav"></div>Disponible
-    </div>
-  </nav>
-  <section id="hero">
-    <div class="hero-inner">
-      <div>
-        <div class="hero-tag">// Agent IT — Casablanca, Maroc</div>
-        <h1 class="hero-name">Endam'Engone<span>Gabriel-Halim</span></h1>
-        <p class="hero-title">Chef de Projet IT · Dev Web · Régie LED</p>
-        <p class="hero-desc">Master en Management IT. Double expertise — coordination de projets complexes et
-          développement technique. Passionné par l'innovation digitale et la gestion d'équipes.</p>
-        <div class="hero-cta">
-          <a href="#contact" class="btn btn-primary">Recruter l'agent</a>
-          <a href="#missions" class="btn btn-outline">Voir les missions</a>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <div class="agent-card">
-          <div class="agent-id">ID: GH-2024 // STATUT: ACTIF</div>
-          <div class="agent-photo">
-            <div class="agent-photo-placeholder">GH</div>
-          </div>
-          <div class="agent-stats">
-            <div class="stat">
-              <div class="stat-label">Gestion Projet</div>
-              <div class="stat-value">Expert</div>
-              <div class="stat-bar">
-                <div class="stat-fill" data-width="88"></div>
-              </div>
-            </div>
-            <div class="stat">
-              <div class="stat-label">Dev Web</div>
-              <div class="stat-value">Confirmé</div>
-              <div class="stat-bar">
-                <div class="stat-fill" data-width="78"></div>
-              </div>
-            </div>
-            <div class="stat">
-              <div class="stat-label">Régie LED</div>
-              <div class="stat-value">Expert</div>
-              <div class="stat-bar">
-                <div class="stat-fill" data-width="92"></div>
-              </div>
-            </div>
-            <div class="stat">
-              <div class="stat-label">Leadership</div>
-              <div class="stat-value">Fort</div>
-              <div class="stat-bar">
-                <div class="stat-fill" data-width="82"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="scroll-hint"><span>Défiler</span>
-      <div class="scroll-arrow"></div>
-    </div>
-  </section>
-  <div class="divider"></div>
-  <div class="section-wrap" id="missions">
-    <div class="section-tag">Niveau 01</div>
-    <h2 class="section-title">Missions<br><span>Opérationnelles</span></h2>
-    <div class="timeline">
-      <div class="mission">
-        <div class="mission-date">2024 — Présent · Casablanca</div>
-        <div class="mission-company">Racha Digital</div>
-        <div class="mission-role">Développeur Web</div>
-        <ul class="mission-tasks">
-          <li>Suivi des besoins clients et coordination avec l'équipe technique</li>
-          <li>Estimation des temps de développement et gestion des priorités</li>
-          <li>Contribution à l'amélioration continue des processus</li>
-        </ul>
-      </div>
-      <div class="mission">
-        <div class="mission-date">2024 — Présent · Casablanca</div>
-        <div class="mission-company">Racha Digital</div>
-        <div class="mission-role">Régisseur LED</div>
-        <ul class="mission-tasks">
-          <li>Gestion technique d'événements live — installation, paramétrage et synchronisation multimédia (Novastar)
-          </li>
-          <li>Coordination entre équipes technique (son, vidéo, lumière) et clients</li>
-          <li>Assurance qualité et résolution rapide d'incidents</li>
-        </ul>
-      </div>
-      <div class="mission">
-        <div class="mission-date">2022 · Libreville</div>
-        <div class="mission-company">Code X</div>
-        <div class="mission-role">Stagiaire Développeur Web</div>
-        <ul class="mission-tasks">
-          <li>Développement et mise à jour de sites web</li>
-          <li>Participation à l'intégration de nouveaux outils digitaux</li>
-        </ul>
-      </div>
-      <div class="mission" style="margin-bottom:0">
-        <div class="mission-date">2021 · Casablanca</div>
-        <div class="mission-company">Mon Sikolo</div>
-        <div class="mission-role">Stagiaire Développeur Web</div>
-        <ul class="mission-tasks">
-          <li>Développement de fonctionnalités pour la plateforme éducative</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="divider"></div>
-  <div class="section-wrap" id="skills">
-    <div class="section-tag">Niveau 02</div>
-    <h2 class="section-title">Arsenal<br><span>Technique</span></h2>
-    <div class="skills-grid">
-      <div class="skill-cat">
-        <div class="skill-cat-label">Gestion de Projet</div>
-        <div class="skill-tags"><span class="skill-tag">Agile / Scrum</span><span class="skill-tag">Jira</span><span
-            class="skill-tag">Trello</span><span class="skill-tag">MS Project</span><span class="skill-tag">Analyse des
-            besoins</span><span class="skill-tag">Suivi planning</span><span class="skill-tag">Gestion budget</span>
-        </div>
-      </div>
-      <div class="skill-cat">
-        <div class="skill-cat-label">Développement</div>
-        <div class="skill-tags"><span class="skill-tag">HTML / CSS</span><span class="skill-tag">JavaScript</span><span
-            class="skill-tag">React</span><span class="skill-tag">Flutter / Dart</span><span
-            class="skill-tag">PHP</span><span class="skill-tag">SQL</span><span class="skill-tag">CMS</span><span
-            class="skill-tag">Python</span></div>
-      </div>
-      <div class="skill-cat">
-        <div class="skill-cat-label">Événementiel & Outils</div>
-        <div class="skill-tags"><span class="skill-tag">Régie LED Novastar</span><span
-            class="skill-tag">Lightroom</span><span class="skill-tag">Photoshop</span><span
-            class="skill-tag">Canva</span><span class="skill-tag">Rédaction</span><span
-            class="skill-tag">Présentations</span></div>
-      </div>
-      <div class="skill-cat">
-        <div class="skill-cat-label">Langues</div>
-        <div class="skill-tags"><span class="skill-tag">Français — Natif</span><span class="skill-tag">Anglais — Pro (en
-            cours)</span></div>
-      </div>
-    </div>
-  </div>
-  <div class="divider"></div>
-  <div class="section-wrap" id="formation">
-    <div class="section-tag">Niveau 03</div>
-    <h2 class="section-title">Formation<br><span>& Certifications</span></h2>
-    <div class="edu-grid">
-      <div class="edu-card">
-        <div class="edu-year">2022 — 2024</div>
-        <div class="edu-degree">European Master's IT Project Manager (FEDE)</div>
-        <div class="edu-school">Eurelec — Casablanca</div>
-      </div>
-      <div class="edu-card">
-        <div class="edu-year">2018 — 2021</div>
-        <div class="edu-degree">DTS / Licence Pro Développement Web</div>
-        <div class="edu-school">IFIAG — Casablanca</div>
-      </div>
-      <div class="edu-card" style="border:1px solid rgba(201,168,76,0.2)">
-        <div class="edu-year">En cours — 2025</div>
-        <div class="level-badge">Certification active</div>
-        <div class="edu-degree">Project Management Fundamentals</div>
-        <div class="edu-school">Coursera</div>
-      </div>
-      <div class="edu-card" style="background:rgba(201,168,76,0.03)">
-        <div class="edu-year">Passions</div>
-        <div class="edu-degree">Sport · Jeux de stratégie · Veille technologique</div>
-        <div class="edu-school" style="margin-top:12px">Ce qui forge un esprit analytique et compétitif.</div>
-      </div>
-    </div>
-  </div>
-  <div class="divider"></div>
-  <div class="section-wrap" id="projets">
-    <div class="section-tag">Niveau 04</div>
-    <h2 class="section-title">Projets<br><span>& Réalisations</span></h2>
-    <p style="font-size:14px;color:var(--light2);margin-bottom:40px;letter-spacing:1px">8 projets · Mobile · Web · Jeux
-      · Événementiel</p>
-    <div class="projects-filters">
-      <button class="filter-btn active" data-filter="all">Tous</button>
-      <button class="filter-btn" data-filter="mobile">Mobile</button>
-      <button class="filter-btn" data-filter="web">Web</button>
-      <button class="filter-btn" data-filter="game">Mini-jeux</button>
-      <button class="filter-btn" data-filter="event">Événementiel</button>
-    </div>
-    <div class="projects-grid">
-      <div class="project-card featured cat-mobile" data-cat="mobile" data-id="0">
-        <div class="card-accent"></div>
-        <div class="card-top">
-          <div class="card-number">PROJET // 001</div>
-          <div class="card-icon"><svg viewBox="0 0 24 24">
-              <rect x="5" y="2" width="14" height="20" rx="2" />
-              <path d="M12 6v6m0 0l-2-2m2 2l2-2M9 18h6" />
-            </svg></div>
-          <div class="card-title">TransFlash</div>
-          <div class="card-type">Application Mobile</div>
-          <div class="card-desc">Application de transfert d'argent mobile développée en Flutter/Dart. Interface épurée,
-            transactions sécurisées, suivi en temps réel et historique des opérations.</div>
-        </div>
-        <div class="card-bottom">
-          <div class="card-tags"><span class="card-tag">Flutter</span><span class="card-tag">Dart</span><span
-              class="card-tag">Mobile</span><span class="card-tag">UX/UI</span><span class="card-tag">API REST</span>
-          </div>
-          <div class="card-footer">
-            <div class="card-status sd">
-              <div class="csd"></div>Complété
-            </div>
-            <div class="card-arrow">›</div>
-          </div>
-        </div>
-      </div>
-      <div class="project-card cat-web" data-cat="web" data-id="1">
-        <div class="card-accent"></div>
-        <div class="card-top">
-          <div class="card-number">PROJET // 002</div>
-          <div class="card-icon"><svg viewBox="0 0 24 24">
-              <path d="M6.5 6.5h11M6.5 17.5h11M4 12h16M2 9l2 3-2 3M22 9l-2 3 2 3" stroke-linecap="round" />
-            </svg></div>
-          <div class="card-title">FitZone</div>
-          <div class="card-type">Site Web · Salle de Sport · React</div>
-          <div class="card-desc">Site vitrine pour une salle de sport — programmes, abonnements, planning des cours et
-            prise de contact. Construit avec React pour une navigation fluide et dynamique.</div>
-        </div>
-        <div class="card-bottom">
-          <div class="card-tags"><span class="card-tag">React</span><span class="card-tag">JavaScript</span><span
-              class="card-tag">CSS</span><span class="card-tag">Responsive</span><span class="card-tag">Vitrine</span>
-          </div>
-          <div class="card-footer">
-            <div class="card-status sl">
-              <div class="csd"></div>En ligne
-            </div>
-            <div class="card-arrow">›</div>
-          </div>
-        </div>
-      </div>
-      <div class="project-card cat-web" data-cat="web" data-id="2">
-        <div class="card-accent"></div>
-        <div class="card-top">
-          <div class="card-number">PROJET // 003</div>
-          <div class="card-icon"><svg viewBox="0 0 24 24">
-              <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71" />
-              <path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71" />
-            </svg></div>
-          <div class="card-title">Vitrine Digitale</div>
-          <div class="card-type">Sites Web · HTML/CSS/JS</div>
-          <div class="card-desc">Collection de sites web aux objectifs variés — landing pages, portfolios, pages
-            produit. Maîtrise du trio HTML/CSS/JS avec animations et responsive design.</div>
-        </div>
-        <div class="card-bottom">
-          <div class="card-tags"><span class="card-tag">HTML</span><span class="card-tag">CSS</span><span
-              class="card-tag">JavaScript</span><span class="card-tag">Responsive</span><span
-              class="card-tag">Animations</span></div>
-          <div class="card-footer">
-            <div class="card-status sd">
-              <div class="csd"></div>Complété
-            </div>
-            <div class="card-arrow">›</div>
-          </div>
-        </div>
-      </div>
-      <div class="project-card cat-game" data-cat="game" data-id="3">
-        <div class="card-accent"></div>
-        <div class="card-top">
-          <div class="card-number">PROJET // 004</div>
-          <div class="card-icon"><svg viewBox="0 0 24 24">
-              <path d="M6 9H4a2 2 0 00-2 2v4a2 2 0 002 2h2" />
-              <path d="M18 9h2a2 2 0 012 2v4a2 2 0 01-2 2h-2" />
-              <rect x="6" y="5" width="12" height="14" rx="2" />
-              <path d="M12 9v6M9 12h6" />
-            </svg></div>
-          <div class="card-title">PyGames Pack</div>
-          <div class="card-type">Mini-jeux · Python</div>
-          <div class="card-desc">Série de mini-jeux rapides en Python — Snake, Morpion, Quiz dynamique, Pendu. Logique
-            algorithmique et interfaces terminal ou Tkinter.</div>
-        </div>
-        <div class="card-bottom">
-          <div class="card-tags"><span class="card-tag">Python</span><span class="card-tag">Algorithmes</span><span
-              class="card-tag">Tkinter</span><span class="card-tag">Terminal</span></div>
-          <div class="card-footer">
-            <div class="card-status sd">
-              <div class="csd"></div>Complété
-            </div>
-            <div class="card-arrow">›</div>
-          </div>
-        </div>
-      </div>
-      <div class="project-card cat-event" data-cat="event" data-id="4">
-        <div class="card-accent"></div>
-        <div class="card-top">
-          <div class="card-number">PROJET // 005</div>
-          <div class="card-icon"><svg viewBox="0 0 24 24">
-              <polygon points="23 7 16 12 23 17 23 7" />
-              <rect x="1" y="5" width="15" height="14" rx="2" />
-            </svg></div>
-          <div class="card-title">Event Live Board</div>
-          <div class="card-type">Outil Régie · Événementiel</div>
-          <div class="card-desc">Dashboard de gestion d'événements live : plan de scène LED, checklist technique et
-            coordination multimédia. Utilisé en production chez Racha Digital.</div>
-        </div>
-        <div class="card-bottom">
-          <div class="card-tags"><span class="card-tag">Novastar</span><span class="card-tag">Régie LED</span><span
-              class="card-tag">Gestion live</span></div>
-          <div class="card-footer">
-            <div class="card-status sl">
-              <div class="csd"></div>En production
-            </div>
-            <div class="card-arrow">›</div>
-          </div>
-        </div>
-      </div>
-      <div class="project-card cat-web" data-cat="web" data-id="5">
-        <div class="card-accent"></div>
-        <div class="card-top">
-          <div class="card-number">PROJET // 006</div>
-          <div class="card-icon"><svg viewBox="0 0 24 24">
-              <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z" />
-              <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z" />
-            </svg></div>
-          <div class="card-title">Mon Sikolo</div>
-          <div class="card-type">Plateforme Éducative</div>
-          <div class="card-desc">Contribution au développement d'une plateforme éducative — intégration de modules,
-            amélioration de l'interface et nouvelles fonctionnalités.</div>
-        </div>
-        <div class="card-bottom">
-          <div class="card-tags"><span class="card-tag">HTML</span><span class="card-tag">CSS</span><span
-              class="card-tag">JavaScript</span><span class="card-tag">PHP</span><span class="card-tag">SQL</span></div>
-          <div class="card-footer">
-            <div class="card-status sd">
-              <div class="csd"></div>Complété
-            </div>
-            <div class="card-arrow">›</div>
-          </div>
-        </div>
-      </div>
-      <div class="project-card cat-web" data-cat="web" data-id="6">
-        <div class="card-accent"></div>
-        <div class="card-top">
-          <div class="card-number">PROJET // 007</div>
-          <div class="card-icon"><svg viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="3" />
-              <path
-                d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12" />
-            </svg></div>
-          <div class="card-title">IT Project Dashboard</div>
-          <div class="card-type">En cours · 2025</div>
-          <div class="card-desc">Dashboard de gestion de projet IT avec suivi Agile, intégration Jira et reporting
-            automatisé. Vue Kanban interactive en développement.</div>
-        </div>
-        <div class="card-bottom">
-          <div class="card-tags"><span class="card-tag">React</span><span class="card-tag">Agile</span><span
-              class="card-tag">Dashboard</span><span class="card-tag">API Jira</span></div>
-          <div class="card-footer">
-            <div class="card-status sw">
-              <div class="csd"></div>En cours
-            </div>
-            <div class="card-arrow">›</div>
-          </div>
-        </div>
-      </div>
-      <div class="project-card cat-web" data-cat="web" data-id="7">
-        <div class="card-accent"></div>
-        <div class="card-top">
-          <div class="card-number">PROJET // 008</div>
-          <div class="card-icon"><svg viewBox="0 0 24 24">
-              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke-linejoin="round" />
-            </svg></div>
-          <div class="card-title">TechFest</div>
-          <div class="card-type">Landing Page · Festival</div>
-          <div class="card-desc">Landing page pour l'événement festival TechFest. Interface premium, galerie dynamique
-            et animations fluides. Construit avec React, Vite et Tailwind CSS.</div>
-        </div>
-        <div class="card-bottom">
-          <div class="card-tags"><span class="card-tag">React</span><span class="card-tag">Vite</span><span
-              class="card-tag">Tailwind CSS</span><span class="card-tag">Événementiel</span></div>
-          <div class="card-footer">
-            <div class="card-status sd">
-              <div class="csd"></div>Complété
-            </div>
-            <div class="card-arrow">›</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="divider"></div>
-  <div class="section-wrap" id="contact">
-    <div class="section-tag">Niveau Final</div>
-    <div class="contact-grid">
-      <div>
-        <h2 class="contact-big">Recruter<br>l'<span>Agent</span></h2>
-        <p class="contact-sub">Disponible pour des missions en gestion de projet IT, développement web ou événementiel
-          digital. Basé à Casablanca.</p>
-      </div>
-      <div class="contact-links">
-        <div class="ci">
-          <div class="cico"><svg viewBox="0 0 24 24">
-              <path
-                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg></div>
-          <div>
-            <div class="cl">Email</div>
-            <div class="cv">gabrielhalim01@gmail.com</div>
-          </div>
-        </div>
-        <div class="ci">
-          <div class="cico"><svg viewBox="0 0 24 24">
-              <path
-                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.73A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.16a16 16 0 006.93 6.93l1.52-1.52a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
-            </svg></div>
-          <div>
-            <div class="cl">Téléphone</div>
-            <div class="cv">+212 067 434 6915</div>
-          </div>
-        </div>
-        <div class="ci">
-          <div class="cico"><svg viewBox="0 0 24 24">
-              <path
-                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
-            </svg></div>
-          <div>
-            <div class="cl">GitHub</div>
-            <div class="cv">github.com/GabrielENDAM</div>
-            <div class="cv">github.com/gabrielhalimengone</div>
+  <a class="skip-link" href="#main">Aller au contenu</a>
 
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Retour à l'accueil">
+      <span class="brand-mark">GH</span>
+      <span>Gabriel-Halim</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Navigation principale">
+      <a href="#projets">Projets</a>
+      <a href="#expertise">Expertise</a>
+      <a href="#parcours">Parcours</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <a class="availability" href="mailto:gabrielhalim01@gmail.com">
+      <span aria-hidden="true"></span>
+      Disponible
+    </a>
+  </header>
+
+  <main id="main">
+    <section class="hero section" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow">Frontend developer · Casablanca</p>
+        <h1>Interfaces web rapides, propres et pensées pour l'utilisateur.</h1>
+        <p class="hero-lead">
+          Je conçois et développe des expériences web responsives avec une attention particulière à la lisibilité,
+          l'accessibilité, la performance et la coordination entre besoins métier et exécution technique.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button primary" href="#projets">Voir les projets</a>
+          <a class="button secondary" href="mailto:gabrielhalim01@gmail.com">Me contacter</a>
+        </div>
+
+        <dl class="hero-stats" aria-label="Points forts">
+          <div>
+            <dt>Stack principale</dt>
+            <dd>React · JavaScript · CSS</dd>
+          </div>
+          <div>
+            <dt>Approche</dt>
+            <dd>Responsive · UX · Performance</dd>
+          </div>
+          <div>
+            <dt>Bonus</dt>
+            <dd>Gestion IT · Agile · Régie LED</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="hero-visual" aria-label="Aperçu d'interface frontend">
+        <div class="browser-frame">
+          <div class="browser-top">
+            <span></span><span></span><span></span>
+            <p>portfolio.ui</p>
+          </div>
+          <div class="interface-grid">
+            <div class="preview-panel">
+              <div class="preview-nav"></div>
+              <div class="preview-title"></div>
+              <div class="preview-copy short"></div>
+              <div class="preview-copy"></div>
+              <div class="preview-cards">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+            <div class="code-panel">
+              <p><span>const</span> focus = "clean UI";</p>
+              <p><span>build</span>({ responsive: true });</p>
+              <p><span>ship</span>("accessible frontend");</p>
+            </div>
           </div>
         </div>
-        <div class="ci">
-          <div class="cico"><svg viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="10" />
-              <path d="M12 8v4l3 3" />
-            </svg></div>
+
+        <div class="quality-row">
           <div>
-            <div class="cl">Localisation</div>
-            <div class="cv">20000 Casablanca, Maroc</div>
+            <strong>UI</strong>
+            <span>Composants lisibles</span>
+          </div>
+          <div>
+            <strong>UX</strong>
+            <span>Parcours clairs</span>
+          </div>
+          <div>
+            <strong>Ops</strong>
+            <span>Livraison suivie</span>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  <footer>
-    <div class="footer-logo">GABRIEL-HALIM //</div>
-    <div>PORTFOLIO · 2025</div>
-    <div>CASABLANCA · MAROC</div>
+    </section>
+
+    <section class="capabilities section" aria-label="Services frontend">
+      <article>
+        <span>01</span>
+        <h2>Intégration frontend</h2>
+        <p>Pages responsives, composants réutilisables, animations maîtrisées et rendu cohérent sur mobile comme desktop.</p>
+      </article>
+      <article>
+        <span>02</span>
+        <h2>Interfaces React</h2>
+        <p>Expériences dynamiques avec navigation fluide, logique claire et attention portée aux états utilisateur.</p>
+      </article>
+      <article>
+        <span>03</span>
+        <h2>Coordination projet</h2>
+        <p>Capacité à traduire un besoin client en tâches concrètes, priorités, estimations et livrables vérifiables.</p>
+      </article>
+    </section>
+
+    <section class="section projects-section" id="projets">
+      <div class="section-heading">
+        <p class="eyebrow">Selected work</p>
+        <h2>Projets orientés produit, web et interface.</h2>
+        <p>Chaque projet met en avant une compétence utile en frontend : structure, responsive, parcours utilisateur,
+          intégration ou capacité à livrer dans un contexte réel.</p>
+      </div>
+
+      <div class="filters" aria-label="Filtrer les projets">
+        <button class="filter-btn active" data-filter="all">Tous</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="mobile">Mobile</button>
+        <button class="filter-btn" data-filter="product">Produit</button>
+        <button class="filter-btn" data-filter="tooling">Tooling</button>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card featured" data-id="6" data-cat="web product">
+          <div class="project-meta">JavaScript · Agile dashboard</div>
+          <h3>Nexus IT Dashboard</h3>
+          <p>Dashboard web pour piloter un projet IT : synthèse, Kanban, sprint, reporting, Jira, alertes et équipe.</p>
+          <ul>
+            <li>Navigation multi-vues type produit SaaS</li>
+            <li>Suivi Agile avec vues Kanban et sprint</li>
+            <li>Déploiement public sur Vercel</li>
+          </ul>
+          <div class="tag-row"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Vercel</span></div>
+        </article>
+
+        <article class="project-card" data-id="0" data-cat="mobile product">
+          <div class="project-meta">Flutter · Mobile app</div>
+          <h3>TransFlash</h3>
+          <p>Application mobile de transfert d'argent avec parcours simplifié, historique et suivi transactionnel.</p>
+          <ul>
+            <li>Architecture d'écrans mobile-first</li>
+            <li>Parcours transactionnel plus lisible</li>
+            <li>Design adapté aux usages africains</li>
+          </ul>
+          <div class="tag-row"><span>Flutter</span><span>Dart</span><span>UX mobile</span></div>
+        </article>
+
+        <article class="project-card" data-id="1" data-cat="web">
+          <div class="project-meta">React · Landing page</div>
+          <h3>FitZone</h3>
+          <p>Site vitrine pour une salle de sport avec programmes, abonnements, planning et contact.</p>
+          <div class="tag-row"><span>React</span><span>Responsive</span><span>Vitrine</span></div>
+        </article>
+
+        <article class="project-card" data-id="2" data-cat="web">
+          <div class="project-meta">HTML · CSS · JS</div>
+          <h3>Vitrine Digitale</h3>
+          <p>Collection de pages web centrées sur l'intégration, les animations CSS et les bases SEO.</p>
+          <div class="tag-row"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+        </article>
+
+        <article class="project-card" data-id="3" data-cat="tooling">
+          <div class="project-meta">Python · Logique</div>
+          <h3>PyGames Pack</h3>
+          <p>Mini-jeux Python pour consolider logique, structures de données et interaction utilisateur.</p>
+          <div class="tag-row"><span>Python</span><span>Algo</span><span>Tkinter</span></div>
+        </article>
+
+        <article class="project-card" data-id="4" data-cat="product tooling">
+          <div class="project-meta">Live ops · Dashboard</div>
+          <h3>Event Live Board</h3>
+          <p>Outil de coordination technique pour événements live : LED, checklist et suivi incidents.</p>
+          <div class="tag-row"><span>Novastar</span><span>Dashboard</span><span>Ops</span></div>
+        </article>
+
+        <article class="project-card" data-id="5" data-cat="web product">
+          <div class="project-meta">Education · Web app</div>
+          <h3>Mon Sikolo</h3>
+          <p>Contribution à une plateforme éducative : intégration, fonctionnalités et corrections UI.</p>
+          <div class="tag-row"><span>PHP</span><span>SQL</span><span>UX</span></div>
+        </article>
+
+        <article class="project-card" data-id="7" data-cat="web">
+          <div class="project-meta">React · Vite · Tailwind</div>
+          <h3>TechFest</h3>
+          <p>Landing page événementielle avec galerie dynamique, animations et responsive design.</p>
+          <div class="tag-row"><span>Vite</span><span>Tailwind</span><span>Landing</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section expertise-section" id="expertise">
+      <div class="section-heading compact">
+        <p class="eyebrow">Expertise</p>
+        <h2>Un profil frontend avec sens produit.</h2>
+      </div>
+
+      <div class="expertise-grid">
+        <article>
+          <h3>Frontend</h3>
+          <p>HTML sémantique, CSS responsive, JavaScript moderne, React, Vite, Tailwind CSS.</p>
+        </article>
+        <article>
+          <h3>UX & qualité</h3>
+          <p>Hiérarchie visuelle, accessibilité clavier, états interactifs, performance perçue, cohérence mobile.</p>
+        </article>
+        <article>
+          <h3>Back-office léger</h3>
+          <p>PHP, SQL, CMS, formulaires, intégration de contenus et corrections fonctionnelles.</p>
+        </article>
+        <article>
+          <h3>Gestion projet</h3>
+          <p>Agile/Scrum, Jira, Trello, MS Project, analyse des besoins, planning, priorisation.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section timeline-section" id="parcours">
+      <div class="section-heading compact">
+        <p class="eyebrow">Parcours</p>
+        <h2>Expérience terrain et formation IT.</h2>
+      </div>
+
+      <div class="timeline">
+        <article>
+          <span>2024 — Présent · Casablanca</span>
+          <h3>Racha Digital · Développeur Web</h3>
+          <p>Suivi des besoins clients, estimation, priorisation et contribution aux processus web.</p>
+        </article>
+        <article>
+          <span>2024 — Présent · Casablanca</span>
+          <h3>Racha Digital · Régisseur LED</h3>
+          <p>Coordination technique événementielle, synchronisation multimédia et résolution rapide d'incidents live.</p>
+        </article>
+        <article>
+          <span>2022 — 2024 · Casablanca</span>
+          <h3>European Master's IT Project Manager</h3>
+          <p>Formation FEDE en management de projet IT, organisation, pilotage et livraison.</p>
+        </article>
+        <article>
+          <span>2018 — 2021 · Casablanca</span>
+          <h3>DTS / Licence Pro Développement Web</h3>
+          <p>Base technique web, développement, intégration et logique applicative.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact-section section" id="contact">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h2>Disponible pour projets frontend, sites vitrines et interfaces web.</h2>
+        <p>Basé à Casablanca, ouvert aux collaborations web, aux missions de développement frontend et aux projets
+          mêlant interface, coordination et livraison.</p>
+      </div>
+
+      <div class="contact-card">
+        <a href="mailto:gabrielhalim01@gmail.com">
+          <span>Email</span>
+          gabrielhalim01@gmail.com
+        </a>
+        <a href="tel:+212674346915">
+          <span>Téléphone</span>
+          +212 067 434 6915
+        </a>
+        <a href="https://github.com/GabrielENDAM" target="_blank" rel="noopener noreferrer">
+          <span>GitHub</span>
+          github.com/GabrielENDAM
+        </a>
+        <a href="https://github.com/gabrielhalimengone" target="_blank" rel="noopener noreferrer">
+          <span>GitHub secondaire</span>
+          github.com/gabrielhalimengone
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Gabriel-Halim Endam'Engone</p>
+    <p>Portfolio frontend · 2026</p>
   </footer>
-  <div id="mo">
-    <div id="md">
-      <button id="mc">✕</button>
-      <div id="mt"></div>
-      <div id="mti"></div>
-      <div id="mr"></div>
-      <div id="mde"></div>
-      <div id="mf"></div>
-      <div id="mtags"></div>
-      <div id="mgal"></div>
-      <div id="mac"></div>
+
+  <div class="modal" id="projectModal" aria-hidden="true">
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
+      <button class="modal-close" type="button" aria-label="Fermer la fenêtre">Fermer</button>
+      <p class="modal-kicker" id="modalKicker"></p>
+      <h2 id="modalTitle"></h2>
+      <p class="modal-role" id="modalRole"></p>
+      <p class="modal-desc" id="modalDesc"></p>
+      <div class="modal-media" id="modalMedia" hidden></div>
+      <div class="modal-points" id="modalPoints"></div>
+      <div class="modal-tags" id="modalTags"></div>
+      <div class="modal-actions" id="modalActions"></div>
     </div>
   </div>
-  <script type="module" src="./assets/js/script.js"></script>
 </body>
 
 </html>

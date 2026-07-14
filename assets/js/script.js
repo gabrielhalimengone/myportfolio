@@ -1,149 +1,365 @@
-const PJ = [
-    { id: 0, tag: 'Application Mobile // 001', title: 'TransFlash', role: 'Flutter · Dart · Mobile', desc: "Application de transfert d'argent mobile pensée pour la simplicité et la sécurité. Interface intuitive pour envoyer et recevoir de l'argent en quelques secondes.", features: ["Authentification sécurisée et vérification d'identité", "Transferts instantanés avec confirmation en temps réel", "Historique complet des transactions", "Interface adaptée aux marchés africains", "Design mobile-first avec Flutter"], tags: ['Flutter', 'Dart', 'Mobile', 'UX/UI', 'API REST', 'Sécurité'], link: 'https://github.com/GabrielENDAM', color: '#3A8DFF', images: ['C:\\Users\\dell\\.gemini\\antigravity\\brain\\8b2694d3-7e82-490e-b2c5-91e7d3490139\\transflash_1_1776722011145.png', 'C:\\Users\\dell\\.gemini\\antigravity\\brain\\8b2694d3-7e82-490e-b2c5-91e7d3490139\\transflash_2_1776722025337.png'] },
-    { id: 1, tag: 'Site Web React // 002', title: 'FitZone', role: 'React · JavaScript · Salle de Sport', desc: "Site vitrine et plateforme pour une salle de sport. Présentation des programmes, tarifs des abonnements, planning hebdomadaire des cours et formulaire de contact.", features: ["Page d'accueil immersive avec hero animé", "Catalogue des cours et programmes (cardio, muscu, yoga…)", "Planning interactif des séances de la semaine", "Section abonnements avec comparatif des formules", "Formulaire de contact et prise de rendez-vous", "Design responsive mobile-first"], tags: ['React', 'JavaScript', 'CSS', 'Responsive', 'Vitrine', 'UX'], link: 'https://fitzone-pink.vercel.app/', color: '#C9A84C' },
-    { id: 2, tag: 'HTML/CSS/JS // 003', title: 'Vitrine Digitale', role: 'HTML · CSS · JavaScript', desc: "Collection de sites web aux objectifs variés : landing pages, portfolios créatifs, sites vitrine. Focus sur les animations CSS et l'accessibilité.", features: ["Landing pages avec animations d'entrée", "Formulaires de contact fonctionnels", "Intégration de cartes et géolocalisation", "Optimisation SEO et performance", "Responsive design tous écrans"], tags: ['HTML', 'CSS', 'JavaScript', 'Responsive', 'SEO', 'Animations'], link: 'https://github.com/GabrielENDAM', color: '#C9A84C' },
-    { id: 3, tag: 'Python · Jeux // 004', title: 'PyGames Pack', role: 'Python · Algorithmes', desc: "Série de mini-jeux rapides en Python pour aiguiser la logique algorithmique. Du Snake classique au quiz dynamique, chaque projet explore une mécanique de jeu différente.", features: ["Snake avec score progressif et niveaux de difficulté", "Morpion avec IA basique (algorithme minimax)", "Quiz dynamique avec chronomètre", "Jeu du Pendu avec dictionnaire chargeable", "Interface terminal et version Tkinter"], tags: ['Python', 'Tkinter', 'Algorithmes', 'POO', 'Terminal'], link: 'https://github.com/GabrielENDAM', color: '#8B5CF6', images: ['C:\\Users\\dell\\.gemini\\antigravity\\brain\\8b2694d3-7e82-490e-b2c5-91e7d3490139\\pygames_1_1776722043292.png', 'C:\\Users\\dell\\.gemini\\antigravity\\brain\\8b2694d3-7e82-490e-b2c5-91e7d3490139\\pygames_2_1776722055641.png'] },
-    { id: 4, tag: 'Régie LED // 005', title: 'Event Live Board', role: 'Novastar · Régie · Événementiel', desc: "Outil de coordination technique pour événements live. Centralise la gestion des équipements LED Novastar, le planning technique et la checklist de déploiement scène.", features: ["Plan de scène interactif pour murs LED", "Checklist technique pré-événement", "Coordination équipes son, vidéo, lumière", "Paramétrage Novastar documenté", "Gestion des incidents en temps réel"], tags: ['Novastar', 'Régie LED', 'Événementiel', 'Coordination', 'Live'], link: null, color: '#F97316' },
-    { id: 5, tag: 'Plateforme Éducative // 006', title: 'Mon Sikolo', role: 'HTML · CSS · PHP · JS', desc: "Contribution au développement de cette plateforme éducative. Intégration de nouvelles fonctionnalités, amélioration de l'expérience utilisateur et correction de bugs.", features: ["Modules de cours interactifs", "Système de progression étudiant", "Interface responsive multi-appareils", "Intégration back-end PHP/SQL", "Tests et débogage fonctionnel"], tags: ['HTML', 'CSS', 'JavaScript', 'PHP', 'SQL', 'UX'], link: null, color: '#C9A84C' },
-    { id: 6, tag: 'En Développement // 007', title: 'IT Project Dashboard', role: 'React · Agile · 2025', desc: "Projet en cours : dashboard de gestion de projet IT pour équipes Agile. Suivi des sprints, intégration Jira, reporting automatisé et vue Kanban interactive.", features: ["Vue Kanban drag & drop", "Suivi de sprints et vélocité d'équipe", "Reporting automatisé en PDF", "Connexion API Jira", "Notifications et alertes de délais"], tags: ['React', 'Agile', 'Dashboard', 'API Jira', '2025'], link: 'https://github.com/GabrielENDAM', color: '#C9A84C' },
-    { id: 7, tag: 'Site Web React // 008', title: 'TechFest', role: 'React · Vite · Tailwind CSS', desc: "Landing page interactive pour l'événement festival TechFest. Refonte visuelle complète avec une interface dynamique, une galerie défilante et des animations immersives.", features: ["Galerie dynamique avec défilement infini", "Animations d'entrée fluides", "Responsive design premium", "Composants React isolés", "Stylisation moderne avec Tailwind CSS"], tags: ['React', 'Vite', 'Tailwind', 'Événementiel', 'Landing Page'], link: 'https://festival-six-eta.vercel.app/', color: '#F97316' }
-];
-const cur = document.getElementById('cursor'), rng = document.getElementById('cursor-ring'), glw = document.getElementById('bgGlow');
-let mx = window.innerWidth / 2, my = window.innerHeight / 2, rx = mx, ry = my;
-let isMobile = window.matchMedia("(pointer: coarse)").matches;
-
-// Audio Synth Engine (Retro Style)
-const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-function playSound(type) {
-    if (isMobile) return; // Save resources on mobile
-    if (audioCtx.state === 'suspended') audioCtx.resume();
-    const osc = audioCtx.createOscillator(), gain = audioCtx.createGain();
-    osc.connect(gain); gain.connect(audioCtx.destination);
-    const now = audioCtx.currentTime;
-    if (type === 'hover') {
-        osc.type = 'sine'; osc.frequency.setValueAtTime(600, now);
-        osc.frequency.exponentialRampToValueAtTime(1000, now + 0.05);
-        gain.gain.setValueAtTime(0.01, now); gain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
-        osc.start(now); osc.stop(now + 0.05);
-    } else if (type === 'click') {
-        osc.type = 'square'; osc.frequency.setValueAtTime(200, now);
-        osc.frequency.exponentialRampToValueAtTime(50, now + 0.1);
-        gain.gain.setValueAtTime(0.02, now); gain.gain.exponentialRampToValueAtTime(0.001, now + 0.1);
-        osc.start(now); osc.stop(now + 0.1);
-    } else if (type === 'levelup') {
-        osc.type = 'triangle'; osc.frequency.setValueAtTime(440, now);
-        osc.frequency.setValueAtTime(554, now + 0.1); osc.frequency.setValueAtTime(659, now + 0.2);
-        gain.gain.setValueAtTime(0.03, now); gain.gain.linearRampToValueAtTime(0, now + 0.4);
-        osc.start(now); osc.stop(now + 0.4);
-    }
-}
-
-// Interactivity Sounds
-const interactables = document.querySelectorAll('a, button, .btn, .ci, .skill-tag, .project-card, .filter-btn');
-interactables.forEach(el => {
-    el.addEventListener('mouseenter', () => { cur.classList.add('active'); rng.classList.add('active'); playSound('hover'); });
-    el.addEventListener('mouseleave', () => { cur.classList.remove('active'); rng.classList.remove('active'); });
-    el.addEventListener('click', () => playSound('click'));
-});
-
-// Performant Animation Loop
-document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-function animLoop() {
-    if (!isMobile) {
-        rx += (mx - rx) * 0.15; ry += (my - ry) * 0.15;
-        cur.style.transform = `translate(${mx}px, ${my}px)`;
-        rng.style.transform = `translate(${rx}px, ${ry}px)`;
-        glw.style.transform = `translate(${rx}px, ${ry}px)`;
-    }
-    requestAnimationFrame(animLoop);
-}
-requestAnimationFrame(animLoop);
-
-// Loader
-const bar = document.getElementById('loaderBar'), pct = document.getElementById('loaderPct'), ldr = document.getElementById('loader');
-let p = 0;
-const iv = setInterval(() => {
-    p += Math.random() * 4;
-    if (p >= 100) {
-        p = 100; clearInterval(iv);
-        setTimeout(() => {
-            ldr.classList.add('hide');
-            document.querySelectorAll('.stat-fill').forEach(el => el.style.width = el.dataset.width + '%');
-            playSound('levelup');
-        }, 500);
-    }
-    bar.style.width = Math.min(p, 100) + '%'; pct.textContent = Math.round(Math.min(p, 100)) + '%';
-}, 40);
-
-// Intersection Observer
-const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible') }), { threshold: 0.1 });
-document.querySelectorAll('.mission,.skill-cat,.edu-card').forEach((el, i) => { el.style.transitionDelay = (i * 0.08) + 's'; obs.observe(el); });
-
-// Filters
-document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active');
-        const f = btn.dataset.filter;
-        document.querySelectorAll('.project-card').forEach(c => c.classList.toggle('hidden', f !== 'all' && c.dataset.cat !== f));
-    });
-});
-
-// Scroll Spy & XP Bar
-const xpFill = document.getElementById('xpFill');
-const sections = document.querySelectorAll('.section-wrap, #hero');
-const navLinks = document.querySelectorAll('.nav-link');
-let currentLevel = '';
-
-window.addEventListener('scroll', () => {
-    const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    xpFill.style.width = (winScroll / height) * 100 + '%';
-
-    let scrollPos = winScroll + window.innerHeight / 3;
-    sections.forEach(sec => {
-        if (sec.offsetTop <= scrollPos && (sec.offsetTop + sec.offsetHeight) > scrollPos) {
-            const id = sec.getAttribute('id');
-            if (id && id !== currentLevel) {
-                currentLevel = id;
-                navLinks.forEach(l => l.classList.remove('active'));
-                const activeLink = document.querySelector(`.nav-link[href="#${id}"]`);
-                if (activeLink) {
-                    activeLink.classList.add('active');
-                    if (id !== 'hero') playSound('levelup');
-                }
+const projects = [
+    {
+        id: 0,
+        kicker: "Application mobile",
+        title: "TransFlash",
+        role: "Flutter · Dart · UX mobile",
+        desc: "Application de transfert d'argent pensée pour un parcours clair : envoyer, confirmer, suivre et consulter l'historique sans friction.",
+        points: [
+            "Structuration mobile-first des écrans et des parcours clés.",
+            "Priorité donnée à la lisibilité des actions sensibles.",
+            "Interface adaptée aux usages mobiles et aux marchés africains."
+        ],
+        tags: ["Flutter", "Dart", "Mobile", "UX/UI", "API REST"],
+        media: [
+            {
+                src: "assets/img/transflash/transflash-01-auth-welcome.jpeg",
+                title: "Accueil",
+                alt: "Ecran d'accueil TransFlash avec actions creer un compte et se connecter"
+            },
+            {
+                src: "assets/img/transflash/transflash-02-user-home-balance.jpeg",
+                title: "Espace client",
+                alt: "Tableau de bord client TransFlash avec solde et activite recente"
+            },
+            {
+                src: "assets/img/transflash/transflash-03-send-amount-empty.jpeg",
+                title: "Montant vide",
+                alt: "Etape de saisie du montant TransFlash avant selection du montant"
+            },
+            {
+                src: "assets/img/transflash/transflash-04-send-country-dropdown.jpeg",
+                title: "Choix pays",
+                alt: "Menu de selection pays dans le parcours d'envoi TransFlash"
+            },
+            {
+                src: "assets/img/transflash/transflash-05-send-amount-filled.jpeg",
+                title: "Montant rempli",
+                alt: "Etape montant TransFlash avec calcul du montant recu"
+            },
+            {
+                src: "assets/img/transflash/transflash-06-send-beneficiary.jpeg",
+                title: "Beneficiaire",
+                alt: "Formulaire beneficiaire TransFlash avec nom complet et telephone"
+            },
+            {
+                src: "assets/img/transflash/transflash-07-send-summary.jpeg",
+                title: "Recapitulatif",
+                alt: "Recapitulatif du transfert TransFlash avant confirmation"
+            },
+            {
+                src: "assets/img/transflash/transflash-08-send-success.jpeg",
+                title: "Confirmation",
+                alt: "Ecran de succes TransFlash indiquant une demande envoyee"
+            },
+            {
+                src: "assets/img/transflash/transflash-09-admin-dashboard.jpeg",
+                title: "Admin dashboard",
+                alt: "Tableau de bord administrateur TransFlash avec volume et validations"
+            },
+            {
+                src: "assets/img/transflash/transflash-10-admin-transactions.jpeg",
+                title: "Transactions",
+                alt: "Liste des transactions administrateur TransFlash avec actions valider et refuser"
+            },
+            {
+                src: "assets/img/transflash/transflash-11-admin-clients.jpeg",
+                title: "Clients",
+                alt: "Liste des clients dans l'espace administrateur TransFlash"
+            },
+            {
+                src: "assets/img/transflash/transflash-12-admin-new-member.jpeg",
+                title: "Nouveau membre",
+                alt: "Modale d'ajout de membre dans l'espace administrateur TransFlash"
             }
-        }
+        ],
+        link: null,
+        linkLabel: ""
+    },
+    {
+        id: 1,
+        kicker: "Site vitrine React",
+        title: "FitZone",
+        role: "React · JavaScript · Responsive",
+        desc: "Site vitrine pour salle de sport avec présentation des programmes, abonnements, planning et prise de contact.",
+        points: [
+            "Navigation structurée pour découvrir rapidement l'offre.",
+            "Composants React pour sections, tarifs et planning.",
+            "Rendu responsive pour consultation mobile."
+        ],
+        tags: ["React", "JavaScript", "CSS", "Responsive"],
+        link: "https://fitzone-pink.vercel.app/",
+        linkLabel: "Voir le site"
+    },
+    {
+        id: 2,
+        kicker: "Collection web",
+        title: "Vitrine Digitale",
+        role: "HTML · CSS · JavaScript",
+        desc: "Collection de pages vitrines et landing pages avec attention portée à la structure HTML, au responsive et aux animations légères.",
+        points: [
+            "Bases SEO et structure sémantique.",
+            "Animations CSS sobres et utiles.",
+            "Formulaires et sections conversion."
+        ],
+        tags: ["HTML", "CSS", "JavaScript", "SEO"],
+        link: "https://vitrine-digitale.vercel.app/",
+        linkLabel: "Voir le site"
+    },
+    {
+        id: 3,
+        kicker: "Python tooling",
+        title: "PyGames Pack",
+        role: "Python · Algorithmique",
+        desc: "Série de mini-jeux pour renforcer logique, gestion d'état, interactions et structure de code.",
+        points: [
+            "Jeux Snake, Morpion, Quiz et Pendu.",
+            "Interface terminal et essais Tkinter.",
+            "Travail sur logique, scoring et règles."
+        ],
+        tags: ["Python", "Tkinter", "Algorithmes"],
+        media: [
+            {
+                src: "assets/img/pygames/pygames-01-snake.png",
+                title: "Snake",
+                alt: "Capture du mini-jeu Snake avec score, record, niveau et plateau de jeu",
+                orientation: "landscape"
+            },
+            {
+                src: "assets/img/pygames/pygames-02-morpion.png",
+                title: "Morpion",
+                alt: "Capture du mini-jeu Morpion en terminal avec plateau et score",
+                orientation: "landscape"
+            },
+            {
+                src: "assets/img/pygames/pygames-03-quiz-python.png",
+                title: "Quiz Python",
+                alt: "Capture du quiz Python en terminal avec question et reponse",
+                orientation: "landscape"
+            },
+            {
+                src: "assets/img/pygames/pygames-04-pendu.png",
+                title: "Pendu",
+                alt: "Capture du jeu Pendu en terminal avec mot, vies et lettres ratees",
+                orientation: "landscape"
+            }
+        ],
+        link: null,
+        linkLabel: ""
+    },
+    {
+        id: 4,
+        kicker: "Dashboard opérationnel",
+        title: "Event Live Board",
+        role: "Régie LED · Coordination · Live",
+        desc: "Outil de coordination technique pour événements live : plan LED, checklist, points de contrôle et suivi incident.",
+        points: [
+            "Centralisation des besoins de production live.",
+            "Checklist pré-événement pour réduire les oublis.",
+            "Coordination entre son, vidéo, lumière et client."
+        ],
+        tags: ["Novastar", "Dashboard", "Ops", "Live"],
+        link: "https://event-live-ruddy.vercel.app/",
+        linkLabel: "Voir le site"
+    },
+    {
+        id: 5,
+        kicker: "Plateforme éducative",
+        title: "Mon Sikolo",
+        role: "HTML · CSS · PHP · SQL",
+        desc: "Contribution à une plateforme éducative : intégration d'interface, nouvelles fonctionnalités et corrections fonctionnelles.",
+        points: [
+            "Améliorations d'interface sur parcours étudiant.",
+            "Intégration de modules et contenus.",
+            "Débogage fonctionnel et ajustements back-end."
+        ],
+        tags: ["PHP", "SQL", "UX", "JavaScript"],
+        link: "https://mon-sikolo.vercel.app/",
+        linkLabel: "Voir le site"
+    },
+    {
+        id: 6,
+        kicker: "Dashboard IT live",
+        title: "Nexus IT Dashboard",
+        role: "HTML · CSS · JavaScript · Vercel",
+        desc: "Dashboard web responsive pour piloter un projet IT : synthèse temps réel, Kanban, sprint, reporting, synchronisation Jira, alertes et équipe.",
+        points: [
+            "Navigation latérale multi-vues inspirée des produits SaaS.",
+            "Composants dashboard pour métriques, Kanban, backlog, reporting et alertes.",
+            "Interface déployée sur Vercel avec interactions JavaScript claires."
+        ],
+        tags: ["HTML", "CSS", "JavaScript", "Dashboard", "Vercel"],
+        link: "https://nx-dash-it.vercel.app/",
+        linkLabel: "Voir le dashboard"
+    },
+    {
+        id: 7,
+        kicker: "Landing événementielle",
+        title: "TechFest",
+        role: "React · Vite · Tailwind CSS",
+        desc: "Landing page événementielle avec galerie dynamique, animations et composition responsive.",
+        points: [
+            "Structure React avec composants isolés.",
+            "Build Vite et stylisation Tailwind CSS.",
+            "Galerie et animations pour renforcer l'immersion."
+        ],
+        tags: ["React", "Vite", "Tailwind", "Landing"],
+        link: "https://festival-six-eta.vercel.app/",
+        linkLabel: "Voir le site"
+    }
+];
+
+const navLinks = [...document.querySelectorAll(".nav-links a")];
+const sections = [...document.querySelectorAll("main section[id]")];
+const modal = document.getElementById("projectModal");
+const modalPanel = modal?.querySelector(".modal-panel");
+const closeButton = modal?.querySelector(".modal-close");
+let previousFocus = null;
+
+function escapeHTML(value) {
+    return String(value).replace(/[&<>"']/g, char => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;"
+    })[char]);
+}
+
+function updateActiveNav() {
+    const current = sections.findLast(section => section.offsetTop <= window.scrollY + 120);
+    navLinks.forEach(link => {
+        link.classList.toggle("active", current && link.getAttribute("href") === `#${current.id}`);
     });
-});
+}
 
-// Modal Logic
-const ov = document.getElementById('mo');
-function closeModal() { ov.classList.remove('open'); document.body.style.overflow = ''; }
+function openProject(card) {
+    const project = projects.find(item => item.id === Number(card.dataset.id));
+    if (!project || !modal || !modalPanel) return;
 
-document.querySelectorAll('.project-card').forEach(card => {
-    card.addEventListener('click', () => {
-        const pj = PJ[parseInt(card.dataset.id)];
-        document.getElementById('mt').textContent = pj.tag; document.getElementById('mt').style.color = pj.color;
-        document.getElementById('mti').textContent = pj.title; document.getElementById('mr').textContent = pj.role;
-        document.getElementById('mde').textContent = pj.desc;
-        document.getElementById('mf').innerHTML = pj.features.map(f => `<div class="mfe">${f}</div>`).join('');
-        document.getElementById('mtags').innerHTML = pj.tags.map(t => `<span class="mtag">${t}</span>`).join('');
-        const mgal = document.getElementById('mgal');
-        if (pj.images && pj.images.length > 0) {
-            mgal.innerHTML = pj.images.map(img => `<img src="${img}" class="mgal-img" alt="Gallery image">`).join('');
-            mgal.style.display = 'flex';
+    previousFocus = document.activeElement;
+    if (previousFocus instanceof HTMLElement) previousFocus.blur();
+    modal.querySelector("#modalKicker").textContent = project.kicker;
+    modal.querySelector("#modalTitle").textContent = project.title;
+    modal.querySelector("#modalRole").textContent = project.role;
+    modal.querySelector("#modalDesc").textContent = project.desc;
+    const modalMedia = modal.querySelector("#modalMedia");
+    if (modalMedia) {
+        if (project.media?.length) {
+            modalMedia.hidden = false;
+            modalMedia.innerHTML = `
+                <div class="modal-media-header">
+                    <span>Visuels produit</span>
+                    <strong>${project.media.length} écrans</strong>
+                </div>
+                <div class="modal-media-strip" aria-label="Captures du projet ${escapeHTML(project.title)}">
+                    ${project.media.map(item => `
+                        <figure class="modal-shot ${item.orientation === "landscape" ? "landscape" : "portrait"}">
+                            <img src="${escapeHTML(item.src)}" alt="${escapeHTML(item.alt)}" loading="lazy" decoding="async">
+                            <figcaption>${escapeHTML(item.title)}</figcaption>
+                        </figure>
+                    `).join("")}
+                </div>
+            `;
         } else {
-            mgal.innerHTML = '';
-            mgal.style.display = 'none';
+            modalMedia.hidden = true;
+            modalMedia.innerHTML = "";
         }
-        const ac = document.getElementById('mac');
-        const cl = `<button class="mb mbo" onclick="closeModal()">Fermer</button>`;
-        const btnText = card.dataset.cat === 'web' ? 'Voir le site' : 'Voir sur GitHub';
-        ac.innerHTML = pj.link ? `<a href="${pj.link}" target="_blank" class="mb mbp">${btnText}</a>${cl}` : cl.replace('mbo', 'mbp');
-        ov.classList.add('open'); document.body.style.overflow = 'hidden';
+    }
+    modal.querySelector("#modalPoints").innerHTML = project.points
+        .map(point => `<div class="modal-point">${escapeHTML(point)}</div>`)
+        .join("");
+    modal.querySelector("#modalTags").innerHTML = project.tags
+        .map(tag => `<span>${escapeHTML(tag)}</span>`)
+        .join("");
+    modal.querySelector("#modalActions").innerHTML = `
+        ${project.link ? `<a href="${escapeHTML(project.link)}" target="_blank" rel="noopener noreferrer">${escapeHTML(project.linkLabel)}</a>` : ""}
+        <button type="button" data-close-modal>Fermer</button>
+    `;
+
+    modal.classList.add("open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("modal-open");
+    const firstModalControl = modal.querySelector(".modal-close");
+    setTimeout(() => {
+        firstModalControl?.focus({ preventScroll: true });
+    }, 220);
+}
+
+function closeModal() {
+    if (!modal) return;
+    modal.classList.remove("open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("modal-open");
+
+    if (previousFocus instanceof HTMLElement) {
+        previousFocus.focus({ preventScroll: true });
+    }
+}
+
+document.querySelectorAll(".project-card").forEach(card => {
+    const title = card.querySelector("h3")?.textContent?.trim() || "projet";
+    card.setAttribute("role", "button");
+    card.setAttribute("tabindex", "0");
+    card.setAttribute("aria-label", `Voir le détail du projet ${title}`);
+    card.addEventListener("click", () => openProject(card));
+    card.addEventListener("keydown", event => {
+        if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            openProject(card);
+        }
     });
 });
 
-document.getElementById('mc').addEventListener('click', closeModal);
-ov.addEventListener('click', e => { if (e.target === ov) closeModal(); });
-document.addEventListener('keydown', e => { if (e.key === 'Escape' && ov.classList.contains('open')) closeModal(); });
+document.querySelectorAll(".filter-btn").forEach(button => {
+    button.addEventListener("click", () => {
+        const filter = button.dataset.filter;
+        document.querySelectorAll(".filter-btn").forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+
+        document.querySelectorAll(".project-card").forEach(card => {
+            const categories = card.dataset.cat?.split(" ") || [];
+            const hidden = filter !== "all" && !categories.includes(filter);
+            card.classList.toggle("hidden", hidden);
+            card.setAttribute("aria-hidden", String(hidden));
+        });
+    });
+});
+
+closeButton?.addEventListener("click", closeModal);
+modal?.addEventListener("click", event => {
+    if (event.target === modal) closeModal();
+    if (event.target instanceof HTMLElement && event.target.matches("[data-close-modal]")) closeModal();
+});
+
+document.addEventListener("keydown", event => {
+    if (!modal?.classList.contains("open")) return;
+
+    if (event.key === "Escape") {
+        closeModal();
+        return;
+    }
+
+    if (event.key !== "Tab" || !modalPanel) return;
+
+    const focusable = [...modalPanel.querySelectorAll("a[href], button:not([disabled])")]
+        .filter(element => element instanceof HTMLElement && element.offsetParent !== null);
+    if (!focusable.length) return;
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+    }
+});
+
+window.addEventListener("scroll", () => {
+    updateActiveNav();
+});
+
+updateActiveNav();
