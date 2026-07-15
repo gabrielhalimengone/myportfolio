@@ -44,6 +44,11 @@ a {
     color: inherit;
 }
 
+img,
+svg {
+    max-width: 100%;
+}
+
 button,
 a {
     -webkit-tap-highlight-color: transparent;
@@ -80,7 +85,7 @@ a:focus-visible,
     display: grid;
     grid-template-columns: auto 1fr auto;
     align-items: center;
-    gap: 28px;
+    gap: clamp(14px, 3vw, 28px);
     padding: 18px clamp(20px, 4vw, 56px);
     background: rgba(246, 241, 232, 0.88);
     border-bottom: 1px solid rgba(20, 23, 21, 0.08);
@@ -120,10 +125,12 @@ a:focus-visible,
     display: flex;
     justify-content: center;
     gap: clamp(18px, 3vw, 38px);
+    min-width: 0;
 }
 
 .nav-links a {
     color: var(--muted);
+    white-space: nowrap;
     transition: color 160ms ease;
 }
 
@@ -157,10 +164,15 @@ a:focus-visible,
 .hero {
     min-height: calc(100vh - 76px);
     display: grid;
-    grid-template-columns: minmax(0, 1.04fr) minmax(360px, 0.96fr);
+    grid-template-columns: minmax(0, 1.04fr) minmax(320px, 0.96fr);
     gap: clamp(36px, 6vw, 72px);
     align-items: center;
     padding: clamp(68px, 9vw, 118px) 0 72px;
+}
+
+.hero-copy,
+.hero-visual {
+    min-width: 0;
 }
 
 .eyebrow {
@@ -262,7 +274,9 @@ h1 {
 
 .hero-stats dd {
     margin: 6px 0 0;
+    font-size: clamp(14px, 1.4vw, 16px);
     font-weight: 700;
+    line-height: 1.35;
 }
 
 .hero-visual {
@@ -628,6 +642,7 @@ h1 {
     background: var(--card);
     text-decoration: none;
     font-weight: 700;
+    overflow-wrap: anywhere;
 }
 
 .contact-card span {
@@ -846,6 +861,12 @@ h1 {
 
     .hero {
         min-height: auto;
+        padding-top: clamp(48px, 8vw, 84px);
+        gap: 36px;
+    }
+
+    .hero-visual {
+        max-width: 680px;
     }
 
     .expertise-grid,
@@ -855,32 +876,179 @@ h1 {
 }
 
 @media (max-width: 720px) {
+    .section {
+        width: min(100% - 32px, 1180px);
+    }
+
     .site-header {
         grid-template-columns: 1fr auto;
+        gap: 12px 16px;
+        padding: 14px 18px 12px;
+    }
+
+    .brand-mark {
+        width: 34px;
+        height: 34px;
     }
 
     .nav-links {
         grid-column: 1 / -1;
         justify-content: flex-start;
+        gap: 18px;
+        padding: 0 0 4px;
         overflow-x: auto;
-        padding-bottom: 2px;
+        scrollbar-width: none;
+        scroll-snap-type: x proximity;
+    }
+
+    .nav-links::-webkit-scrollbar,
+    .filters::-webkit-scrollbar,
+    .quality-row::-webkit-scrollbar {
+        display: none;
+    }
+
+    .nav-links a {
+        flex: 0 0 auto;
+        scroll-snap-align: start;
     }
 
     .availability {
         justify-self: end;
+        font-size: 11px;
+    }
+
+    .hero {
+        gap: 28px;
+        padding: 42px 0 46px;
+    }
+
+    h1 {
+        font-size: clamp(38px, 10.8vw, 58px);
+        line-height: 0.98;
+        letter-spacing: -0.025em;
+    }
+
+    .hero-lead {
+        margin-bottom: 26px;
+        font-size: 16px;
+    }
+
+    .hero-actions {
+        margin-bottom: 24px;
+    }
+
+    .hero-stats div {
+        padding: 16px;
+    }
+
+    .browser-frame {
+        box-shadow: 0 16px 44px rgba(20, 23, 21, 0.1);
+    }
+
+    .interface-grid {
+        padding: 14px;
+    }
+
+    .preview-cards span {
+        height: 54px;
     }
 
     .hero-stats,
     .capabilities,
     .expertise-grid,
     .timeline,
-    .project-grid,
-    .quality-row {
+    .project-grid {
         grid-template-columns: 1fr;
+    }
+
+    .quality-row {
+        display: flex;
+        gap: 8px;
+        padding: 0 0 4px;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    .quality-row div {
+        flex: 0 0 132px;
+        padding: 12px;
+    }
+
+    .quality-row span {
+        font-size: 12px;
+    }
+
+    .capabilities {
+        gap: 12px;
+        padding: 24px 0 56px;
+    }
+
+    .projects-section,
+    .expertise-section,
+    .timeline-section,
+    .contact-section {
+        padding: 64px 0;
+    }
+
+    .filters {
+        flex-wrap: nowrap;
+        padding: 0 0 10px;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    .filter-btn {
+        flex: 0 0 auto;
+    }
+
+    .project-grid {
+        gap: 12px;
+    }
+
+    .project-card {
+        min-height: auto;
+        padding: 20px;
     }
 
     .project-card.featured {
         grid-column: auto;
+    }
+
+    .project-card h3 {
+        font-size: 26px;
+    }
+
+    .project-card ul {
+        margin-bottom: 16px;
+    }
+
+    .capabilities article,
+    .expertise-grid article,
+    .timeline article {
+        padding: 20px;
+    }
+
+    .contact-section {
+        gap: 24px;
+    }
+
+    .modal {
+        padding: 12px;
+    }
+
+    .modal-panel {
+        max-height: calc(100dvh - 24px);
+        padding: 24px 18px 20px;
+    }
+
+    .modal-close {
+        right: 12px;
+        top: 12px;
+    }
+
+    .modal-panel h2 {
+        max-width: calc(100% - 72px);
+        font-size: clamp(28px, 9vw, 40px);
     }
 
     .modal-media-header {
@@ -908,15 +1076,15 @@ h1 {
 
 @media (max-width: 460px) {
     .section {
-        width: min(100% - 28px, 1180px);
+        width: min(100% - 24px, 1180px);
     }
 
     .site-header {
-        padding-inline: 14px;
+        padding-inline: 12px;
     }
 
     h1 {
-        font-size: clamp(38px, 14vw, 56px);
+        font-size: clamp(34px, 12vw, 46px);
     }
 
     .browser-frame {
@@ -924,7 +1092,30 @@ h1 {
     }
 
     .hero {
-        padding-top: 54px;
+        padding-top: 34px;
+    }
+
+    .button {
+        min-height: 46px;
+    }
+
+    .hero-stats div,
+    .capabilities article,
+    .project-card,
+    .expertise-grid article,
+    .timeline article {
+        padding: 18px;
+    }
+
+    .project-meta {
+        margin-bottom: 12px;
+        font-size: 11px;
+    }
+
+    .tag-row span,
+    .modal-tags span {
+        padding: 5px 8px;
+        font-size: 10.5px;
     }
 }
 
