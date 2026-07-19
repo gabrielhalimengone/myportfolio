@@ -312,10 +312,15 @@ document.querySelectorAll(".project-card").forEach(card => {
 });
 
 document.querySelectorAll(".filter-btn").forEach(button => {
+    button.setAttribute("aria-pressed", String(button.classList.contains("active")));
     button.addEventListener("click", () => {
         const filter = button.dataset.filter;
-        document.querySelectorAll(".filter-btn").forEach(btn => btn.classList.remove("active"));
+        document.querySelectorAll(".filter-btn").forEach(btn => {
+            btn.classList.remove("active");
+            btn.setAttribute("aria-pressed", "false");
+        });
         button.classList.add("active");
+        button.setAttribute("aria-pressed", "true");
 
         document.querySelectorAll(".project-card").forEach(card => {
             const categories = card.dataset.cat?.split(" ") || [];
