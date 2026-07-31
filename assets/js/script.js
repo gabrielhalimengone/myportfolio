@@ -214,6 +214,8 @@ const sections = [...document.querySelectorAll("main section[id]")];
 const modal = document.getElementById("projectModal");
 const modalPanel = modal?.querySelector(".modal-panel");
 const closeButton = modal?.querySelector(".modal-close");
+const contactForm = document.getElementById("contact-form");
+const contactStatus = document.getElementById("contact-form-status");
 let previousFocus = null;
 
 function escapeHTML(value) {
@@ -231,6 +233,28 @@ function updateActiveNav() {
     navLinks.forEach(link => {
         link.classList.toggle("active", current && link.getAttribute("href") === `#${current.id}`);
     });
+}
+
+function setContactStatus(message, type) {
+    if (!contactStatus) return;
+    contactStatus.textContent = message;
+    contactStatus.classList.remove("success", "error");
+    if (type) contactStatus.classList.add(type);
+}
+
+function updateContactFieldState(field) {
+    field.setAttribute("aria-invalid", String(!field.checkValidity()));
+}
+
+function setContactLoading(isLoading) {
+    const submitButton = contactForm?.querySelector("button[type='submit']");
+    if (!submitButton) return;
+
+    submitButton.disabled = isLoading;
+    submitButton.dataset.defaultText ||= submitButton.innerHTML;
+    submitButton.innerHTML = isLoading
+        ? "Envoi en cours..."
+        : submitButton.dataset.defaultText;
 }
 
 function openProject(card) {
@@ -329,6 +353,58 @@ document.querySelectorAll(".filter-btn").forEach(button => {
             card.setAttribute("aria-hidden", String(hidden));
         });
     });
+});
+
+contactForm?.addEventListener("input", event => {
+    if (event.target instanceof HTMLInputElement || event.target instanceof HTMLSelectElement || event.target instanceof HTMLTextAreaElement) {
+        updateContactFieldState(event.target);
+        if (contactStatus?.classList.contains("error")) setContactStatus("", "");
+    }
+});
+
+contactForm?.addEventListener("submit", async event => {
+    event.preventDefault();
+
+    const fields = [...contactForm.querySelectorAll("input:not([tabindex='-1']), select, textarea")];
+    fields.forEach(updateContactFieldState);
+    const firstInvalid = fields.find(field => !field.checkValidity());
+
+    if (firstInvalid) {
+        setContactStatus("Complète les champs requis pour envoyer la demande.", "error");
+        firstInvalid.focus({ preventScroll: false });
+        return;
+    }
+
+    const formData = new FormData(contactForm);
+    const payload = Object.fromEntries(formData.entries());
+
+    setContactStatus("", "");
+    setContactLoading(true);
+
+    try {
+        const response = await fetch("/api/contact", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+        });
+        const result = await response.json().catch(() => ({}));
+
+        if (!response.ok) {
+            throw new Error(result.message || "Le message n'a pas pu être envoyé.");
+        }
+
+        contactForm.reset();
+        contactForm.querySelectorAll("[aria-invalid]").forEach(field => {
+            field.removeAttribute("aria-invalid");
+        });
+        setContactStatus("Message envoyé. Je reviens vers vous rapidement.", "success");
+    } catch (error) {
+        setContactStatus(error.message || "Erreur d'envoi. Réessaie dans quelques minutes.", "error");
+    } finally {
+        setContactLoading(false);
+    }
 });
 
 closeButton?.addEventListener("click", closeModal);

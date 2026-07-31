@@ -9,8 +9,8 @@
     content="Portfolio frontend de Gabriel-Halim Endam'Engone : interfaces React, sites responsives, applications web et coordination de projets IT à Casablanca.">
   <link rel="icon"
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23131715'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%23F0B84B' font-family='Arial' font-size='23' font-weight='700'%3EGH%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="assets/css/style.css?v=premium-system">
-  <script src="assets/js/script.js?v=frontend-pro-pygames-media" defer></script>
+  <link rel="stylesheet" href="assets/css/style.css?v=contact-form">
+  <script src="assets/js/script.js?v=contact-form" defer></script>
 </head>
 
 <body>
@@ -450,23 +450,69 @@
         <p>Basé à Casablanca, ouvert aux collaborations web, aux missions de développement frontend et aux projets
           mêlant interface, coordination et livraison.</p>
         <div class="contact-actions">
-          <a class="button primary" href="mailto:gabrielhalim01@gmail.com">Parlons de votre projet <span aria-hidden="true">↗</span></a>
+          <a class="button primary" href="#contact-form">Parlons de votre projet <span aria-hidden="true">↗</span></a>
         </div>
       </div>
 
-      <div class="contact-card">
-        <a href="mailto:gabrielhalim01@gmail.com">
-          <span>Email</span>
-          gabrielhalim01@gmail.com
-        </a>
-        <a href="tel:+212674346915">
-          <span>Téléphone</span>
-          +212 067 434 6915
-        </a>
-        <a href="https://github.com/gabrielhalimengone" target="_blank" rel="noopener noreferrer">
-          <span>GitHub</span>
-          github.com/gabrielhalimengone
-        </a>
+      <div class="contact-panel">
+        <form class="contact-form" id="contact-form" novalidate>
+          <div class="form-heading">
+            <span>Brief rapide</span>
+            <strong>Réponse sous 24-48h</strong>
+          </div>
+
+          <div class="form-grid">
+            <label for="contact-name">
+              Nom
+              <input id="contact-name" name="name" type="text" autocomplete="name" placeholder="Votre nom" required>
+            </label>
+
+            <label for="contact-email">
+              Email
+              <input id="contact-email" name="email" type="email" autocomplete="email" placeholder="vous@email.com" required>
+            </label>
+          </div>
+
+          <label for="contact-project">
+            Projet
+            <select id="contact-project" name="project" required>
+              <option value="">Choisir un besoin</option>
+              <option value="Site vitrine">Site vitrine</option>
+              <option value="Interface web">Interface web</option>
+              <option value="Refonte UI">Refonte UI</option>
+              <option value="Mission frontend">Mission frontend</option>
+              <option value="Autre collaboration">Autre collaboration</option>
+            </select>
+          </label>
+
+          <label for="contact-message">
+            Message
+            <textarea id="contact-message" name="message" rows="5" placeholder="Objectif, délai, contexte du projet..." required></textarea>
+          </label>
+
+          <label class="form-honeypot" for="contact-company" aria-hidden="true">
+            Société
+            <input id="contact-company" name="company" type="text" tabindex="-1" autocomplete="off">
+          </label>
+
+          <button class="button primary" type="submit">Envoyer la demande <span aria-hidden="true">↗</span></button>
+          <p class="form-status" id="contact-form-status" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="contact-card" aria-label="Coordonnées directes">
+          <a href="mailto:gabrielhalim01@gmail.com">
+            <span>Email</span>
+            gabrielhalim01@gmail.com
+          </a>
+          <a href="tel:+212674346915">
+            <span>Téléphone</span>
+            +212 067 434 6915
+          </a>
+          <a href="https://github.com/gabrielhalimengone" target="_blank" rel="noopener noreferrer">
+            <span>GitHub</span>
+            github.com/gabrielhalimengone
+          </a>
+        </div>
       </div>
     </section>
   </main>
