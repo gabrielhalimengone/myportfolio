@@ -24,7 +24,7 @@
 
     <nav class="nav-links" aria-label="Navigation principale">
       <a href="#projets">Projets</a>
-      <a href="#evenements">Événements</a>
+      <a href="#evenements">Terrain</a>
       <a href="#expertise">Expertise</a>
       <a href="#parcours">Parcours</a>
       <a href="#contact">Contact</a>
@@ -40,7 +40,7 @@
     <section class="hero section" id="top">
       <div class="hero-copy">
         <p class="eyebrow">Frontend developer · Casablanca</p>
-        <h1>Des interfaces web claires, rapides et faites pour avancer.</h1>
+        <h1>Développeur Frontend — interfaces React & Flutter orientées produit.</h1>
         <p class="hero-lead">
           Je conçois et développe des expériences web responsives avec une attention particulière à la lisibilité,
           l'accessibilité, la performance et la coordination entre besoins métier et exécution technique.
@@ -69,7 +69,7 @@
           </div>
           <div>
             <dt>Terrain</dt>
-            <dd>Web · Produit · Événementiel</dd>
+            <dd>Web · Produit · Delivery</dd>
           </div>
         </dl>
       </div>
@@ -139,9 +139,9 @@
           <p class="eyebrow">Selected work</p>
           <span class="section-count">08 projets</span>
         </div>
-        <h2>Projets orientés produit, web et interface.</h2>
-        <p>Chaque projet met en avant une compétence utile en frontend : structure, responsive, parcours utilisateur,
-          intégration ou capacité à livrer dans un contexte réel.</p>
+        <h2>Projets vérifiables, décisions visibles.</h2>
+        <p>Une sélection centrée sur les contraintes produit, les choix d'interface et les livrables consultables :
+          parcours, responsive, données, performance perçue et qualité d'intégration.</p>
       </div>
 
       <div class="filters" aria-label="Filtrer les projets">
@@ -156,234 +156,164 @@
         <article class="project-card featured" data-id="6" data-cat="web product">
           <div class="project-meta">JavaScript · Agile dashboard</div>
           <h3>Nexus IT Dashboard</h3>
-          <p>Dashboard web pour piloter un projet IT : synthèse, Kanban, sprint, reporting, Jira, alertes et équipe.</p>
+          <p>Dashboard web pour piloter un projet IT avec plusieurs vues métier sans perdre le contexte de l'équipe.</p>
           <ul>
-            <li>Navigation multi-vues type produit SaaS</li>
-            <li>Suivi Agile avec vues Kanban et sprint</li>
-            <li>Déploiement public sur Vercel</li>
+            <li>Choix d'une navigation latérale persistante pour garder la lecture SaaS immédiate.</li>
+            <li>Découpage des vues Kanban, sprint et reporting pour limiter la surcharge cognitive.</li>
+            <li>Données simulées structurées pour montrer le raisonnement produit avant branchement API.</li>
           </ul>
           <div class="tag-row"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Vercel</span></div>
+          <div class="project-actions" aria-label="Actions Nexus IT Dashboard">
+            <button class="project-details" type="button" data-project-trigger>Étude courte</button>
+            <a class="project-action" href="https://nx-dash-it.vercel.app/" target="_blank" rel="noopener noreferrer">Voir en ligne</a>
+            <a class="project-action muted" href="https://github.com/gabrielhalimengone/nx-dash-it" target="_blank" rel="noopener noreferrer">Code source</a>
+          </div>
         </article>
 
         <article class="project-card" data-id="0" data-cat="mobile product">
           <div class="project-meta">Flutter · Mobile app</div>
           <h3>TransFlash</h3>
-          <p>Application mobile de transfert d'argent avec parcours simplifié, historique et suivi transactionnel.</p>
+          <p>Application mobile de transfert d'argent pensée autour d'un parcours sensible : montant, pays, bénéficiaire, confirmation.</p>
           <ul>
-            <li>Architecture d'écrans mobile-first</li>
-            <li>Parcours transactionnel plus lisible</li>
-            <li>Design adapté aux usages africains</li>
+            <li>Découpage en étapes pour éviter les erreurs avant validation d'une transaction.</li>
+            <li>UI sombre et contrastée pour faire ressortir les montants, statuts et actions critiques.</li>
+            <li>Écrans admin séparés pour valider, refuser et suivre les flux côté opération.</li>
           </ul>
           <div class="tag-row"><span>Flutter</span><span>Dart</span><span>UX mobile</span></div>
+          <div class="project-actions" aria-label="Actions TransFlash">
+            <button class="project-details" type="button" data-project-trigger>Voir les écrans</button>
+          </div>
         </article>
 
         <article class="project-card" data-id="1" data-cat="web">
           <div class="project-meta">React · Landing page</div>
           <h3>FitZone</h3>
-          <p>Site vitrine pour une salle de sport avec programmes, abonnements, planning et contact.</p>
+          <p>Site vitrine React pour transformer une offre fitness en parcours clair : découverte, preuve, planning, contact.</p>
+          <ul>
+            <li>Sections modulaires pour réorganiser l'offre sans réécrire la page.</li>
+            <li>CTA répétés mais contenus pour guider l'utilisateur sans bruit visuel.</li>
+            <li>Responsive pensé pour une consultation rapide sur mobile avant inscription.</li>
+          </ul>
           <div class="tag-row"><span>React</span><span>Responsive</span><span>Vitrine</span></div>
+          <div class="project-actions" aria-label="Actions FitZone">
+            <button class="project-details" type="button" data-project-trigger>Étude courte</button>
+            <a class="project-action" href="https://fitzone-pink.vercel.app/" target="_blank" rel="noopener noreferrer">Voir en ligne</a>
+            <a class="project-action muted" href="https://github.com/gabrielhalimengone/fitzone" target="_blank" rel="noopener noreferrer">Code source</a>
+          </div>
         </article>
 
         <article class="project-card" data-id="2" data-cat="web">
           <div class="project-meta">HTML · CSS · JS</div>
           <h3>Vitrine Digitale</h3>
-          <p>Collection de pages web centrées sur l'intégration, les animations CSS et les bases SEO.</p>
+          <p>Landing page de service digital centrée sur la clarté de l'offre, la confiance et la conversion.</p>
+          <ul>
+            <li>HTML sémantique pour hiérarchiser l'offre et améliorer la lecture SEO.</li>
+            <li>Animations CSS légères pour enrichir l'expérience sans ralentir la page.</li>
+            <li>Formes et espacements calibrés pour garder une page lisible sur petits écrans.</li>
+          </ul>
           <div class="tag-row"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+          <div class="project-actions" aria-label="Actions Vitrine Digitale">
+            <button class="project-details" type="button" data-project-trigger>Étude courte</button>
+            <a class="project-action" href="https://vitrine-digitale.vercel.app/" target="_blank" rel="noopener noreferrer">Voir en ligne</a>
+            <a class="project-action muted" href="https://github.com/gabrielhalimengone/vitrine-digitale" target="_blank" rel="noopener noreferrer">Code source</a>
+          </div>
         </article>
 
         <article class="project-card" data-id="3" data-cat="tooling">
           <div class="project-meta">Python · Logique</div>
           <h3>PyGames Pack</h3>
-          <p>Mini-jeux Python pour consolider logique, structures de données et interaction utilisateur.</p>
+          <p>Pack de mini-jeux Python pour montrer la logique d'état, les règles et les interactions au-delà d'une interface web.</p>
+          <ul>
+            <li>Gestion de scoring, tours de jeu, erreurs et conditions de victoire.</li>
+            <li>Séparation des règles pour rendre chaque mini-jeu plus simple à maintenir.</li>
+            <li>Captures ajoutées pour rendre le résultat compréhensible sans lancer Python.</li>
+          </ul>
           <div class="tag-row"><span>Python</span><span>Algo</span><span>Tkinter</span></div>
+          <div class="project-actions" aria-label="Actions PyGames Pack">
+            <button class="project-details" type="button" data-project-trigger>Voir les captures</button>
+          </div>
         </article>
 
         <article class="project-card" data-id="4" data-cat="product tooling">
           <div class="project-meta">Live ops · Dashboard</div>
           <h3>Event Live Board</h3>
-          <p>Outil de coordination technique pour événements live : LED, checklist et suivi incidents.</p>
+          <p>Outil de coordination pour événements live, pensé pour transformer une régie technique en checklist exploitable.</p>
+          <ul>
+            <li>Modèle de suivi orienté incidents, priorités et validation avant exploitation.</li>
+            <li>Interface volontairement dense pour des équipes qui consultent vite pendant le live.</li>
+            <li>Structure prête à brancher sur des données terrain ou une API d'exploitation.</li>
+          </ul>
           <div class="tag-row"><span>Novastar</span><span>Dashboard</span><span>Ops</span></div>
+          <div class="project-actions" aria-label="Actions Event Live Board">
+            <button class="project-details" type="button" data-project-trigger>Étude courte</button>
+            <a class="project-action" href="https://event-live-ruddy.vercel.app/" target="_blank" rel="noopener noreferrer">Voir en ligne</a>
+            <a class="project-action muted" href="https://github.com/gabrielhalimengone/event-live" target="_blank" rel="noopener noreferrer">Code source</a>
+          </div>
         </article>
 
         <article class="project-card" data-id="5" data-cat="web product">
           <div class="project-meta">Education · Web app</div>
           <h3>Mon Sikolo</h3>
-          <p>Contribution à une plateforme éducative : intégration, fonctionnalités et corrections UI.</p>
+          <p>Plateforme éducative orientée parcours étudiant, avec une attention portée aux contenus, accès et corrections UI.</p>
+          <ul>
+            <li>Organisation des écrans autour des besoins étudiants plutôt que des modules techniques.</li>
+            <li>Travail PHP/SQL pour relier interface, contenus et comportements fonctionnels.</li>
+            <li>Améliorations de lisibilité pour rendre l'outil plus accessible aux non-techniciens.</li>
+          </ul>
           <div class="tag-row"><span>PHP</span><span>SQL</span><span>UX</span></div>
+          <div class="project-actions" aria-label="Actions Mon Sikolo">
+            <button class="project-details" type="button" data-project-trigger>Étude courte</button>
+            <a class="project-action" href="https://mon-sikolo.vercel.app/" target="_blank" rel="noopener noreferrer">Voir en ligne</a>
+            <a class="project-action muted" href="https://github.com/gabrielhalimengone/Mon-sikolo" target="_blank" rel="noopener noreferrer">Code source</a>
+          </div>
         </article>
 
         <article class="project-card" data-id="7" data-cat="web">
           <div class="project-meta">React · Vite · Tailwind</div>
           <h3>TechFest</h3>
-          <p>Landing page événementielle avec galerie dynamique, animations et responsive design.</p>
+          <p>Landing page événementielle conçue comme une vitrine immersive, avec galerie et animations contrôlées.</p>
+          <ul>
+            <li>Build Vite pour itérer vite sur une interface React légère.</li>
+            <li>Tailwind utilisé pour garder une cohérence d'espacements et de composants.</li>
+            <li>Animations limitées aux zones utiles pour conserver une navigation fluide.</li>
+          </ul>
           <div class="tag-row"><span>Vite</span><span>Tailwind</span><span>Landing</span></div>
+          <div class="project-actions" aria-label="Actions TechFest">
+            <button class="project-details" type="button" data-project-trigger>Étude courte</button>
+            <a class="project-action" href="https://festival-six-eta.vercel.app/" target="_blank" rel="noopener noreferrer">Voir en ligne</a>
+            <a class="project-action muted" href="https://github.com/gabrielhalimengone/festival" target="_blank" rel="noopener noreferrer">Code source</a>
+          </div>
         </article>
       </div>
     </section>
 
-    <section class="section events-section" id="evenements">
+    <section class="section events-section terrain-section" id="evenements">
       <div class="section-heading">
         <div class="section-heading-bar">
-          <p class="eyebrow">Terrain & événements</p>
-          <span class="section-count">2025 — 2026</span>
+          <p class="eyebrow">Expérience terrain</p>
+          <span class="section-count">Signal secondaire</span>
         </div>
-        <h2>Présence sur des événements tech, institutionnels et live.</h2>
-        <p>Une sélection de badges et preuves de participation. Tous les événements ne sont pas affichés ici : certains
-          n'avaient pas de badge ou de support visuel exploitable.</p>
+        <h2>Un contexte opérationnel utile, sans brouiller le profil frontend.</h2>
+        <p>Participation à des salons et missions terrain comme GITEX Future Health, WAM Morocco, UCLG Tanger, Salon du
+          Cheval, Salon des Dattes et bien d'autres événements, avec ou sans badge exploitable.</p>
       </div>
 
-      <div class="events-layout">
-        <article class="event-highlight">
-          <span>Expérience terrain</span>
-          <h3>Coordination, support opérationnel et présence client.</h3>
-          <p>Participation sur site avec des missions liées à l'accueil, la coordination technique, le suivi client et
-            l'appui aux équipes pendant les phases de montage, d'exploitation ou de service.</p>
-          <dl>
-            <div>
-              <dt>Domaines</dt>
-              <dd>Tech · santé · mobilité · institutions · culture</dd>
-            </div>
-            <div>
-              <dt>Rôle</dt>
-              <dd>Opération client · service · support terrain</dd>
-            </div>
-          </dl>
+      <div class="terrain-grid" aria-label="Synthèse de l'expérience terrain">
+        <article>
+          <span>01</span>
+          <h3>Ce que ça apporte</h3>
+          <p>Lecture rapide des contraintes réelles : délais, imprévus, coordination client et décisions sous pression.</p>
         </article>
-
-        <div class="event-list" aria-label="Événements représentés">
-          <article>
-            <span>2026 · Casablanca</span>
-            <h3>GITEX Future Health Africa Morocco</h3>
-            <p>Participation en environnement salon tech/santé, avec badge builder et standby contractor.</p>
-          </article>
-          <article>
-            <span>2026 · Casablanca</span>
-            <h3>WAM Morocco</h3>
-            <p>Présence événementielle autour de la mobilité avancée et du suivi opération client.</p>
-          </article>
-          <article>
-            <span>2025 · Erfoud</span>
-            <h3>Salon International des Dattes au Maroc</h3>
-            <p>Participation côté exposant, gestion terrain et coordination pendant l'événement.</p>
-          </article>
-          <article>
-            <span>2025 · El Jadida</span>
-            <h3>Salon du Cheval d'El Jadida</h3>
-            <p>Service événementiel sur un salon institutionnel à forte exigence opérationnelle.</p>
-          </article>
-          <article>
-            <span>2026 · Tanger</span>
-            <h3>UCLG World Congress</h3>
-            <p>Support service lors d'un congrès international réunissant des acteurs locaux et régionaux.</p>
-          </article>
-          <article class="event-more">
-            <span>Et plus encore</span>
-            <h3>Et bien d'autres événements</h3>
-            <p>Autres missions terrain, salons, opérations live et événements sans badge ou support visuel à afficher.</p>
-          </article>
-        </div>
-      </div>
-
-      <div class="events-carousel" aria-label="Badges d'événements sélectionnés">
-        <div class="events-track">
-          <div class="events-track-group">
-            <figure class="event-badge portrait">
-              <img src="assets/img/events/event-gitex-future-health-builder-2026.jpg"
-                alt="Badge GITEX Future Health Africa Morocco 2026, rôle builder" loading="lazy" decoding="async">
-              <figcaption>GITEX Future Health · Builder</figcaption>
-            </figure>
-            <figure class="event-badge portrait">
-              <img src="assets/img/events/event-wam-morocco-visitor-2026.jpg"
-                alt="Badge WAM Morocco 2026, responsable opération client" loading="lazy" decoding="async">
-              <figcaption>WAM Morocco · Opération client</figcaption>
-            </figure>
-            <figure class="event-badge portrait">
-              <img src="assets/img/events/event-dates-maroc-exposant-2025-front.jpg"
-                alt="Badge Salon International des Dattes au Maroc 2025, exposant" loading="lazy" decoding="async">
-              <figcaption>Salon des Dattes · Exposant</figcaption>
-            </figure>
-            <figure class="event-badge portrait">
-              <img src="assets/img/events/event-dates-maroc-exposant-2025-back.jpg"
-                alt="Verso du badge Salon International des Dattes au Maroc 2025 avec partenaires" loading="lazy"
-                decoding="async">
-              <figcaption>Salon des Dattes · Partenaires</figcaption>
-            </figure>
-            <figure class="event-badge portrait">
-              <img src="assets/img/events/event-salon-cheval-service-2025-front.jpg"
-                alt="Badge Salon du Cheval d'El Jadida 2025, service" loading="lazy" decoding="async">
-              <figcaption>Salon du Cheval · Service</figcaption>
-            </figure>
-            <figure class="event-badge portrait">
-              <img src="assets/img/events/event-salon-cheval-service-2025-back.jpg"
-                alt="Verso du badge Salon du Cheval d'El Jadida 2025 avec sponsors" loading="lazy" decoding="async">
-              <figcaption>Salon du Cheval · Sponsors</figcaption>
-            </figure>
-            <figure class="event-badge landscape">
-              <img src="assets/img/events/event-gitex-future-health-standby-contractor-2026.jpg"
-                alt="Badge GITEX Future Health Africa Morocco 2026, standby contractor" loading="lazy"
-                decoding="async">
-              <figcaption>GITEX Future Health · Standby contractor</figcaption>
-            </figure>
-            <figure class="event-badge landscape">
-              <img src="assets/img/events/event-uclg-tanger-service-2026-front.jpg"
-                alt="Badge UCLG World Congress Tanger Morocco 2026, service" loading="lazy" decoding="async">
-              <figcaption>UCLG Tanger · Service</figcaption>
-            </figure>
-            <figure class="event-badge landscape">
-              <img src="assets/img/events/event-uclg-tanger-service-2026-back.jpg"
-                alt="Badge UCLG World Congress Tanger Morocco 2026" loading="lazy" decoding="async">
-              <figcaption>UCLG Tanger · Congrès international</figcaption>
-            </figure>
-          </div>
-
-          <div class="events-track-group" aria-hidden="true">
-            <figure class="event-badge portrait">
-              <img src="assets/img/events/event-gitex-future-health-builder-2026.jpg" alt="" loading="lazy"
-                decoding="async">
-              <figcaption>GITEX Future Health · Builder</figcaption>
-            </figure>
-            <figure class="event-badge portrait">
-              <img src="assets/img/events/event-wam-morocco-visitor-2026.jpg" alt="" loading="lazy"
-                decoding="async">
-              <figcaption>WAM Morocco · Opération client</figcaption>
-            </figure>
-            <figure class="event-badge portrait">
-              <img src="assets/img/events/event-dates-maroc-exposant-2025-front.jpg" alt="" loading="lazy"
-                decoding="async">
-              <figcaption>Salon des Dattes · Exposant</figcaption>
-            </figure>
-            <figure class="event-badge portrait">
-              <img src="assets/img/events/event-dates-maroc-exposant-2025-back.jpg" alt="" loading="lazy"
-                decoding="async">
-              <figcaption>Salon des Dattes · Partenaires</figcaption>
-            </figure>
-            <figure class="event-badge portrait">
-              <img src="assets/img/events/event-salon-cheval-service-2025-front.jpg" alt="" loading="lazy"
-                decoding="async">
-              <figcaption>Salon du Cheval · Service</figcaption>
-            </figure>
-            <figure class="event-badge portrait">
-              <img src="assets/img/events/event-salon-cheval-service-2025-back.jpg" alt="" loading="lazy"
-                decoding="async">
-              <figcaption>Salon du Cheval · Sponsors</figcaption>
-            </figure>
-            <figure class="event-badge landscape">
-              <img src="assets/img/events/event-gitex-future-health-standby-contractor-2026.jpg" alt="" loading="lazy"
-                decoding="async">
-              <figcaption>GITEX Future Health · Standby contractor</figcaption>
-            </figure>
-            <figure class="event-badge landscape">
-              <img src="assets/img/events/event-uclg-tanger-service-2026-front.jpg" alt="" loading="lazy"
-                decoding="async">
-              <figcaption>UCLG Tanger · Service</figcaption>
-            </figure>
-            <figure class="event-badge landscape">
-              <img src="assets/img/events/event-uclg-tanger-service-2026-back.jpg" alt="" loading="lazy"
-                decoding="async">
-              <figcaption>UCLG Tanger · Congrès international</figcaption>
-            </figure>
-          </div>
-        </div>
+        <article>
+          <span>02</span>
+          <h3>Pourquoi c'est utile en frontend</h3>
+          <p>Meilleure traduction des besoins non-tech en parcours simples, priorisés et vérifiables côté utilisateur.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Positionnement</h3>
+          <p>Un complément de profil, pas le coeur du portfolio : les projets web restent le premier signal.</p>
+        </article>
       </div>
     </section>
 

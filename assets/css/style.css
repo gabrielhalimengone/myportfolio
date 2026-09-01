@@ -516,9 +516,7 @@ h1 {
 .expertise-grid article,
 .timeline article,
 .project-card,
-.event-highlight,
-.event-list article,
-.event-badge,
+.terrain-grid article,
 .contact-card {
     border: 1px solid var(--line);
     border-radius: var(--radius);
@@ -550,8 +548,7 @@ h1 {
 .expertise-grid p,
 .timeline p,
 .project-card p,
-.event-highlight p,
-.event-list p,
+.terrain-grid p,
 .contact-section p,
 .section-heading p {
     color: var(--muted);
@@ -628,12 +625,12 @@ h1 {
 }
 
 .project-card {
-    min-height: 270px;
+    min-height: 365px;
     position: relative;
     display: flex;
     flex-direction: column;
     padding: 24px;
-    cursor: pointer;
+    cursor: default;
     background: rgba(255, 255, 255, 0.9);
     box-shadow: 0 1px 1px rgba(16, 26, 24, 0.02);
     transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease, background 220ms ease;
@@ -676,7 +673,6 @@ h1 {
 .project-card h3 {
     font-size: clamp(24px, 3vw, 34px);
     letter-spacing: 0;
-    padding-right: 90px;
 }
 
 .project-card.featured .project-meta {
@@ -688,28 +684,74 @@ h1 {
     color: #b8c9c1;
 }
 
-.project-card::after {
-    position: absolute;
-    top: 24px;
-    right: 24px;
-    color: var(--blue);
-    content: "Ouvrir ↗";
-    font-family: var(--mono);
-    font-size: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
-.project-card.featured::after {
-    color: #9fe8cb;
-}
-
 .project-card ul {
     display: grid;
     gap: 8px;
     margin: 6px 0 20px;
     padding-left: 18px;
     color: #40514a;
+}
+
+.project-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 18px;
+}
+
+.project-action,
+.project-details {
+    min-height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(20, 23, 21, 0.12);
+    border-radius: 999px;
+    padding: 0 13px;
+    color: var(--ink);
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, color 180ms ease;
+}
+
+.project-details {
+    background: var(--ink);
+    color: var(--card);
+}
+
+.project-action {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.project-action.muted {
+    color: var(--muted);
+}
+
+.project-action:hover,
+.project-action:focus-visible,
+.project-details:hover,
+.project-details:focus-visible {
+    transform: translateY(-2px);
+    border-color: rgba(8, 127, 91, 0.34);
+}
+
+.project-card.featured .project-details {
+    border-color: #9fe8cb;
+    background: #9fe8cb;
+    color: var(--ink);
+}
+
+.project-card.featured .project-action {
+    border-color: rgba(159, 232, 203, 0.24);
+    background: rgba(255, 255, 255, 0.07);
+    color: #f4fbf7;
+}
+
+.project-card.featured .project-action.muted {
+    color: #b8c9c1;
 }
 
 .tag-row {
@@ -736,174 +778,44 @@ h1 {
     color: #e5f8ee;
 }
 
-.events-layout {
-    display: grid;
-    grid-template-columns: minmax(260px, 0.7fr) minmax(0, 1.3fr);
-    gap: 14px;
-    margin-bottom: 14px;
+.terrain-section {
+    padding: 82px 0;
 }
 
-.event-highlight {
-    padding: 22px;
-    background: var(--ink);
-    border-color: var(--ink);
-    color: #f4fbf7;
-    box-shadow: 0 20px 48px rgba(16, 26, 24, 0.13);
+.terrain-section .section-heading {
+    max-width: 860px;
+    margin-bottom: 24px;
 }
 
-.event-highlight > span,
-.event-list span {
-    display: block;
-    margin-bottom: 8px;
-    color: var(--green);
-    font-family: var(--mono);
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
-.event-highlight h3 {
-    margin-bottom: 10px;
-    font-size: clamp(22px, 2.7vw, 34px);
-    line-height: 1.05;
-    letter-spacing: 0;
-}
-
-.event-highlight > span {
-    color: #7de0bb;
-}
-
-.event-highlight p {
-    color: #b8c9c1;
-}
-
-.event-highlight dl {
-    display: grid;
-    gap: 1px;
-    margin: 18px 0 0;
-    overflow: hidden;
-    border: 1px solid rgba(159, 232, 203, 0.18);
-    border-radius: var(--radius);
-    background: rgba(159, 232, 203, 0.18);
-}
-
-.event-highlight dl div {
-    padding: 12px 14px;
-    background: rgba(255, 255, 255, 0.07);
-}
-
-.event-highlight dt {
-    color: #8fa59b;
-    font-family: var(--mono);
-    font-size: 11px;
-    text-transform: uppercase;
-}
-
-.event-highlight dd {
-    margin: 4px 0 0;
-    color: #e5f8ee;
-    font-weight: 700;
-}
-
-.event-list {
+.terrain-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 10px;
+    gap: 14px;
 }
 
-.event-list article {
-    min-height: 0;
-    padding: 15px;
+.terrain-grid article {
+    min-height: 190px;
+    display: flex;
+    flex-direction: column;
+    padding: 22px;
+    background: rgba(255, 255, 255, 0.78);
 }
 
-.event-list article.event-more {
-    border-style: dashed;
-    background:
-        linear-gradient(135deg, rgba(15, 143, 104, 0.1), rgba(255, 193, 7, 0.1)),
-        rgba(255, 253, 248, 0.86);
-}
-
-.event-list article.event-more span {
+.terrain-grid span {
     color: var(--coral);
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 800;
 }
 
-.event-list h3 {
-    margin-bottom: 6px;
-    font-size: clamp(17px, 1.7vw, 22px);
+.terrain-grid h3 {
+    margin: 34px 0 10px;
+    font-size: 22px;
     letter-spacing: 0;
 }
 
-.event-list p {
-    font-size: 14px;
-    line-height: 1.55;
-}
-
-.events-carousel {
-    position: relative;
-    width: 100%;
-    margin-top: 12px;
-    overflow: hidden;
-    padding: 4px 0 12px;
-    mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
-}
-
-.events-track {
-    display: flex;
-    width: max-content;
-    gap: 12px;
-    animation: events-train 52s linear infinite;
-    will-change: transform;
-}
-
-.events-carousel:hover .events-track,
-.events-carousel:focus-within .events-track {
-    animation-play-state: paused;
-}
-
-.events-track-group {
-    display: flex;
-    flex: 0 0 auto;
-    gap: 12px;
-}
-
-.event-badge {
-    flex: 0 0 clamp(124px, 13vw, 166px);
-    margin: 0;
-    overflow: hidden;
-    background: rgba(255, 253, 248, 0.9);
-    box-shadow: 0 12px 28px rgba(20, 23, 21, 0.06);
-}
-
-.event-badge img {
-    display: block;
-    width: 100%;
-    height: clamp(138px, 15vw, 190px);
-    object-fit: cover;
-    background: var(--paper-2);
-}
-
-.event-badge.landscape {
-    flex-basis: clamp(204px, 24vw, 284px);
-}
-
-.event-badge.landscape img {
-    height: clamp(118px, 13vw, 156px);
-}
-
-.event-badge figcaption {
-    min-height: 54px;
-    padding: 9px 10px;
-    color: #3e453f;
-    font-family: var(--mono);
-    font-size: 10.5px;
-    font-weight: 700;
-    line-height: 1.35;
-}
-
-@keyframes events-train {
-    to {
-        transform: translateX(calc(-50% - 6px));
-    }
+.terrain-grid p {
+    color: var(--muted);
 }
 
 .expertise-grid {
@@ -1413,21 +1325,11 @@ h1 {
     }
 
     .expertise-grid,
+    .terrain-grid,
     .project-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .events-layout {
-        grid-template-columns: 1fr;
-    }
-
-    .event-badge {
-        flex-basis: 156px;
-    }
-
-    .event-badge.landscape {
-        flex-basis: 250px;
-    }
 }
 
 @media (max-width: 720px) {
@@ -1462,8 +1364,7 @@ h1 {
 
     .nav-links::-webkit-scrollbar,
     .filters::-webkit-scrollbar,
-    .quality-row::-webkit-scrollbar,
-    .events-carousel::-webkit-scrollbar {
+    .quality-row::-webkit-scrollbar {
         display: none;
     }
 
@@ -1521,7 +1422,7 @@ h1 {
     .capabilities,
     .expertise-grid,
     .timeline,
-    .events-layout,
+    .terrain-grid,
     .project-grid {
         grid-template-columns: 1fr;
     }
@@ -1596,86 +1497,26 @@ h1 {
 
     .project-card h3 {
         font-size: 26px;
-        padding-right: 82px;
     }
 
     .project-card ul {
         margin-bottom: 16px;
     }
 
-    .capabilities article,
-    .event-highlight,
-    .expertise-grid article,
-    .timeline article {
-        padding: 20px;
-    }
-
-    .event-highlight {
-        padding: 18px;
-    }
-
-    .event-highlight h3 {
-        font-size: 24px;
-    }
-
-    .event-highlight dl {
+    .project-actions {
         margin-top: 14px;
     }
 
-    .event-list {
-        display: flex;
-        gap: 10px;
-        overflow-x: auto;
-        padding: 0 0 8px;
-        scrollbar-width: none;
-        scroll-snap-type: x proximity;
+    .project-action,
+    .project-details {
+        flex: 1 1 132px;
     }
 
-    .event-list article {
-        flex: 0 0 min(72vw, 238px);
-        padding: 14px;
-        scroll-snap-align: start;
-    }
-
-    .event-list h3 {
-        font-size: 18px;
-    }
-
-    .event-list p {
-        font-size: 13px;
-        line-height: 1.5;
-    }
-
-    .events-carousel {
-        padding-bottom: 8px;
-        mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-    }
-
-    .events-track,
-    .events-track-group {
-        gap: 10px;
-    }
-
-    .event-badge {
-        flex-basis: 118px;
-    }
-
-    .event-badge.landscape {
-        flex-basis: 186px;
-    }
-
-    .event-badge img {
-        height: 134px;
-    }
-
-    .event-badge.landscape img {
-        height: 108px;
-    }
-
-    .event-badge figcaption {
-        min-height: 44px;
-        padding: 8px;
-        font-size: 10px;
+    .capabilities article,
+    .terrain-grid article,
+    .expertise-grid article,
+    .timeline article {
+        padding: 20px;
     }
 
     .contact-section {
@@ -1820,8 +1661,7 @@ h1 {
 
     .hero-stats div,
     .capabilities article,
-    .event-highlight,
-    .event-list article,
+    .terrain-grid article,
     .project-card,
     .expertise-grid article,
     .timeline article {
@@ -1839,23 +1679,6 @@ h1 {
         font-size: 10.5px;
     }
 
-    .event-highlight,
-    .event-list article {
-        padding: 14px;
-    }
-
-    .event-highlight h3 {
-        font-size: 22px;
-    }
-
-    .event-list article {
-        flex-basis: min(76vw, 226px);
-    }
-
-    .project-card::after {
-        top: 18px;
-        right: 18px;
-    }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1868,16 +1691,4 @@ h1 {
         animation-iteration-count: 1 !important;
     }
 
-    .events-carousel {
-        overflow-x: auto;
-        mask-image: none;
-    }
-
-    .events-track {
-        animation: none;
-    }
-
-    .events-track-group[aria-hidden="true"] {
-        display: none;
-    }
 }

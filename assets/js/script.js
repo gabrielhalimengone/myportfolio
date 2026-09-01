@@ -4,11 +4,11 @@ const projects = [
         kicker: "Application mobile",
         title: "TransFlash",
         role: "Flutter · Dart · UX mobile",
-        desc: "Application de transfert d'argent pensée pour un parcours clair : envoyer, confirmer, suivre et consulter l'historique sans friction.",
+        desc: "Application de transfert d'argent pensée autour d'un parcours sensible : montant, pays, bénéficiaire, confirmation, puis validation côté admin.",
         points: [
-            "Structuration mobile-first des écrans et des parcours clés.",
-            "Priorité donnée à la lisibilité des actions sensibles.",
-            "Interface adaptée aux usages mobiles et aux marchés africains."
+            "Découpage en étapes pour éviter les erreurs avant validation d'une transaction.",
+            "UI sombre et contrastée pour faire ressortir les montants, statuts et actions critiques.",
+            "Écrans admin séparés pour valider, refuser et suivre les flux côté opération."
         ],
         tags: ["Flutter", "Dart", "Mobile", "UX/UI", "API REST"],
         media: [
@@ -74,48 +74,54 @@ const projects = [
             }
         ],
         link: null,
-        linkLabel: ""
+        linkLabel: "",
+        sourceLink: null,
+        sourceLabel: ""
     },
     {
         id: 1,
         kicker: "Site vitrine React",
         title: "FitZone",
         role: "React · JavaScript · Responsive",
-        desc: "Site vitrine pour salle de sport avec présentation des programmes, abonnements, planning et prise de contact.",
+        desc: "Site vitrine React pour transformer une offre fitness en parcours clair : découverte, preuve, planning, contact.",
         points: [
-            "Navigation structurée pour découvrir rapidement l'offre.",
-            "Composants React pour sections, tarifs et planning.",
-            "Rendu responsive pour consultation mobile."
+            "Sections modulaires pour réorganiser l'offre sans réécrire la page.",
+            "CTA répétés mais contenus pour guider l'utilisateur sans bruit visuel.",
+            "Responsive pensé pour une consultation rapide sur mobile avant inscription."
         ],
         tags: ["React", "JavaScript", "CSS", "Responsive"],
         link: "https://fitzone-pink.vercel.app/",
-        linkLabel: "Voir le site"
+        linkLabel: "Voir en ligne",
+        sourceLink: "https://github.com/gabrielhalimengone/fitzone",
+        sourceLabel: "Code source"
     },
     {
         id: 2,
         kicker: "Collection web",
         title: "Vitrine Digitale",
         role: "HTML · CSS · JavaScript",
-        desc: "Collection de pages vitrines et landing pages avec attention portée à la structure HTML, au responsive et aux animations légères.",
+        desc: "Landing page de service digital centrée sur la clarté de l'offre, la confiance et la conversion.",
         points: [
-            "Bases SEO et structure sémantique.",
-            "Animations CSS sobres et utiles.",
-            "Formulaires et sections conversion."
+            "HTML sémantique pour hiérarchiser l'offre et améliorer la lecture SEO.",
+            "Animations CSS légères pour enrichir l'expérience sans ralentir la page.",
+            "Formes et espacements calibrés pour garder une page lisible sur petits écrans."
         ],
         tags: ["HTML", "CSS", "JavaScript", "SEO"],
         link: "https://vitrine-digitale.vercel.app/",
-        linkLabel: "Voir le site"
+        linkLabel: "Voir en ligne",
+        sourceLink: "https://github.com/gabrielhalimengone/vitrine-digitale",
+        sourceLabel: "Code source"
     },
     {
         id: 3,
         kicker: "Python tooling",
         title: "PyGames Pack",
         role: "Python · Algorithmique",
-        desc: "Série de mini-jeux pour renforcer logique, gestion d'état, interactions et structure de code.",
+        desc: "Pack de mini-jeux Python pour montrer la logique d'état, les règles et les interactions au-delà d'une interface web.",
         points: [
-            "Jeux Snake, Morpion, Quiz et Pendu.",
-            "Interface terminal et essais Tkinter.",
-            "Travail sur logique, scoring et règles."
+            "Gestion de scoring, tours de jeu, erreurs et conditions de victoire.",
+            "Séparation des règles pour rendre chaque mini-jeu plus simple à maintenir.",
+            "Captures ajoutées pour rendre le résultat compréhensible sans lancer Python."
         ],
         tags: ["Python", "Tkinter", "Algorithmes"],
         media: [
@@ -145,67 +151,77 @@ const projects = [
             }
         ],
         link: null,
-        linkLabel: ""
+        linkLabel: "",
+        sourceLink: null,
+        sourceLabel: ""
     },
     {
         id: 4,
         kicker: "Dashboard opérationnel",
         title: "Event Live Board",
         role: "Régie LED · Coordination · Live",
-        desc: "Outil de coordination technique pour événements live : plan LED, checklist, points de contrôle et suivi incident.",
+        desc: "Outil de coordination pour événements live, pensé pour transformer une régie technique en checklist exploitable.",
         points: [
-            "Centralisation des besoins de production live.",
-            "Checklist pré-événement pour réduire les oublis.",
-            "Coordination entre son, vidéo, lumière et client."
+            "Modèle de suivi orienté incidents, priorités et validation avant exploitation.",
+            "Interface volontairement dense pour des équipes qui consultent vite pendant le live.",
+            "Structure prête à brancher sur des données terrain ou une API d'exploitation."
         ],
         tags: ["Novastar", "Dashboard", "Ops", "Live"],
         link: "https://event-live-ruddy.vercel.app/",
-        linkLabel: "Voir le site"
+        linkLabel: "Voir en ligne",
+        sourceLink: "https://github.com/gabrielhalimengone/event-live",
+        sourceLabel: "Code source"
     },
     {
         id: 5,
         kicker: "Plateforme éducative",
         title: "Mon Sikolo",
         role: "HTML · CSS · PHP · SQL",
-        desc: "Contribution à une plateforme éducative : intégration d'interface, nouvelles fonctionnalités et corrections fonctionnelles.",
+        desc: "Plateforme éducative orientée parcours étudiant, avec une attention portée aux contenus, accès et corrections UI.",
         points: [
-            "Améliorations d'interface sur parcours étudiant.",
-            "Intégration de modules et contenus.",
-            "Débogage fonctionnel et ajustements back-end."
+            "Organisation des écrans autour des besoins étudiants plutôt que des modules techniques.",
+            "Travail PHP/SQL pour relier interface, contenus et comportements fonctionnels.",
+            "Améliorations de lisibilité pour rendre l'outil plus accessible aux non-techniciens."
         ],
         tags: ["PHP", "SQL", "UX", "JavaScript"],
         link: "https://mon-sikolo.vercel.app/",
-        linkLabel: "Voir le site"
+        linkLabel: "Voir en ligne",
+        sourceLink: "https://github.com/gabrielhalimengone/Mon-sikolo",
+        sourceLabel: "Code source"
     },
     {
         id: 6,
         kicker: "Dashboard IT live",
         title: "Nexus IT Dashboard",
         role: "HTML · CSS · JavaScript · Vercel",
-        desc: "Dashboard web responsive pour piloter un projet IT : synthèse temps réel, Kanban, sprint, reporting, synchronisation Jira, alertes et équipe.",
+        desc: "Dashboard web pour piloter un projet IT avec plusieurs vues métier sans perdre le contexte de l'équipe.",
         points: [
-            "Navigation latérale multi-vues inspirée des produits SaaS.",
-            "Composants dashboard pour métriques, Kanban, backlog, reporting et alertes.",
-            "Interface déployée sur Vercel avec interactions JavaScript claires."
+            "Choix d'une navigation latérale persistante pour garder la lecture SaaS immédiate.",
+            "Découpage des vues Kanban, sprint et reporting pour limiter la surcharge cognitive.",
+            "Données simulées structurées pour montrer le raisonnement produit avant branchement API."
         ],
         tags: ["HTML", "CSS", "JavaScript", "Dashboard", "Vercel"],
         link: "https://nx-dash-it.vercel.app/",
-        linkLabel: "Voir le dashboard"
+        linkLabel: "Voir en ligne",
+        sourceLink: "https://github.com/gabrielhalimengone/nx-dash-it",
+        sourceLabel: "Code source"
     },
     {
         id: 7,
         kicker: "Landing événementielle",
         title: "TechFest",
         role: "React · Vite · Tailwind CSS",
-        desc: "Landing page événementielle avec galerie dynamique, animations et composition responsive.",
+        desc: "Landing page événementielle conçue comme une vitrine immersive, avec galerie et animations contrôlées.",
         points: [
-            "Structure React avec composants isolés.",
-            "Build Vite et stylisation Tailwind CSS.",
-            "Galerie et animations pour renforcer l'immersion."
+            "Build Vite pour itérer vite sur une interface React légère.",
+            "Tailwind utilisé pour garder une cohérence d'espacements et de composants.",
+            "Animations limitées aux zones utiles pour conserver une navigation fluide."
         ],
         tags: ["React", "Vite", "Tailwind", "Landing"],
         link: "https://festival-six-eta.vercel.app/",
-        linkLabel: "Voir le site"
+        linkLabel: "Voir en ligne",
+        sourceLink: "https://github.com/gabrielhalimengone/festival",
+        sourceLabel: "Code source"
     }
 ];
 
@@ -296,8 +312,17 @@ function openProject(card) {
     modal.querySelector("#modalTags").innerHTML = project.tags
         .map(tag => `<span>${escapeHTML(tag)}</span>`)
         .join("");
+    const projectActions = [
+        project.link
+            ? `<a href="${escapeHTML(project.link)}" target="_blank" rel="noopener noreferrer">${escapeHTML(project.linkLabel || "Voir en ligne")}</a>`
+            : "",
+        project.sourceLink
+            ? `<a href="${escapeHTML(project.sourceLink)}" target="_blank" rel="noopener noreferrer">${escapeHTML(project.sourceLabel || "Code source")}</a>`
+            : ""
+    ].filter(Boolean).join("");
+
     modal.querySelector("#modalActions").innerHTML = `
-        ${project.link ? `<a href="${escapeHTML(project.link)}" target="_blank" rel="noopener noreferrer">${escapeHTML(project.linkLabel)}</a>` : ""}
+        ${projectActions}
         <button type="button" data-close-modal>Fermer</button>
     `;
 
@@ -323,15 +348,16 @@ function closeModal() {
 
 document.querySelectorAll(".project-card").forEach(card => {
     const title = card.querySelector("h3")?.textContent?.trim() || "projet";
-    card.setAttribute("role", "button");
-    card.setAttribute("tabindex", "0");
-    card.setAttribute("aria-label", `Voir le détail du projet ${title}`);
-    card.addEventListener("click", () => openProject(card));
-    card.addEventListener("keydown", event => {
-        if (event.key === "Enter" || event.key === " ") {
-            event.preventDefault();
-            openProject(card);
-        }
+    const trigger = card.querySelector("[data-project-trigger]");
+    trigger?.setAttribute("aria-label", `Voir le détail du projet ${title}`);
+    trigger?.addEventListener("click", event => {
+        event.stopPropagation();
+        openProject(card);
+    });
+
+    card.addEventListener("click", event => {
+        if (event.target instanceof Element && event.target.closest("a, button")) return;
+        openProject(card);
     });
 });
 
