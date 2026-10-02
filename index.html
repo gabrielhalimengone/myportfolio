@@ -9,8 +9,8 @@
     content="Portfolio frontend de Gabriel-Halim Endam'Engone : interfaces React, sites responsives, applications web et coordination de projets IT à Casablanca.">
   <link rel="icon"
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23131715'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%23F0B84B' font-family='Arial' font-size='23' font-weight='700'%3EGH%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="assets/css/style.css?v=contact-form">
-  <script src="assets/js/script.js?v=contact-form" defer></script>
+  <link rel="stylesheet" href="assets/css/style.css?v=contact-balance">
+  <script src="assets/js/script.js?v=contact-balance" defer></script>
 </head>
 
 <body>
@@ -39,8 +39,8 @@
   <main id="main">
     <section class="hero section" id="top">
       <div class="hero-copy">
-        <p class="eyebrow">Frontend developer · Casablanca</p>
-        <h1>Développeur Frontend — interfaces React & Flutter orientées produit.</h1>
+        <p class="eyebrow">Frontend developer · React · Flutter</p>
+        <h1>Je conçois l'interface <span>qui fait avancer les produits.</span></h1>
         <p class="hero-lead">
           Je conçois et développe des expériences web responsives avec une attention particulière à la lisibilité,
           l'accessibilité, la performance et la coordination entre besoins métier et exécution technique.
@@ -139,7 +139,7 @@
           <p class="eyebrow">Selected work</p>
           <span class="section-count">08 projets</span>
         </div>
-        <h2>Projets vérifiables, décisions visibles.</h2>
+        <h2>Projets qui tournent vraiment.</h2>
         <p>Une sélection centrée sur les contraintes produit, les choix d'interface et les livrables consultables :
           parcours, responsive, données, performance perçue et qualité d'intégration.</p>
       </div>
@@ -154,6 +154,15 @@
 
       <div class="project-grid">
         <article class="project-card featured" data-id="6" data-cat="web product">
+          <div class="project-preview project-preview--nexus" aria-hidden="true">
+            <span class="preview-brand">NEXUS</span>
+            <span class="preview-title">Infrastructure health</span>
+            <span class="preview-stat stat-one">24</span>
+            <span class="preview-stat stat-two">142</span>
+            <span class="preview-stat stat-three">18</span>
+            <span class="preview-chart"></span>
+            <span class="preview-label">NEXUS IT DASHBOARD</span>
+          </div>
           <div class="project-meta">JavaScript · Agile dashboard</div>
           <h3>Nexus IT Dashboard</h3>
           <p>Dashboard web pour piloter un projet IT avec plusieurs vues métier sans perdre le contexte de l'équipe.</p>
@@ -171,6 +180,10 @@
         </article>
 
         <article class="project-card" data-id="0" data-cat="mobile product">
+          <div class="project-preview project-preview--transflash" aria-hidden="true">
+            <img src="assets/img/transflash/transflash-02-user-home-balance.jpeg" alt="">
+            <span>TRANSFLASH</span>
+          </div>
           <div class="project-meta">Flutter · Mobile app</div>
           <h3>TransFlash</h3>
           <p>Application mobile de transfert d'argent pensée autour d'un parcours sensible : montant, pays, bénéficiaire, confirmation.</p>
@@ -186,6 +199,14 @@
         </article>
 
         <article class="project-card" data-id="1" data-cat="web">
+          <div class="project-preview project-preview--fitzone" aria-hidden="true">
+            <span class="fitzone-brand">FITZONE</span>
+            <span class="fitzone-kicker">COACHING · PERFORMANCE · BIEN-ÊTRE</span>
+            <strong>TRANSFORMEZ<br><em>VOTRE CORPS</em><br>&amp; VOTRE VIE</strong>
+            <span class="fitzone-cta">DÉMARRER MON PARCOURS <b>↗</b></span>
+            <span class="fitzone-card fitzone-card--limit">PLACES LIMITÉES <b>03</b></span>
+            <span class="fitzone-card fitzone-card--class">PROCHAIN COURS <b>18:30</b></span>
+          </div>
           <div class="project-meta">React · Landing page</div>
           <h3>FitZone</h3>
           <p>Site vitrine React pour transformer une offre fitness en parcours clair : découverte, preuve, planning, contact.</p>
@@ -269,6 +290,11 @@
         </article>
 
         <article class="project-card" data-id="7" data-cat="web">
+          <div class="project-preview project-preview--techfest" aria-hidden="true">
+            <span>TECHFEST</span>
+            <strong>HACKER<br>L'AVENIR</strong>
+            <i></i>
+          </div>
           <div class="project-meta">React · Vite · Tailwind</div>
           <h3>TechFest</h3>
           <p>Landing page événementielle conçue comme une vitrine immersive, avec galerie et animations contrôlées.</p>
@@ -415,6 +441,27 @@
             </select>
           </label>
 
+          <fieldset class="contact-channel">
+            <legend>Recevoir une réponse par</legend>
+            <div class="channel-options">
+              <label class="channel-option" for="contact-channel-email">
+                <input id="contact-channel-email" name="channel" type="radio" value="email" checked>
+                <span>Email</span>
+              </label>
+              <label class="channel-option" for="contact-channel-whatsapp">
+                <input id="contact-channel-whatsapp" name="channel" type="radio" value="whatsapp">
+                <span>WhatsApp</span>
+              </label>
+            </div>
+            <p class="channel-hint">WhatsApp ouvrira une conversation préremplie ; il restera à appuyer sur Envoyer.</p>
+          </fieldset>
+
+          <label id="contact-phone-field" for="contact-phone" hidden>
+            Numéro WhatsApp
+            <input id="contact-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel"
+              placeholder="Ex. +212 6 00 00 00 00">
+          </label>
+
           <label for="contact-message">
             Message
             <textarea id="contact-message" name="message" rows="5" placeholder="Objectif, délai, contexte du projet..." required></textarea>
@@ -434,7 +481,7 @@
             <span>Email</span>
             gabrielhalim01@gmail.com
           </a>
-          <a href="tel:+212674346915">
+          <a href="https://wa.me/212674346915" target="_blank" rel="noopener noreferrer">
             <span>Téléphone</span>
             +212 067 434 6915
           </a>

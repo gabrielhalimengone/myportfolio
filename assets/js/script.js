@@ -232,6 +232,9 @@ const modalPanel = modal?.querySelector(".modal-panel");
 const closeButton = modal?.querySelector(".modal-close");
 const contactForm = document.getElementById("contact-form");
 const contactStatus = document.getElementById("contact-form-status");
+const contactPhoneField = document.getElementById("contact-phone-field");
+const contactPhone = document.getElementById("contact-phone");
+const contactChannelInputs = [...document.querySelectorAll("input[name='channel']")];
 let previousFocus = null;
 
 function escapeHTML(value) {
@@ -271,6 +274,21 @@ function setContactLoading(isLoading) {
     submitButton.innerHTML = isLoading
         ? "Envoi en cours..."
         : submitButton.dataset.defaultText;
+}
+
+function getContactChannel() {
+    return contactForm?.querySelector("input[name='channel']:checked")?.value || "email";
+}
+
+function updateContactChannel() {
+    const isWhatsApp = getContactChannel() === "whatsapp";
+    if (!contactPhoneField || !contactPhone) return;
+
+    contactPhoneField.hidden = !isWhatsApp;
+    contactPhone.required = isWhatsApp;
+    if (!isWhatsApp) {
+        contactPhone.removeAttribute("aria-invalid");
+    }
 }
 
 function openProject(card) {
@@ -388,6 +406,39 @@ contactForm?.addEventListener("input", event => {
     }
 });
 
+contactChannelInputs.forEach(input => {
+    input.addEventListener("change", () => {
+        updateContactChannel();
+        setContactStatus("", "");
+    });
+});
+updateContactChannel();
+
+const interactiveCardGrids = [
+    document.querySelector(".terrain-grid"),
+    document.querySelector(".expertise-grid")
+].filter(Boolean);
+
+interactiveCardGrids.forEach(grid => {
+    const cards = [...grid.querySelectorAll("article")];
+    if (!cards.length) return;
+
+    grid.classList.add("js-ready");
+    const setActiveCard = card => {
+        cards.forEach(item => item.classList.toggle("is-active", item === card));
+    };
+
+    setActiveCard(cards[0]);
+    cards.forEach(card => {
+        card.addEventListener("pointerenter", () => setActiveCard(card));
+        card.addEventListener("focusin", () => setActiveCard(card));
+    });
+    grid.addEventListener("pointerleave", () => setActiveCard(cards[0]));
+    grid.addEventListener("focusout", event => {
+        if (!grid.contains(event.relatedTarget)) setActiveCard(cards[0]);
+    });
+});
+
 contactForm?.addEventListener("submit", async event => {
     event.preventDefault();
 
@@ -403,6 +454,35 @@ contactForm?.addEventListener("submit", async event => {
 
     const formData = new FormData(contactForm);
     const payload = Object.fromEntries(formData.entries());
+
+    if (payload.channel === "whatsapp") {
+        const phoneDigits = String(payload.phone || "").replace(/\D/g, "");
+        if (phoneDigits.length < 8 || phoneDigits.length > 15) {
+            contactPhone?.setAttribute("aria-invalid", "true");
+            setContactStatus("Indique un numéro WhatsApp valide avec son indicatif pays.", "error");
+            contactPhone?.focus({ preventScroll: false });
+            return;
+        }
+
+        const whatsappMessage = [
+            "Bonjour Gabriel,",
+            "",
+            `Je vous contacte au sujet de : ${payload.project}.`,
+            `Mon numéro WhatsApp : ${payload.phone}.`,
+            "",
+            payload.message,
+            "",
+            `Nom : ${payload.name}`,
+            `Email : ${payload.email}`
+        ].join("\n");
+        const whatsappUrl = `https://wa.me/212674346915?text=${encodeURIComponent(whatsappMessage)}`;
+
+        window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+        contactForm.reset();
+        updateContactChannel();
+        setContactStatus("WhatsApp est prêt avec votre demande préremplie.", "success");
+        return;
+    }
 
     setContactStatus("", "");
     setContactLoading(true);
