@@ -87,9 +87,12 @@ module.exports = async function contactHandler(req, res) {
     const name = cleanText(body.name, 120);
     const email = cleanText(body.email, 180).toLowerCase();
     const project = cleanText(body.project, 100);
+    const objective = cleanText(body.objective, 140);
+    const budget = cleanText(body.budget, 80);
+    const timeline = cleanText(body.timeline, 80);
     const message = cleanMessage(body.message, 2400);
 
-    if (!name || !isValidEmail(email) || !project || message.length < 12) {
+    if (!name || !isValidEmail(email) || !project || !objective || message.length < 12) {
         return res.status(400).json({ message: "Vérifie les champs du formulaire." });
     }
 
@@ -102,6 +105,9 @@ module.exports = async function contactHandler(req, res) {
         `Nom : ${name}`,
         `Email : ${email}`,
         `Projet : ${project}`,
+        `Objectif : ${objective}`,
+        `Budget : ${budget || "À définir"}`,
+        `Délai : ${timeline || "À définir"}`,
         "",
         "Message :",
         message
@@ -112,6 +118,9 @@ module.exports = async function contactHandler(req, res) {
             <p><strong>Nom :</strong> ${escapeHTML(name)}</p>
             <p><strong>Email :</strong> <a href="mailto:${escapeHTML(email)}">${escapeHTML(email)}</a></p>
             <p><strong>Projet :</strong> ${escapeHTML(project)}</p>
+            <p><strong>Objectif :</strong> ${escapeHTML(objective)}</p>
+            <p><strong>Budget :</strong> ${escapeHTML(budget || "À définir")}</p>
+            <p><strong>Délai :</strong> ${escapeHTML(timeline || "À définir")}</p>
             <div style="margin-top:18px;padding:16px;border:1px solid #d8e2dc;border-radius:8px;background:#f5f7f3">
                 ${escapeHTML(message).replace(/\n/g, "<br>")}
             </div>

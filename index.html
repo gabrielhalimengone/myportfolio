@@ -9,8 +9,11 @@
     content="Portfolio frontend de Gabriel-Halim Endam'Engone : interfaces React, sites responsives, applications web et coordination de projets IT à Casablanca.">
   <link rel="icon"
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23131715'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%23F0B84B' font-family='Arial' font-size='23' font-weight='700'%3EGH%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="assets/css/style.css?v=contact-balance">
-  <script src="assets/js/script.js?v=contact-balance" defer></script>
+  <link rel="stylesheet" href="assets/css/style.css?v=responsive-fix-01">
+  <script type="module" src="assets/js/script.js?v=architecture-01"></script>
+  <script type="module" src="assets/js/react-playground.js"></script>
+  <script type="module" src="assets/js/react-projects.js"></script>
+  <script type="module" src="assets/js/react-contact.js"></script>
 </head>
 
 <body>
@@ -40,10 +43,10 @@
     <section class="hero section" id="top">
       <div class="hero-copy">
         <p class="eyebrow">Frontend developer · React · Flutter</p>
-        <h1>Je conçois l'interface <span>qui fait avancer les produits.</span></h1>
+        <h1>Je construis des interfaces <span>précises, rapides et vivantes.</span></h1>
         <p class="hero-lead">
-          Je conçois et développe des expériences web responsives avec une attention particulière à la lisibilité,
-          l'accessibilité, la performance et la coordination entre besoins métier et exécution technique.
+          Développeur front-end spécialisé dans React, les systèmes d'interface et les expériences web interactives.
+          Je transforme des besoins complexes en produits clairs, responsives et réellement utilisables.
         </p>
 
         <div class="hero-status" role="status">
@@ -55,7 +58,7 @@
 
         <div class="hero-actions">
           <a class="button primary" href="#projets">Voir les projets</a>
-          <a class="button secondary" href="mailto:gabrielhalim01@gmail.com">Me contacter</a>
+          <a class="button secondary" href="#contact-form">Parler d'un projet</a>
         </div>
 
         <dl class="hero-stats" aria-label="Points forts">
@@ -133,183 +136,103 @@
       </article>
     </section>
 
+    <section class="proof-bar section" aria-label="Compétences frontend">
+      <div class="proof-bar-heading">
+        <p class="eyebrow">Built for the browser</p>
+        <p>Des interfaces pensées pour être belles, rapides et vérifiables.</p>
+      </div>
+      <div class="proof-list" aria-label="Technologies et pratiques">
+        <span>React</span>
+        <span>TypeScript</span>
+        <span>Responsive UI</span>
+        <span>Accessibility</span>
+        <span>Motion</span>
+        <span>Design systems</span>
+        <span>Performance</span>
+      </div>
+    </section>
+
     <section class="section projects-section" id="projets">
       <div class="section-heading">
         <div class="section-heading-bar">
           <p class="eyebrow">Selected work</p>
-          <span class="section-count">08 projets</span>
+          <span class="section-count">04 sélectionnés · 04 complémentaires</span>
         </div>
         <h2>Projets qui tournent vraiment.</h2>
         <p>Une sélection centrée sur les contraintes produit, les choix d'interface et les livrables consultables :
           parcours, responsive, données, performance perçue et qualité d'intégration.</p>
       </div>
 
-      <div class="filters" aria-label="Filtrer les projets">
-        <button class="filter-btn active" data-filter="all">Tous</button>
-        <button class="filter-btn" data-filter="web">Web</button>
-        <button class="filter-btn" data-filter="mobile">Mobile</button>
-        <button class="filter-btn" data-filter="product">Produit</button>
-        <button class="filter-btn" data-filter="tooling">Tooling</button>
+      <div id="projects-react-root"></div>
+    </section>
+
+    <section class="section case-study-section" id="nexus-study">
+      <div class="case-study-intro">
+        <div>
+          <p class="eyebrow">01 · Étude de cas</p>
+          <h2>Nexus IT Dashboard</h2>
+          <p class="case-study-lead">Transformer un espace de pilotage IT dense en une interface qui aide à décider vite, sans perdre le fil entre tickets, risques et sprint.</p>
+        </div>
+        <div class="case-study-actions">
+          <a class="button primary" href="https://nx-dash-it.vercel.app/" target="_blank" rel="noopener noreferrer">Ouvrir la démo <span aria-hidden="true">↗</span></a>
+          <a class="button secondary" href="https://github.com/gabrielhalimengone/nx-dash-it" target="_blank" rel="noopener noreferrer">Voir le code</a>
+        </div>
       </div>
 
-      <div class="project-grid">
-        <article class="project-card featured" data-id="6" data-cat="web product">
-          <div class="project-preview project-preview--nexus" aria-hidden="true">
-            <span class="preview-brand">NEXUS</span>
-            <span class="preview-title">Infrastructure health</span>
-            <span class="preview-stat stat-one">24</span>
-            <span class="preview-stat stat-two">142</span>
-            <span class="preview-stat stat-three">18</span>
-            <span class="preview-chart"></span>
-            <span class="preview-label">NEXUS IT DASHBOARD</span>
-          </div>
-          <div class="project-meta">JavaScript · Agile dashboard</div>
-          <h3>Nexus IT Dashboard</h3>
-          <p>Dashboard web pour piloter un projet IT avec plusieurs vues métier sans perdre le contexte de l'équipe.</p>
-          <ul>
-            <li>Choix d'une navigation latérale persistante pour garder la lecture SaaS immédiate.</li>
-            <li>Découpage des vues Kanban, sprint et reporting pour limiter la surcharge cognitive.</li>
-            <li>Données simulées structurées pour montrer le raisonnement produit avant branchement API.</li>
-          </ul>
-          <div class="tag-row"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Vercel</span></div>
-          <div class="project-actions" aria-label="Actions Nexus IT Dashboard">
-            <button class="project-details" type="button" data-project-trigger>Étude courte</button>
-            <a class="project-action" href="https://nx-dash-it.vercel.app/" target="_blank" rel="noopener noreferrer">Voir en ligne</a>
-            <a class="project-action muted" href="https://github.com/gabrielhalimengone/nx-dash-it" target="_blank" rel="noopener noreferrer">Code source</a>
-          </div>
+      <div class="case-study-grid">
+        <article>
+          <span>Contexte</span>
+          <h3>Beaucoup d'informations, peu de temps.</h3>
+          <p>Le dashboard rassemble plusieurs vues de travail et doit rester compréhensible pour une équipe qui alterne entre suivi, coordination et alertes.</p>
         </article>
+        <article>
+          <span>Décision d'interface</span>
+          <h3>Une navigation persistante par espace.</h3>
+          <p>La Synthèse, le Kanban, le Sprint, le Reporting, Jira, les Alertes et l'Équipe restent accessibles sans reconstruire le contexte à chaque changement de vue.</p>
+        </article>
+        <article>
+          <span>Contribution frontend</span>
+          <h3>Des états lisibles avant les effets.</h3>
+          <p>Les tickets, risques, synchronisations et indicateurs sont traités comme des composants avec un état, une priorité et une action identifiable.</p>
+        </article>
+      </div>
 
-        <article class="project-card" data-id="0" data-cat="mobile product">
-          <div class="project-preview project-preview--transflash" aria-hidden="true">
-            <img src="assets/img/transflash/transflash-02-user-home-balance.jpeg" alt="">
-            <span>TRANSFLASH</span>
-          </div>
-          <div class="project-meta">Flutter · Mobile app</div>
-          <h3>TransFlash</h3>
-          <p>Application mobile de transfert d'argent pensée autour d'un parcours sensible : montant, pays, bénéficiaire, confirmation.</p>
-          <ul>
-            <li>Découpage en étapes pour éviter les erreurs avant validation d'une transaction.</li>
-            <li>UI sombre et contrastée pour faire ressortir les montants, statuts et actions critiques.</li>
-            <li>Écrans admin séparés pour valider, refuser et suivre les flux côté opération.</li>
-          </ul>
-          <div class="tag-row"><span>Flutter</span><span>Dart</span><span>UX mobile</span></div>
-          <div class="project-actions" aria-label="Actions TransFlash">
-            <button class="project-details" type="button" data-project-trigger>Voir les écrans</button>
-          </div>
-        </article>
+      <div class="case-study-proof">
+        <div>
+          <span>Preuves visibles dans la démo</span>
+          <p>Ces chiffres décrivent l'état de démonstration consulté, pas une mesure de production.</p>
+        </div>
+        <div class="case-study-metrics">
+          <strong><b>07</b> espaces de travail</strong>
+          <strong><b>06</b> tickets ouverts</strong>
+          <strong><b>03</b> notifications</strong>
+        </div>
+      </div>
+    </section>
 
-        <article class="project-card" data-id="1" data-cat="web">
-          <div class="project-preview project-preview--fitzone" aria-hidden="true">
-            <span class="fitzone-brand">FITZONE</span>
-            <span class="fitzone-kicker">COACHING · PERFORMANCE · BIEN-ÊTRE</span>
-            <strong>TRANSFORMEZ<br><em>VOTRE CORPS</em><br>&amp; VOTRE VIE</strong>
-            <span class="fitzone-cta">DÉMARRER MON PARCOURS <b>↗</b></span>
-            <span class="fitzone-card fitzone-card--limit">PLACES LIMITÉES <b>03</b></span>
-            <span class="fitzone-card fitzone-card--class">PROCHAIN COURS <b>18:30</b></span>
-          </div>
-          <div class="project-meta">React · Landing page</div>
-          <h3>FitZone</h3>
-          <p>Site vitrine React pour transformer une offre fitness en parcours clair : découverte, preuve, planning, contact.</p>
-          <ul>
-            <li>Sections modulaires pour réorganiser l'offre sans réécrire la page.</li>
-            <li>CTA répétés mais contenus pour guider l'utilisateur sans bruit visuel.</li>
-            <li>Responsive pensé pour une consultation rapide sur mobile avant inscription.</li>
-          </ul>
-          <div class="tag-row"><span>React</span><span>Responsive</span><span>Vitrine</span></div>
-          <div class="project-actions" aria-label="Actions FitZone">
-            <button class="project-details" type="button" data-project-trigger>Étude courte</button>
-            <a class="project-action" href="https://fitzone-pink.vercel.app/" target="_blank" rel="noopener noreferrer">Voir en ligne</a>
-            <a class="project-action muted" href="https://github.com/gabrielhalimengone/fitzone" target="_blank" rel="noopener noreferrer">Code source</a>
-          </div>
-        </article>
+    <section class="section method-section" id="methode">
+      <div class="section-heading compact">
+        <p class="eyebrow">How I build</p>
+        <h2>Une méthode lisible, du problème à l'interface.</h2>
+        <p>Chaque décision visuelle doit servir un usage, un état ou une livraison plus fiable.</p>
+      </div>
+      <ol class="method-grid">
+        <li><span>01</span><strong>Comprendre</strong><p>Clarifier le besoin, le public et les contraintes réelles.</p></li>
+        <li><span>02</span><strong>Structurer</strong><p>Organiser les contenus, les composants et les priorités.</p></li>
+        <li><span>03</span><strong>Construire</strong><p>Intégrer une interface responsive, accessible et maintenable.</p></li>
+        <li><span>04</span><strong>Animer</strong><p>Guider l'attention avec des interactions utiles et mesurées.</p></li>
+        <li><span>05</span><strong>Optimiser</strong><p>Vérifier les états, le mobile, le chargement et la qualité finale.</p></li>
+      </ol>
+    </section>
 
-        <article class="project-card" data-id="2" data-cat="web">
-          <div class="project-meta">HTML · CSS · JS</div>
-          <h3>Vitrine Digitale</h3>
-          <p>Landing page de service digital centrée sur la clarté de l'offre, la confiance et la conversion.</p>
-          <ul>
-            <li>HTML sémantique pour hiérarchiser l'offre et améliorer la lecture SEO.</li>
-            <li>Animations CSS légères pour enrichir l'expérience sans ralentir la page.</li>
-            <li>Formes et espacements calibrés pour garder une page lisible sur petits écrans.</li>
-          </ul>
-          <div class="tag-row"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
-          <div class="project-actions" aria-label="Actions Vitrine Digitale">
-            <button class="project-details" type="button" data-project-trigger>Étude courte</button>
-            <a class="project-action" href="https://vitrine-digitale.vercel.app/" target="_blank" rel="noopener noreferrer">Voir en ligne</a>
-            <a class="project-action muted" href="https://github.com/gabrielhalimengone/vitrine-digitale" target="_blank" rel="noopener noreferrer">Code source</a>
-          </div>
-        </article>
-
-        <article class="project-card" data-id="3" data-cat="tooling">
-          <div class="project-meta">Python · Logique</div>
-          <h3>PyGames Pack</h3>
-          <p>Pack de mini-jeux Python pour montrer la logique d'état, les règles et les interactions au-delà d'une interface web.</p>
-          <ul>
-            <li>Gestion de scoring, tours de jeu, erreurs et conditions de victoire.</li>
-            <li>Séparation des règles pour rendre chaque mini-jeu plus simple à maintenir.</li>
-            <li>Captures ajoutées pour rendre le résultat compréhensible sans lancer Python.</li>
-          </ul>
-          <div class="tag-row"><span>Python</span><span>Algo</span><span>Tkinter</span></div>
-          <div class="project-actions" aria-label="Actions PyGames Pack">
-            <button class="project-details" type="button" data-project-trigger>Voir les captures</button>
-          </div>
-        </article>
-
-        <article class="project-card" data-id="4" data-cat="product tooling">
-          <div class="project-meta">Live ops · Dashboard</div>
-          <h3>Event Live Board</h3>
-          <p>Outil de coordination pour événements live, pensé pour transformer une régie technique en checklist exploitable.</p>
-          <ul>
-            <li>Modèle de suivi orienté incidents, priorités et validation avant exploitation.</li>
-            <li>Interface volontairement dense pour des équipes qui consultent vite pendant le live.</li>
-            <li>Structure prête à brancher sur des données terrain ou une API d'exploitation.</li>
-          </ul>
-          <div class="tag-row"><span>Novastar</span><span>Dashboard</span><span>Ops</span></div>
-          <div class="project-actions" aria-label="Actions Event Live Board">
-            <button class="project-details" type="button" data-project-trigger>Étude courte</button>
-            <a class="project-action" href="https://event-live-ruddy.vercel.app/" target="_blank" rel="noopener noreferrer">Voir en ligne</a>
-            <a class="project-action muted" href="https://github.com/gabrielhalimengone/event-live" target="_blank" rel="noopener noreferrer">Code source</a>
-          </div>
-        </article>
-
-        <article class="project-card" data-id="5" data-cat="web product">
-          <div class="project-meta">Education · Web app</div>
-          <h3>Mon Sikolo</h3>
-          <p>Plateforme éducative orientée parcours étudiant, avec une attention portée aux contenus, accès et corrections UI.</p>
-          <ul>
-            <li>Organisation des écrans autour des besoins étudiants plutôt que des modules techniques.</li>
-            <li>Travail PHP/SQL pour relier interface, contenus et comportements fonctionnels.</li>
-            <li>Améliorations de lisibilité pour rendre l'outil plus accessible aux non-techniciens.</li>
-          </ul>
-          <div class="tag-row"><span>PHP</span><span>SQL</span><span>UX</span></div>
-          <div class="project-actions" aria-label="Actions Mon Sikolo">
-            <button class="project-details" type="button" data-project-trigger>Étude courte</button>
-            <a class="project-action" href="https://mon-sikolo.vercel.app/" target="_blank" rel="noopener noreferrer">Voir en ligne</a>
-            <a class="project-action muted" href="https://github.com/gabrielhalimengone/Mon-sikolo" target="_blank" rel="noopener noreferrer">Code source</a>
-          </div>
-        </article>
-
-        <article class="project-card" data-id="7" data-cat="web">
-          <div class="project-preview project-preview--techfest" aria-hidden="true">
-            <span>TECHFEST</span>
-            <strong>HACKER<br>L'AVENIR</strong>
-            <i></i>
-          </div>
-          <div class="project-meta">React · Vite · Tailwind</div>
-          <h3>TechFest</h3>
-          <p>Landing page événementielle conçue comme une vitrine immersive, avec galerie et animations contrôlées.</p>
-          <ul>
-            <li>Build Vite pour itérer vite sur une interface React légère.</li>
-            <li>Tailwind utilisé pour garder une cohérence d'espacements et de composants.</li>
-            <li>Animations limitées aux zones utiles pour conserver une navigation fluide.</li>
-          </ul>
-          <div class="tag-row"><span>Vite</span><span>Tailwind</span><span>Landing</span></div>
-          <div class="project-actions" aria-label="Actions TechFest">
-            <button class="project-details" type="button" data-project-trigger>Étude courte</button>
-            <a class="project-action" href="https://festival-six-eta.vercel.app/" target="_blank" rel="noopener noreferrer">Voir en ligne</a>
-            <a class="project-action muted" href="https://github.com/gabrielhalimengone/festival" target="_blank" rel="noopener noreferrer">Code source</a>
-          </div>
-        </article>
+    <section class="section playground-section" id="playground">
+      <div class="section-heading compact">
+        <p class="eyebrow">Playground</p>
+        <h2>Des composants qui réagissent comme un produit.</h2>
+        <p>Une petite zone d'expérimentation pour montrer les états d'interface sans transformer le portfolio en démonstration gratuite.</p>
+      </div>
+      <div class="playground-shell">
+        <div id="playground-react-root"></div>
       </div>
     </section>
 
@@ -351,20 +274,20 @@
 
       <div class="expertise-grid">
         <article>
-          <h3>Frontend</h3>
-          <p>Conception d'écrans web, intégration responsive, composants réutilisables et interfaces maintenables.</p>
+          <h3>UI engineering</h3>
+          <p>Je transforme une interface complexe en composants réutilisables, cohérents et faciles à maintenir.</p>
         </article>
         <article>
-          <h3>UX & qualité</h3>
-          <p>Hiérarchie visuelle, accessibilité clavier, états interactifs, performance perçue, cohérence mobile.</p>
+          <h3>Motion utile</h3>
+          <p>J'utilise l'animation pour guider l'attention, confirmer une action et créer une sensation de fluidité.</p>
         </article>
         <article>
-          <h3>Back-office léger</h3>
-          <p>PHP, SQL, CMS, formulaires, intégration de contenus et corrections fonctionnelles.</p>
+          <h3>Front-end robuste</h3>
+          <p>Je construis des interfaces responsive, accessibles et optimisées pour les vrais usages.</p>
         </article>
         <article>
-          <h3>Gestion projet</h3>
-          <p>Agile/Scrum, Jira, Trello, MS Project, analyse des besoins, planning, priorisation.</p>
+          <h3>Produit & delivery</h3>
+          <p>Je relie besoins métier, priorités, composants et livrables vérifiables jusqu'à la mise en ligne.</p>
         </article>
       </div>
     </section>
@@ -411,70 +334,7 @@
       </div>
 
       <div class="contact-panel">
-        <form class="contact-form" id="contact-form" novalidate>
-          <div class="form-heading">
-            <span>Brief rapide</span>
-            <strong>Réponse sous 24-48h</strong>
-          </div>
-
-          <div class="form-grid">
-            <label for="contact-name">
-              Nom
-              <input id="contact-name" name="name" type="text" autocomplete="name" placeholder="Votre nom" required>
-            </label>
-
-            <label for="contact-email">
-              Email
-              <input id="contact-email" name="email" type="email" autocomplete="email" placeholder="vous@email.com" required>
-            </label>
-          </div>
-
-          <label for="contact-project">
-            Projet
-            <select id="contact-project" name="project" required>
-              <option value="">Choisir un besoin</option>
-              <option value="Site vitrine">Site vitrine</option>
-              <option value="Interface web">Interface web</option>
-              <option value="Refonte UI">Refonte UI</option>
-              <option value="Mission frontend">Mission frontend</option>
-              <option value="Autre collaboration">Autre collaboration</option>
-            </select>
-          </label>
-
-          <fieldset class="contact-channel">
-            <legend>Recevoir une réponse par</legend>
-            <div class="channel-options">
-              <label class="channel-option" for="contact-channel-email">
-                <input id="contact-channel-email" name="channel" type="radio" value="email" checked>
-                <span>Email</span>
-              </label>
-              <label class="channel-option" for="contact-channel-whatsapp">
-                <input id="contact-channel-whatsapp" name="channel" type="radio" value="whatsapp">
-                <span>WhatsApp</span>
-              </label>
-            </div>
-            <p class="channel-hint">WhatsApp ouvrira une conversation préremplie ; il restera à appuyer sur Envoyer.</p>
-          </fieldset>
-
-          <label id="contact-phone-field" for="contact-phone" hidden>
-            Numéro WhatsApp
-            <input id="contact-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel"
-              placeholder="Ex. +212 6 00 00 00 00">
-          </label>
-
-          <label for="contact-message">
-            Message
-            <textarea id="contact-message" name="message" rows="5" placeholder="Objectif, délai, contexte du projet..." required></textarea>
-          </label>
-
-          <label class="form-honeypot" for="contact-company" aria-hidden="true">
-            Société
-            <input id="contact-company" name="company" type="text" tabindex="-1" autocomplete="off">
-          </label>
-
-          <button class="button primary" type="submit">Envoyer la demande <span aria-hidden="true">↗</span></button>
-          <p class="form-status" id="contact-form-status" role="status" aria-live="polite"></p>
-        </form>
+        <div id="contact-react-root"></div>
 
         <div class="contact-card" aria-label="Coordonnées directes">
           <a href="mailto:gabrielhalim01@gmail.com">
@@ -499,19 +359,6 @@
     <p>Portfolio frontend · 2026</p>
   </footer>
 
-  <div class="modal" id="projectModal" aria-hidden="true">
-    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
-      <button class="modal-close" type="button" aria-label="Fermer la fenêtre">Fermer</button>
-      <p class="modal-kicker" id="modalKicker"></p>
-      <h2 id="modalTitle"></h2>
-      <p class="modal-role" id="modalRole"></p>
-      <p class="modal-desc" id="modalDesc"></p>
-      <div class="modal-media" id="modalMedia" hidden></div>
-      <div class="modal-points" id="modalPoints"></div>
-      <div class="modal-tags" id="modalTags"></div>
-      <div class="modal-actions" id="modalActions"></div>
-    </div>
-  </div>
 </body>
 
 </html>
