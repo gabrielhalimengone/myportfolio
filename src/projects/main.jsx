@@ -5,12 +5,11 @@ import { projects } from "../../assets/js/data/projects.js";
 const selectedIds = new Set([6, 0, 1, 7]);
 const projectOrder = [6, 0, 1, 2, 3, 4, 5, 7];
 const filters = [["all", "Tous"], ["web", "Web"], ["mobile", "Mobile"], ["product", "Produit"], ["tooling", "Tooling"]];
+const livePreviewIds = new Set([1, 6, 7]);
 
 function ProjectPreview({ project }) {
-    if (project.id === 6) return <div className="project-preview project-preview--nexus" aria-hidden="true"><span className="preview-brand">NEXUS</span><span className="preview-title">Infrastructure health</span><span className="preview-stat stat-one">24</span><span className="preview-stat stat-two">142</span><span className="preview-stat stat-three">18</span><span className="preview-chart"></span><span className="preview-label">NEXUS IT DASHBOARD</span></div>;
-    if (project.id === 0) return <div className="project-preview project-preview--transflash" aria-hidden="true"><img src="assets/img/transflash/transflash-02-user-home-balance.jpeg" alt="" /><span>TRANSFLASH</span></div>;
-    if (project.id === 1) return <div className="project-preview project-preview--fitzone" aria-hidden="true"><span className="fitzone-brand">FITZONE</span><span className="fitzone-kicker">COACHING · PERFORMANCE · BIEN-ÊTRE</span><strong>TRANSFORMEZ<br /><em>VOTRE CORPS</em><br />&amp; VOTRE VIE</strong><span className="fitzone-cta">DÉMARRER MON PARCOURS <b>↗</b></span><span className="fitzone-card fitzone-card--limit">PLACES LIMITÉES <b>03</b></span><span className="fitzone-card fitzone-card--class">PROCHAIN COURS <b>18:30</b></span></div>;
-    if (project.id === 7) return <div className="project-preview project-preview--techfest" aria-hidden="true"><span>TECHFEST</span><strong>HACKER<br />L'AVENIR</strong><i></i></div>;
+    if (project.id === 0) return <div className="project-preview project-preview--transflash" aria-hidden="true"><div className="transflash-device transflash-device--summary"><img src="assets/img/transflash/transflash-07-send-summary.jpeg" alt="" loading="lazy" decoding="async" /></div><div className="transflash-device"><img src="assets/img/transflash/transflash-02-user-home-balance.jpeg" alt="" loading="lazy" decoding="async" /></div></div>;
+    if (livePreviewIds.has(project.id)) return <div className="project-preview project-preview--live" aria-hidden="true"><iframe src={project.link} title={`Aperçu en direct de ${project.title}`} loading="lazy" referrerPolicy="no-referrer" tabIndex={-1} sandbox="allow-scripts allow-same-origin allow-forms allow-popups" /><span className="live-preview-label">SITE EN DIRECT</span></div>;
     return null;
 }
 

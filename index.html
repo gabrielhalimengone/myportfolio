@@ -9,8 +9,11 @@
     content="Portfolio frontend de Gabriel-Halim Endam'Engone : interfaces React, sites responsives, applications web et coordination de projets IT à Casablanca.">
   <link rel="icon"
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23131715'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%23F0B84B' font-family='Arial' font-size='23' font-weight='700'%3EGH%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="assets/css/style.css?v=responsive-fix-01">
-  <script type="module" src="assets/js/script.js?v=architecture-01"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=ui-pro-max-19">
+  <script type="module" src="assets/js/script.js?v=ui-pro-max-01"></script>
   <script type="module" src="assets/js/react-playground.js"></script>
   <script type="module" src="assets/js/react-projects.js"></script>
   <script type="module" src="assets/js/react-contact.js"></script>
@@ -77,43 +80,24 @@
         </dl>
       </div>
 
-      <div class="hero-visual" aria-label="Aperçu d'interface frontend">
-        <div class="browser-frame">
-          <div class="browser-top">
-            <span></span><span></span><span></span>
-            <p>portfolio.ui</p>
-          </div>
-          <div class="interface-grid">
-            <div class="preview-panel">
-              <div class="preview-nav"></div>
-              <div class="preview-title"></div>
-              <div class="preview-copy short"></div>
-              <div class="preview-copy"></div>
-              <div class="preview-cards">
-                <span></span><span></span><span></span>
-              </div>
-            </div>
-            <div class="code-panel">
-              <p><span>const</span> focus = "clean UI";</p>
-              <p><span>build</span>({ responsive: true });</p>
-              <p><span>ship</span>("accessible frontend");</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="quality-row">
-          <div>
-            <strong>UI</strong>
-            <span>Composants lisibles</span>
-          </div>
-          <div>
-            <strong>UX</strong>
-            <span>Parcours clairs</span>
-          </div>
-          <div>
-            <strong>Ops</strong>
-            <span>Livraison suivie</span>
-          </div>
+      <div class="hero-visual">
+        <div class="hero-photo">
+          <picture>
+            <source
+              type="image/webp"
+              srcset="assets/img/gabriel-portrait-540.webp 543w, assets/img/gabriel-portrait-1086.webp 1086w"
+              sizes="(max-width: 640px) 100vw, (max-width: 960px) 50vw, 42vw"
+            >
+            <img
+              class="hero-portrait"
+              src="assets/img/gabriel-portrait-cutout-temp.png"
+              width="1086"
+              height="1448"
+              alt="Gabriel travaillant sur son ordinateur"
+              fetchpriority="high"
+              decoding="async"
+            >
+          </picture>
         </div>
       </div>
     </section>
@@ -174,7 +158,7 @@
           <p class="case-study-lead">Transformer un espace de pilotage IT dense en une interface qui aide à décider vite, sans perdre le fil entre tickets, risques et sprint.</p>
         </div>
         <div class="case-study-actions">
-          <a class="button primary" href="https://nx-dash-it.vercel.app/" target="_blank" rel="noopener noreferrer">Ouvrir la démo <span aria-hidden="true">↗</span></a>
+          <a class="button primary" href="https://nx-dash-it.vercel.app/" target="_blank" rel="noopener noreferrer">Ouvrir la démo</a>
           <a class="button secondary" href="https://github.com/gabrielhalimengone/nx-dash-it" target="_blank" rel="noopener noreferrer">Voir le code</a>
         </div>
       </div>
@@ -329,7 +313,7 @@
         <p>Basé à Casablanca, ouvert aux collaborations web, aux missions de développement frontend et aux projets
           mêlant interface, coordination et livraison.</p>
         <div class="contact-actions">
-          <a class="button primary" href="#contact-form">Parlons de votre projet <span aria-hidden="true">↗</span></a>
+          <a class="button primary" href="#contact-form">Parlons de votre projet</a>
         </div>
       </div>
 

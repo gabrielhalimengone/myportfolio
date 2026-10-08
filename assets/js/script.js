@@ -1,3 +1,5 @@
+document.documentElement.classList.add("js");
+
 const navLinks = [...document.querySelectorAll(".nav-links a")];
 const sections = [...document.querySelectorAll("main section[id]")];
 

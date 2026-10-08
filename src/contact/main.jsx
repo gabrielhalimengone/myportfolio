@@ -84,7 +84,7 @@ function ContactForm() {
         {channel === "whatsapp" && <label id="contact-phone-field" htmlFor="contact-phone">Numéro WhatsApp<input id="contact-phone" name="phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="Ex. +212 6 00 00 00 00" required onInput={clearError} /></label>}
         <label htmlFor="contact-message">Message<textarea id="contact-message" name="message" rows="5" placeholder="Objectif, délai, contexte du projet..." required onInput={clearError}></textarea></label>
         <label className="form-honeypot" htmlFor="contact-company" aria-hidden="true">Société<input id="contact-company" name="company" type="text" tabIndex="-1" autoComplete="off" /></label>
-        <button className="button primary" type="submit" disabled={loading}>{loading ? "Envoi en cours..." : "Envoyer la demande"} <span aria-hidden="true">↗</span></button>
+        <button className="button primary" type="submit" disabled={loading}>{loading ? "Envoi en cours..." : "Envoyer la demande"}</button>
         <p className={`form-status ${status.type}`} role="status" aria-live="polite">{status.message}</p>
     </form>;
 }
