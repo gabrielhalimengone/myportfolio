@@ -2,6 +2,28 @@ document.documentElement.classList.add("js");
 
 const navLinks = [...document.querySelectorAll(".nav-links a")];
 const sections = [...document.querySelectorAll("main section[id]")];
+const menuToggle = document.querySelector(".menu-toggle");
+const siteHeader = document.querySelector(".site-header");
+
+function closeMenu({ restoreFocus = false } = {}) {
+    if (!menuToggle || !siteHeader) return;
+    siteHeader.classList.remove("menu-open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    if (restoreFocus) menuToggle.focus({ preventScroll: true });
+}
+
+menuToggle?.addEventListener("click", () => {
+    const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+    siteHeader.classList.toggle("menu-open", !isOpen);
+    menuToggle.setAttribute("aria-expanded", String(!isOpen));
+});
+
+navLinks.forEach(link => link.addEventListener("click", () => closeMenu()));
+document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && menuToggle?.getAttribute("aria-expanded") === "true") {
+        closeMenu({ restoreFocus: true });
+    }
+});
 
 function updateActiveNav() {
     const current = sections.findLast(section => section.offsetTop <= window.scrollY + 120);
@@ -40,7 +62,7 @@ window.addEventListener("scroll", () => {
 });
 
 const revealTargets = [
-    ...document.querySelectorAll("main > section, .capabilities article, .project-card, .case-study-grid article, .expertise-grid article, .timeline article, .contact-card")
+    ...document.querySelectorAll("main > section:not(.hero), .capabilities article, .project-card, .case-study-grid article, .expertise-grid article, .timeline article, .contact-card")
 ];
 
 function revealVisibleContent() {
@@ -73,21 +95,5 @@ if ("IntersectionObserver" in window) {
 
 window.addEventListener("scroll", revealVisibleContent, { passive: true });
 window.addEventListener("hashchange", () => window.setTimeout(revealVisibleContent, 50));
-
-const heroVisual = document.querySelector(".hero-visual");
-if (heroVisual && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    heroVisual.addEventListener("pointermove", event => {
-        const bounds = heroVisual.getBoundingClientRect();
-        const x = (event.clientX - bounds.left) / bounds.width - 0.5;
-        const y = (event.clientY - bounds.top) / bounds.height - 0.5;
-        heroVisual.style.setProperty("--pointer-x", x.toFixed(3));
-        heroVisual.style.setProperty("--pointer-y", y.toFixed(3));
-    });
-
-    heroVisual.addEventListener("pointerleave", () => {
-        heroVisual.style.setProperty("--pointer-x", "0");
-        heroVisual.style.setProperty("--pointer-y", "0");
-    });
-}
 
 updateActiveNav();

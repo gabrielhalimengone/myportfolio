@@ -7,8 +7,10 @@
     "build": "vite build"
   },
   "dependencies": {
+    "lucide-react": "^1.53.0",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react-dom": "^19.1.1",
+    "three": "^0.186.1"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.4",

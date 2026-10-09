@@ -9,30 +9,33 @@
     content="Portfolio frontend de Gabriel-Halim Endam'Engone : interfaces React, sites responsives, applications web et coordination de projets IT à Casablanca.">
   <link rel="icon"
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23131715'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%23F0B84B' font-family='Arial' font-size='23' font-weight='700'%3EGH%3C/text%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=ui-pro-max-19">
-  <script type="module" src="assets/js/script.js?v=ui-pro-max-01"></script>
+  <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css?v=a2-03">
+  <link rel="stylesheet" href="assets/css/a2.css?v=a2-03">
+  <script type="module" src="assets/js/script.js?v=a2-03"></script>
+  <script type="module" src="assets/js/react-hero.js"></script>
   <script type="module" src="assets/js/react-playground.js"></script>
   <script type="module" src="assets/js/react-projects.js"></script>
   <script type="module" src="assets/js/react-contact.js"></script>
 </head>
 
-<body>
+<body class="a2-portfolio">
   <a class="skip-link" href="#main">Aller au contenu</a>
 
   <header class="site-header">
     <a class="brand" href="#top" aria-label="Retour à l'accueil">
-      <span class="brand-mark">GH</span>
+      <span class="brand-mark">GH<span>.</span></span>
       <span>Gabriel-Halim</span>
     </a>
 
-    <nav class="nav-links" aria-label="Navigation principale">
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+      <span>Menu</span>
+      <span class="menu-toggle-icon" aria-hidden="true"></span>
+    </button>
+
+    <nav class="nav-links" id="primary-navigation" aria-label="Navigation principale">
       <a href="#projets">Projets</a>
-      <a href="#evenements">Terrain</a>
-      <a href="#expertise">Expertise</a>
-      <a href="#parcours">Parcours</a>
+      <a href="#methode">Approche</a>
       <a href="#contact">Contact</a>
     </nav>
 
@@ -44,65 +47,62 @@
 
   <main id="main">
     <section class="hero section" id="top">
+      <div class="hero-sculpture" id="hero-sculpture" aria-hidden="true">
+        <div class="sculpture-fallback"><span></span><span></span><span></span></div>
+      </div>
       <div class="hero-copy">
-        <p class="eyebrow">Frontend developer · React · Flutter</p>
-        <h1>Je construis des interfaces <span>précises, rapides et vivantes.</span></h1>
-        <p class="hero-lead">
-          Développeur front-end spécialisé dans React, les systèmes d'interface et les expériences web interactives.
-          Je transforme des besoins complexes en produits clairs, responsives et réellement utilisables.
-        </p>
+        <p class="eyebrow">Développeur frontend · React &amp; Flutter</p>
+        <h1>
+          <span class="hero-line"><span>DU CODE.</span></span>
+          <span class="hero-line hero-line--accent"><span>DU <br class="mobile-break">CARACTÈRE.</span></span>
+        </h1>
+        <p class="hero-tagline">Interfaces web &amp; mobile.<br>Précision, fluidité, personnalité.</p>
 
-        <div class="hero-status" role="status">
-          <span class="status-dot" aria-hidden="true"></span>
-          <strong>Disponible pour des missions frontend</strong>
-          <span class="hero-status-divider" aria-hidden="true">·</span>
-          <span>Casablanca · remote</span>
-        </div>
-
+        <div class="hero-bottom">
         <div class="hero-actions">
-          <a class="button primary" href="#projets">Voir les projets</a>
-          <a class="button secondary" href="#contact-form">Parler d'un projet</a>
+          <a class="button primary" href="#projets">Explorer mes projets <span aria-hidden="true">↗</span></a>
+          <a class="hero-contact-link" href="#contact">Parlons de votre projet</a>
         </div>
 
-        <dl class="hero-stats" aria-label="Points forts">
+        <div class="hero-identity">
+          <img src="assets/img/gabriel-portrait-540.webp" width="543" height="724" alt="" fetchpriority="high">
           <div>
-            <dt>Focus</dt>
-            <dd>Conception UI · Intégration frontend</dd>
+            <strong>Gabriel-Halim</strong>
+            <span>Casablanca · À distance</span>
           </div>
-          <div>
-            <dt>Méthode</dt>
-            <dd>Mobile-first · Accessibilité · QA</dd>
-          </div>
-          <div>
-            <dt>Terrain</dt>
-            <dd>Web · Produit · Delivery</dd>
-          </div>
-        </dl>
+        </div>
+        </div>
       </div>
 
-      <div class="hero-visual">
-        <div class="hero-photo">
-          <picture>
-            <source
-              type="image/webp"
-              srcset="assets/img/gabriel-portrait-540.webp 543w, assets/img/gabriel-portrait-1086.webp 1086w"
-              sizes="(max-width: 640px) 100vw, (max-width: 960px) 50vw, 42vw"
-            >
-            <img
-              class="hero-portrait"
-              src="assets/img/gabriel-portrait-cutout-temp.png"
-              width="1086"
-              height="1448"
-              alt="Gabriel travaillant sur son ordinateur"
-              fetchpriority="high"
-              decoding="async"
-            >
-          </picture>
-        </div>
+      <div class="hero-indexline" aria-label="Du concept à l'interface">
+        <span>01 / Projets choisis</span>
+        <span>Du concept à l'interface</span>
       </div>
     </section>
 
+    <section class="section projects-section" id="projets">
+      <div class="section-heading">
+        <div class="section-heading-bar">
+          <p class="eyebrow">Projets choisis</p>
+          <span class="section-count">04 sélectionnés · 04 complémentaires</span>
+        </div>
+        <h2>Projets qui tournent vraiment.</h2>
+        <p>Une sélection centrée sur les contraintes produit, les choix d'interface et les livrables consultables :
+          parcours, responsive, données, performance perçue et qualité d'intégration.</p>
+      </div>
+
+      <div id="projects-react-root"></div>
+    </section>
+
     <section class="capabilities section" aria-label="Services frontend">
+      <div class="profile-context">
+        <p class="hero-lead">Développeur front-end spécialisé dans React, les systèmes d'interface et les expériences web interactives. Je transforme des besoins complexes en produits clairs, responsives et réellement utilisables.</p>
+        <dl class="profile-practices" aria-label="Points forts">
+          <div><dt>Focus</dt><dd>Conception UI · Intégration frontend</dd></div>
+          <div><dt>Méthode</dt><dd>Mobile-first · Accessibilité · QA</dd></div>
+          <div><dt>Terrain</dt><dd>Web · Produit · Delivery</dd></div>
+        </dl>
+      </div>
       <article>
         <span>01</span>
         <h2>Intégration frontend</h2>
@@ -134,20 +134,6 @@
         <span>Design systems</span>
         <span>Performance</span>
       </div>
-    </section>
-
-    <section class="section projects-section" id="projets">
-      <div class="section-heading">
-        <div class="section-heading-bar">
-          <p class="eyebrow">Selected work</p>
-          <span class="section-count">04 sélectionnés · 04 complémentaires</span>
-        </div>
-        <h2>Projets qui tournent vraiment.</h2>
-        <p>Une sélection centrée sur les contraintes produit, les choix d'interface et les livrables consultables :
-          parcours, responsive, données, performance perçue et qualité d'intégration.</p>
-      </div>
-
-      <div id="projects-react-root"></div>
     </section>
 
     <section class="section case-study-section" id="nexus-study">
@@ -307,7 +293,7 @@
     </section>
 
     <section class="contact-section section" id="contact">
-      <div>
+      <div class="contact-intro">
         <p class="eyebrow">Contact</p>
         <h2>Disponible pour projets frontend, sites vitrines et interfaces web.</h2>
         <p>Basé à Casablanca, ouvert aux collaborations web, aux missions de développement frontend et aux projets
@@ -315,25 +301,25 @@
         <div class="contact-actions">
           <a class="button primary" href="#contact-form">Parlons de votre projet</a>
         </div>
+
+        <div class="contact-card" aria-label="Coordonnées directes">
+          <a href="mailto:gabrielhalim01@gmail.com">
+            <span class="contact-coordinate-icon" aria-hidden="true"><img src="assets/img/contact-mail.svg" width="20" height="20" alt=""></span>
+            <div class="contact-coordinate-copy"><span>Email</span><strong>gabrielhalim01@gmail.com</strong></div>
+          </a>
+          <a href="tel:+2120674346915">
+            <span class="contact-coordinate-icon" aria-hidden="true"><img src="assets/img/contact-phone.svg" width="20" height="20" alt=""></span>
+            <div class="contact-coordinate-copy"><span>Téléphone</span><strong>+212 067 434 6915</strong></div>
+          </a>
+          <a href="https://github.com/gabrielhalimengone" target="_blank" rel="noopener noreferrer">
+            <span class="contact-coordinate-icon" aria-hidden="true"><img src="assets/img/contact-code.svg" width="20" height="20" alt=""></span>
+            <div class="contact-coordinate-copy"><span>GitHub</span><strong>github.com/gabrielhalimengone</strong></div>
+          </a>
+        </div>
       </div>
 
       <div class="contact-panel">
         <div id="contact-react-root"></div>
-
-        <div class="contact-card" aria-label="Coordonnées directes">
-          <a href="mailto:gabrielhalim01@gmail.com">
-            <span>Email</span>
-            gabrielhalim01@gmail.com
-          </a>
-          <a href="https://wa.me/212674346915" target="_blank" rel="noopener noreferrer">
-            <span>Téléphone</span>
-            +212 067 434 6915
-          </a>
-          <a href="https://github.com/gabrielhalimengone" target="_blank" rel="noopener noreferrer">
-            <span>GitHub</span>
-            github.com/gabrielhalimengone
-          </a>
-        </div>
       </div>
     </section>
   </main>

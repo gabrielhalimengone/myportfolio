@@ -3,3 +3,4 @@
 !.env.example
 tmp/
 node_modules/
+output/playwright/

@@ -8,6 +8,7 @@ export default defineConfig({
         emptyOutDir: false,
         rollupOptions: {
             input: {
+                hero: "src/hero/main.js",
                 playground: "src/playground/main.jsx",
                 projects: "src/projects/main.jsx",
                 contact: "src/contact/main.jsx"
