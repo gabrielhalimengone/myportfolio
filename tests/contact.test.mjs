@@ -84,6 +84,9 @@ test("sends to the configured owner, sets reply_to and escapes submitted HTML", 
     assert.equal(payload.reply_to, "visitor@example.com");
     assert.ok(payload.html.includes("&lt;script&gt;"));
     assert.ok(payload.html.includes("&lt;b&gt;Bonjour&lt;/b&gt;<br>"));
+    assert.ok(payload.html.includes("Une nouvelle demande de projet"));
+    assert.ok(payload.html.includes("Répondre à &lt;script&gt;alert(1)&lt;/script&gt;"));
+    assert.ok(payload.html.includes("mailto:visitor%40example.com?subject="));
     assert.ok(!payload.html.includes("<script>"));
     assert.ok(!JSON.stringify(await response.json()).includes("test-only-key"));
 });

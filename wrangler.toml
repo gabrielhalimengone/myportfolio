@@ -3,5 +3,5 @@ pages_build_output_dir = "./dist"
 compatibility_date = "2026-10-20"
 
 [vars]
-CONTACT_FROM_EMAIL = "onboarding@resend.dev"
+CONTACT_FROM_EMAIL = "Gabriel-Halim | Portfolio <onboarding@resend.dev>"
 CONTACT_TO_EMAIL = "gabrielhalim01@gmail.com"
