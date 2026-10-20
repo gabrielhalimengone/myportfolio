@@ -3,10 +3,12 @@ import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react";
 
 const previousOrigin = "https://myportfolio-nu-red.vercel.app";
+const cloudflareProjectOrigin = "https://gabriel-halim-portfolio.pages.dev";
 
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, process.cwd(), "SITE_");
-    const siteUrl = new URL(process.env.SITE_URL || env.SITE_URL || process.env.CF_PAGES_URL || previousOrigin);
+    const defaultOrigin = process.env.CF_PAGES ? cloudflareProjectOrigin : process.env.CF_PAGES_URL || previousOrigin;
+    const siteUrl = new URL(process.env.SITE_URL || env.SITE_URL || defaultOrigin);
     if (!["http:", "https:"].includes(siteUrl.protocol)) throw new Error("SITE_URL must be an HTTP(S) URL.");
     const replaceOrigin = text => text.replaceAll(previousOrigin, siteUrl.origin);
 
