@@ -59,7 +59,7 @@ async function readBody(req) {
     }
 }
 
-module.exports = async function contactHandler(req, res) {
+export default async function contactHandler(req, res) {
     if (req.method !== "POST") {
         res.setHeader("Allow", "POST");
         return res.status(405).json({ message: "Méthode non autorisée." });

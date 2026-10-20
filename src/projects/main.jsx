@@ -8,22 +8,30 @@ const filters = [["all", "Tous"], ["web", "Web"], ["mobile", "Mobile"], ["produc
 const previews = { 6: "nexus", 1: "fitzone", 7: "techfest" };
 const categories = { 6: ["web", "product"], 0: ["mobile", "product"], 1: ["web"], 7: ["web"], 2: ["web"], 3: ["tooling"], 4: ["product", "tooling"], 5: ["web", "product"] };
 
+// Include the gallery's data-driven image paths in Vite's production asset graph.
+const projectImages = import.meta.glob([
+    "../../assets/img/*-preview.webp",
+    "../../assets/img/transflash/*.jpeg",
+    "../../assets/img/pygames/*.png"
+], { eager: true, query: "?url", import: "default" });
+const projectImageUrl = path => projectImages[`../../${path}`];
+
 function ProjectPreview({ project, onOpen }) {
     if (project.id === 0) return <button type="button" className="work-visual work-visual--mobile" onClick={() => onOpen(project, "detail")} aria-label="Voir les captures de TransFlash">
         <span className="phone-composition">
-            <span className="phone phone--back"><img src="assets/img/transflash/transflash-07-send-summary.jpeg" width="803" height="1600" alt="Récapitulatif d'un transfert TransFlash" loading="lazy" /></span>
-            <span className="phone phone--front"><img src="assets/img/transflash/transflash-02-user-home-balance.jpeg" width="803" height="1600" alt="Espace client TransFlash" loading="lazy" /></span>
+            <span className="phone phone--back"><img src={projectImageUrl("assets/img/transflash/transflash-07-send-summary.jpeg")} width="803" height="1600" alt="Récapitulatif d'un transfert TransFlash" loading="lazy" /></span>
+            <span className="phone phone--front"><img src={projectImageUrl("assets/img/transflash/transflash-02-user-home-balance.jpeg")} width="803" height="1600" alt="Espace client TransFlash" loading="lazy" /></span>
         </span>
         <span className="preview-action"><Images size={17} /> 12 écrans à explorer <ArrowUpRight size={18} /></span>
     </button>;
     if (previews[project.id]) return <button type="button" className={`work-visual work-visual--${previews[project.id]}`} onClick={() => onOpen(project, "live")} aria-label={`Explorer la démo de ${project.title}`}>
         <span className="browser-preview">
             <span className="preview-chrome" aria-hidden="true"><i /><i /><i /><span>{new URL(project.link).hostname}</span><ArrowUpRight size={13} /></span>
-            <img src={`assets/img/${previews[project.id]}-preview.webp`} width="1440" height="900" alt={`Capture réelle de ${project.title}`} loading={project.id === 6 ? "eager" : "lazy"} decoding="async" />
+            <img src={projectImageUrl(`assets/img/${previews[project.id]}-preview.webp`)} width="1440" height="900" alt={`Capture réelle de ${project.title}`} loading={project.id === 6 ? "eager" : "lazy"} decoding="async" />
         </span>
         <span className="preview-action"><Play size={15} /> Explorer la démo <ArrowUpRight size={18} /></span>
     </button>;
-    if (project.media?.length) return <button type="button" className="work-visual work-visual--archive" onClick={() => onOpen(project, "detail")} aria-label={`Voir les captures de ${project.title}`}><img src={project.media[0].src} alt={project.media[0].alt} loading="lazy" /></button>;
+    if (project.media?.length) return <button type="button" className="work-visual work-visual--archive" onClick={() => onOpen(project, "detail")} aria-label={`Voir les captures de ${project.title}`}><img src={projectImageUrl(project.media[0].src)} alt={project.media[0].alt} loading="lazy" /></button>;
     return null;
 }
 
@@ -79,7 +87,7 @@ function ProjectDialog({ selection, onClose }) {
         {selection.mode === "live" ? <div className="live-demo-stage">
             {!loaded && <div className="demo-loading" role="status"><span className="loading-line" />{slow ? "Le site met du temps à répondre." : "Ouverture de la démo…"}<a href={project.link} target="_blank" rel="noopener noreferrer">Ouvrir dans un nouvel onglet <ArrowUpRight size={17} /></a></div>}
             <iframe src={project.link} title={`Démo interactive de ${project.title}`} onLoad={() => setLoaded(true)} referrerPolicy="no-referrer" />
-        </div> : <div className="dialog-content"><p>{project.desc}</p>{project.media?.length > 0 && <div className="capture-gallery">{project.media.map(item => <figure key={item.src} className={item.orientation === "landscape" ? "capture-wide" : ""}><img src={item.src} alt={item.alt} loading="lazy" /><figcaption>{item.title}</figcaption></figure>)}</div>}<ul>{project.points.map(point => <li key={point}>{point}</li>)}</ul></div>}
+        </div> : <div className="dialog-content"><p>{project.desc}</p>{project.media?.length > 0 && <div className="capture-gallery">{project.media.map(item => <figure key={item.src} className={item.orientation === "landscape" ? "capture-wide" : ""}><img src={projectImageUrl(item.src)} alt={item.alt} loading="lazy" /><figcaption>{item.title}</figcaption></figure>)}</div>}<ul>{project.points.map(point => <li key={point}>{point}</li>)}</ul></div>}
     </dialog>;
 }
 
