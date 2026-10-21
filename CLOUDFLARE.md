@@ -44,8 +44,8 @@ Definir la variable de build `SITE_URL` avec l'origine publique de production,
 par exemple `https://votre-domaine.com`. Le build l'applique aux liens canoniques,
 Open Graph, donnees structurees, robots et sitemap.
 
-Sans `SITE_URL`, un build Cloudflare utilise `CF_PAGES_URL`. Un build local
-conserve l'ancienne adresse Vercel comme valeur de repli.
+Sans `SITE_URL`, tous les builds utilisent l'adresse de production stable
+`https://gabriel-halim-portfolio.pages.dev`, jamais l'URL temporaire d'un apercu.
 Configurer `SITE_URL` avant la mise en production sur le domaine definitif.
 
 ## Verification locale

@@ -4,7 +4,7 @@ export const projects = [
         kicker: "Application mobile",
         title: "TransFlash",
         role: "Flutter · Dart · UX mobile",
-        desc: "Application de transfert d'argent pensée autour d'un parcours sensible : montant, pays, bénéficiaire, confirmation, puis validation côté admin.",
+        desc: "Application mobile Flutter de transfert d'argent : saisie du montant, choix du pays et du bénéficiaire, récapitulatif et suivi des validations dans l'espace administrateur.",
         points: [
             "Découpage en étapes pour éviter les erreurs avant validation d'une transaction.",
             "UI sombre et contrastée pour faire ressortir les montants, statuts et actions critiques.",
@@ -35,10 +35,10 @@ export const projects = [
         kicker: "Site vitrine React",
         title: "FitZone",
         role: "React · JavaScript · Responsive",
-        desc: "Site vitrine React pour transformer une offre fitness en parcours clair : découverte, preuve, planning, contact.",
+        desc: "Site vitrine développé avec React pour une offre de fitness. Présentation des activités, planning et prise de contact dans une interface adaptée au mobile.",
         points: [
             "Sections modulaires pour réorganiser l'offre sans réécrire la page.",
-            "CTA répétés mais contenus pour guider l'utilisateur sans bruit visuel.",
+            "Boutons de contact placés aux étapes clés de la découverte de l'offre.",
             "Responsive pensé pour une consultation rapide sur mobile avant inscription."
         ],
         tags: ["React", "JavaScript", "CSS", "Responsive"],
@@ -52,9 +52,9 @@ export const projects = [
         kicker: "Collection web",
         title: "Vitrine Digitale",
         role: "HTML · CSS · JavaScript",
-        desc: "Landing page de service digital centrée sur la clarté de l'offre, la confiance et la conversion.",
+        desc: "Page de présentation de services numériques en HTML, CSS et JavaScript : une offre structurée, des animations légères et une mise en page responsive.",
         points: [
-            "HTML sémantique pour hiérarchiser l'offre et améliorer la lecture SEO.",
+            "HTML sémantique pour structurer les titres, les contenus et la navigation.",
             "Animations CSS légères pour enrichir l'expérience sans ralentir la page.",
             "Formes et espacements calibrés pour garder une page lisible sur petits écrans."
         ],
@@ -66,10 +66,10 @@ export const projects = [
     },
     {
         id: 3,
-        kicker: "Python tooling",
+        kicker: "Mini-jeux Python",
         title: "PyGames Pack",
         role: "Python · Algorithmique",
-        desc: "Pack de mini-jeux Python pour montrer la logique d'état, les règles et les interactions au-delà d'une interface web.",
+        desc: "Collection de jeux Python : Snake, morpion, quiz et pendu. Travail sur les règles, les scores, les tours de jeu et la gestion des erreurs.",
         points: [
             "Gestion de scoring, tours de jeu, erreurs et conditions de victoire.",
             "Séparation des règles pour rendre chaque mini-jeu plus simple à maintenir.",
@@ -92,7 +92,7 @@ export const projects = [
         kicker: "Dashboard opérationnel",
         title: "Event Live Board",
         role: "Régie LED · Coordination · Live",
-        desc: "Outil de coordination pour événements live, pensé pour transformer une régie technique en checklist exploitable.",
+        desc: "Tableau de bord de coordination événementielle pour suivre les incidents, les priorités et les vérifications d'une régie technique avant et pendant un événement.",
         points: [
             "Modèle de suivi orienté incidents, priorités et validation avant exploitation.",
             "Interface volontairement dense pour des équipes qui consultent vite pendant le live.",
@@ -109,7 +109,7 @@ export const projects = [
         kicker: "Plateforme éducative",
         title: "Mon Sikolo",
         role: "HTML · CSS · PHP · SQL",
-        desc: "Plateforme éducative orientée parcours étudiant, avec une attention portée aux contenus, accès et corrections UI.",
+        desc: "Projet de plateforme éducative en HTML, CSS, PHP et SQL. Organisation du parcours étudiant, accès aux contenus et amélioration de la lisibilité des écrans.",
         points: [
             "Organisation des écrans autour des besoins étudiants plutôt que des modules techniques.",
             "Travail PHP/SQL pour relier interface, contenus et comportements fonctionnels.",
@@ -123,10 +123,10 @@ export const projects = [
     },
     {
         id: 6,
-        kicker: "Dashboard IT live",
+        kicker: "Tableau de bord IT",
         title: "Nexus IT Dashboard",
         role: "HTML · CSS · JavaScript · Vercel",
-        desc: "Dashboard web pour piloter un projet IT avec plusieurs vues métier sans perdre le contexte de l'équipe.",
+        desc: "Tableau de bord JavaScript de suivi de projet IT : synthèse, Kanban, sprint et reporting. Une démo interactive sur données simulées, avec navigation persistante.",
         points: [
             "Choix d'une navigation latérale persistante pour garder la lecture SaaS immédiate.",
             "Découpage des vues Kanban, sprint et reporting pour limiter la surcharge cognitive.",
@@ -140,10 +140,10 @@ export const projects = [
     },
     {
         id: 7,
-        kicker: "Landing événementielle",
+        kicker: "Site événementiel React",
         title: "TechFest",
         role: "React · Vite · Tailwind CSS",
-        desc: "Landing page événementielle conçue comme une vitrine immersive, avec galerie et animations contrôlées.",
+        desc: "Site événementiel développé avec React, Vite et Tailwind CSS. Une galerie et des animations accompagnent la présentation de l'événement sur ordinateur et mobile.",
         points: [
             "Build Vite pour itérer vite sur une interface React légère.",
             "Tailwind utilisé pour garder une cohérence d'espacements et de composants.",

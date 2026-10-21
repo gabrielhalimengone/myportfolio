@@ -23,7 +23,7 @@ function ContactForm() {
         fields.forEach(field => field.setAttribute("aria-invalid", String(!field.checkValidity())));
         const firstInvalid = fields.find(field => !field.checkValidity());
         if (firstInvalid) {
-            setStatus({ message: "Complète les champs requis pour envoyer la demande.", type: "error" });
+            setStatus({ message: "Veuillez compléter les champs requis pour envoyer votre demande.", type: "error" });
             firstInvalid.focus({ preventScroll: false });
             return;
         }
@@ -60,7 +60,7 @@ function ContactForm() {
             setChannel("email");
             setStatus({ message: "Message envoyé. Je reviens vers vous rapidement.", type: "success" });
         } catch (error) {
-            setStatus({ message: error.message || "Erreur d'envoi. Réessaie dans quelques minutes.", type: "error" });
+            setStatus({ message: error.message || "L'envoi a échoué. Veuillez réessayer dans quelques minutes.", type: "error" });
         } finally {
             setLoading(false);
         }
@@ -80,7 +80,7 @@ function ContactForm() {
         <fieldset className="contact-channel"><legend>Recevoir une réponse par</legend><div className="channel-options">
             <label className="channel-option" htmlFor="contact-channel-email"><input id="contact-channel-email" name="channel" type="radio" value="email" checked={channel === "email"} onChange={(event) => setChannel(event.target.value)} /><span>Email</span></label>
             <label className="channel-option" htmlFor="contact-channel-whatsapp"><input id="contact-channel-whatsapp" name="channel" type="radio" value="whatsapp" checked={channel === "whatsapp"} onChange={(event) => setChannel(event.target.value)} /><span>WhatsApp</span></label>
-        </div><p className="channel-hint">WhatsApp ouvrira une conversation préremplie ; il restera à appuyer sur Envoyer.</p></fieldset>
+        </div><p className="channel-hint">{channel === "whatsapp" ? "Votre demande sera préparée dans WhatsApp, où vous pourrez confirmer son envoi." : "Votre demande me sera envoyée par e-mail. Je vous répondrai à l'adresse indiquée."}</p></fieldset>
         {channel === "whatsapp" && <label id="contact-phone-field" htmlFor="contact-phone">Numéro WhatsApp<input id="contact-phone" name="phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="Ex. +212 6 00 00 00 00" required onInput={clearError} /></label>}
         <label htmlFor="contact-message">Message<textarea id="contact-message" name="message" rows="5" placeholder="Objectif, délai, contexte du projet..." required onInput={clearError}></textarea></label>
         <label className="form-honeypot" htmlFor="contact-company" aria-hidden="true">Société<input id="contact-company" name="company" type="text" tabIndex="-1" autoComplete="off" /></label>

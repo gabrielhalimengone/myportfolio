@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://myportfolio-nu-red.vercel.app/sitemap.xml
+Sitemap: https://gabriel-halim-portfolio.pages.dev/sitemap.xml

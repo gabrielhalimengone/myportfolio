@@ -16,7 +16,7 @@ const modes = {
     },
     Reporting: {
         label: "REPORTING",
-        title: "Les données deviennent un récit.",
+        title: "Les tendances du sprint en un regard.",
         copy: "Les tendances de sprint sont regroupées pour préparer une décision, pas seulement remplir un graphique.",
         status: "Rapport prêt à partager"
     }
