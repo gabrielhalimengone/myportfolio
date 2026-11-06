@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://gabriel-halim-portfolio.pages.dev/sitemap.xml
+Sitemap: https://gabrielhalim-dev.com/sitemap.xml

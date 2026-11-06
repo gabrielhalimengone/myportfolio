@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react";
 
-const cloudflareProjectOrigin = "https://gabriel-halim-portfolio.pages.dev";
+const cloudflareProjectOrigin = "https://gabrielhalim-dev.com";
 
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, process.cwd(), "SITE_");
@@ -15,12 +15,8 @@ export default defineConfig(({ mode }) => {
             name: "portfolio-public-files",
             transformIndexHtml: {
                 order: "post",
-                handler(html, context) {
-                    const portrait = Object.values(context.bundle || {}).find(file =>
-                        file.type === "asset" && file.fileName.startsWith("assets/gabriel-portrait-540-")
-                    );
-                    const result = replaceOrigin(html);
-                    return portrait ? result.replaceAll("/assets/img/gabriel-portrait-540.webp", `/${portrait.fileName}`) : result;
+                handler(html) {
+                    return replaceOrigin(html);
                 }
             },
             generateBundle() {

@@ -45,8 +45,28 @@ par exemple `https://votre-domaine.com`. Le build l'applique aux liens canonique
 Open Graph, donnees structurees, robots et sitemap.
 
 Sans `SITE_URL`, tous les builds utilisent l'adresse de production stable
-`https://gabriel-halim-portfolio.pages.dev`, jamais l'URL temporaire d'un apercu.
+`https://gabrielhalim-dev.com`, jamais l'URL temporaire d'un apercu.
 Configurer `SITE_URL` avant la mise en production sur le domaine definitif.
+
+Le domaine principal repond deja. Dans Pages > Custom domains, ajouter aussi
+`www.gabrielhalim-dev.com` puis verifier son activation HTTPS. Creer ensuite
+une redirection permanente de www vers le domaine principal en conservant
+le chemin et les parametres. Ne pas ajouter uniquement un CNAME sans associer
+le sous-domaine au projet Pages.
+
+Si une variable de build `SITE_URL` existe deja dans Cloudflare, la remplacer
+par `https://gabrielhalim-dev.com` avant le prochain deploiement.
+Ajouter cette propriete dans Google Search Console et envoyer son sitemap.
+
+Les nouveaux portraits sont dans `public/images/`. Le portrait vertical est
+utilise dans le site ; le paysage est reserve aux apercus Open Graph et Twitter.
+
+La messagerie est independante du site. Ne pas remplacer les enregistrements
+MX/SPF existants sans verifier le fournisseur de messagerie. Le domaine
+`gabrielhalim-dev.com` est verifie dans Resend pour l'envoi ;
+`CONTACT_FROM_EMAIL` utilise `contact@gabrielhalim-dev.com` et les demandes
+restent destinees a `gabrielhalim01@gmail.com`. La reception d'e-mails sur le
+domaine reste a configurer separement si elle est souhaitee.
 
 ## Verification locale
 
