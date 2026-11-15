@@ -62,7 +62,7 @@ function ProjectCard({ project, onOpen }) {
                 {project.id === 6 && <a className="work-link" href="#nexus-study">Étude de cas <ArrowRight size={17} /></a>}
                 {project.sourceLink && <a className="work-link work-link--quiet" href={project.sourceLink} target="_blank" rel="noopener noreferrer">Code source <ArrowUpRight size={15} /></a>}
             </div>
-            <details className="work-details"><summary>Choix de conception <Plus size={15} /></summary><ul>{project.points.map(point => <li key={point}>{point}</li>)}</ul>{project.id === 6 && <p><strong>Mon rôle :</strong> direction frontend et système d'interface. Rendre les données actionnables en un coup d'œil.</p>}<div className="work-tags">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div></details>
+            <details className="work-details"><summary>Rôle et choix de conception <Plus size={15} /></summary>{project.contribution && <dl className="work-case"><div><dt>Ma contribution</dt><dd>{project.contribution}</dd></div><div><dt>Enjeu d'interface</dt><dd>{project.challenge}</dd></div></dl>}<ul>{project.points.map(point => <li key={point}>{point}</li>)}</ul><div className="work-tags">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div></details>
         </div>
     </article>;
 }

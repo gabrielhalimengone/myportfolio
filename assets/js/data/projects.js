@@ -3,6 +3,8 @@ export const projects = [
         id: 0,
         kicker: "Application mobile",
         title: "TransFlash",
+        contribution: "Parcours de transfert et interfaces mobiles Flutter.",
+        challenge: "Rendre chaque étape et chaque validation compréhensibles avant de confirmer un transfert.",
         role: "Flutter · Dart · UX mobile",
         desc: "Application mobile Flutter de transfert d'argent : saisie du montant, choix du pays et du bénéficiaire, récapitulatif et suivi des validations dans l'espace administrateur.",
         points: [
@@ -34,6 +36,8 @@ export const projects = [
         id: 1,
         kicker: "Site vitrine React",
         title: "FitZone",
+        contribution: "Développement du site vitrine et de ses sections React responsives.",
+        challenge: "Présenter activités, planning et contact sans perdre la lisibilité sur téléphone.",
         role: "React · JavaScript · Responsive",
         desc: "Site vitrine développé avec React pour une offre de fitness. Présentation des activités, planning et prise de contact dans une interface adaptée au mobile.",
         points: [
@@ -125,6 +129,8 @@ export const projects = [
         id: 6,
         kicker: "Tableau de bord IT",
         title: "Nexus IT Dashboard",
+        contribution: "Direction frontend, composants et navigation du tableau de bord JavaScript.",
+        challenge: "Passer entre synthèse, Kanban et sprint sans perdre le contexte de travail.",
         role: "HTML · CSS · JavaScript · Vercel",
         desc: "Tableau de bord JavaScript de suivi de projet IT : synthèse, Kanban, sprint et reporting. Une démo interactive sur données simulées, avec navigation persistante.",
         points: [
@@ -142,6 +148,8 @@ export const projects = [
         id: 7,
         kicker: "Site événementiel React",
         title: "TechFest",
+        contribution: "Développement frontend React avec Vite et Tailwind CSS.",
+        challenge: "Associer galerie et animations à une consultation fluide sur ordinateur et mobile.",
         role: "React · Vite · Tailwind CSS",
         desc: "Site événementiel développé avec React, Vite et Tailwind CSS. Une galerie et des animations accompagnent la présentation de l'événement sur ordinateur et mobile.",
         points: [

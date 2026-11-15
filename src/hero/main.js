@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import "./background.js";
 
 const host = document.getElementById("hero-sculpture");
 const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
@@ -18,51 +19,46 @@ function roundedPath(width, height, radius) {
     return p;
 }
 
-function interfaceTexture(layer) {
+function interfaceTexture(layer, onUpdate) {
     const canvas = document.createElement("canvas");
     canvas.width = 1024;
     canvas.height = 768;
     const c = canvas.getContext("2d");
-    c.fillStyle = layer === 2 ? "rgba(22,13,44,.88)" : "rgba(28,17,57,.55)";
-    c.fillRect(0, 0, 1024, 768);
+    const texture = new THREE.CanvasTexture(canvas);
+    texture.colorSpace = THREE.SRGBColorSpace;
     const fill = (x, y, w, h, color, radius = 6) => {
         c.fillStyle = color;
         c.beginPath(); c.roundRect(x, y, w, h, radius); c.fill();
     };
-    c.fillStyle = "#d8c5ff";
-    c.font = "500 20px monospace";
-    c.fillText(["01 / STRUCTURE", "02 / COMPOSITION", "03 / INTERACTION"][layer], 44, 54);
-    for (let i = 0; i < 3; i++) fill(903 + i * 27, 35, 9, 9, "#9b72f4", 4);
+    const titles = ["03 / CARTE NFC - PROFIL NUMERIQUE", "02 / FITZONE - SITE FITNESS", "01 / GABRIEL"];
+    c.fillStyle = "#0d0818";
+    c.fillRect(0, 0, 1024, 768);
+    c.fillStyle = "#e5d6ff";
+    c.font = "600 24px monospace";
+    c.fillText(titles[layer], 44, 54);
+    for (let i = 0; i < 3; i++) fill(903 + i * 27, 35, 9, 9, "#b279ff", 4);
     fill(32, 81, 960, 1, "#644891", 0);
-    if (layer === 0) {
-        c.strokeStyle = "rgba(176,139,255,.3)";
-        c.lineWidth = 1;
-        for (let x = 45; x < 1020; x += 52) { c.beginPath(); c.moveTo(x, 111); c.lineTo(x, 725); c.stroke(); }
-        for (let y = 111; y < 750; y += 52) { c.beginPath(); c.moveTo(45, y); c.lineTo(978, y); c.stroke(); }
-        c.strokeStyle = "#ac81fb";
-        c.strokeRect(97, 163, 780, 468);
-    } else if (layer === 1) {
-        fill(46, 119, 178, 600, "rgba(123,78,226,.13)");
-        for (let i = 0; i < 5; i++) { fill(64, 152 + i * 67, 14, 14, "#8155ce"); fill(96, 155 + i * 67, 97, 8, "#674699"); }
-        fill(268, 131, 390, 26, "#8b62c6");
-        fill(268, 182, 200, 9, "#543d79");
-        for (let i = 0; i < 3; i++) { fill(270 + i * 232, 242, 198, 148, "rgba(123,78,226,.2)"); fill(292 + i * 232, 270, 63, 9, "#7652b2"); fill(292 + i * 232, 303, 98, 26, "#a781ee"); }
-        for (let i = 0; i < 8; i++) fill(284 + i * 79, 656 - (i % 4 * 32 + 80), 42, i % 4 * 32 + 80, i % 2 ? "#6c40aa" : "#9570d2");
-    } else {
-        fill(49, 132, 480, 36, "#c4a4f5");
-        fill(49, 201, 366, 10, "#8964ba");
-        fill(49, 226, 266, 10, "#674697");
-        fill(49, 287, 172, 57, "#8953d8");
-        fill(263, 287, 172, 57, "rgba(154,106,230,.16)");
-        fill(49, 425, 530, 1, "#644891");
-        for (let i = 0; i < 3; i++) { fill(49, 475 + i * 57, 20, 20, "#a371f4"); fill(94, 480 + i * 57, 280 - i * 38, 10, "#6c479f"); }
-        c.strokeStyle = "#9c6bea"; c.lineWidth = 16;
-        c.beginPath(); c.arc(788, 460, 103, -.5, 5.1); c.stroke();
-        fill(721, 618, 140, 10, "#8964ba");
-        fill(748, 649, 87, 8, "#583b7d");
+
+    function drawCover(image, x, y, width, height, focusY = .5) {
+        const scale = Math.max(width / image.width, height / image.height);
+        const sourceWidth = width / scale, sourceHeight = height / scale;
+        const sourceX = (image.width - sourceWidth) / 2;
+        const sourceY = Math.max(0, Math.min(image.height - sourceHeight, image.height * focusY - sourceHeight / 2));
+        c.drawImage(image, sourceX, sourceY, sourceWidth, sourceHeight, x, y, width, height);
     }
-    const texture = new THREE.CanvasTexture(canvas);
-    texture.colorSpace = THREE.SRGBColorSpace;
+
+    {
+        const image = new Image();
+        image.onload = () => {
+            c.save(); c.beginPath(); c.rect(32, 82, 960, 654); c.clip();
+            drawCover(image, 32, 82, 960, 654, layer === 2 ? .53 : .5);
+            c.restore();
+            fill(32, 82, 960, 654, "rgba(9,5,18,.12)", 0);
+            texture.needsUpdate = true;
+            onUpdate();
+        };
+        image.src = ["/images/nfc-preview.png", "/images/fitzone-preview.webp", "/images/gabriel-hero.jpg"][layer];
+    }
     return texture;
 }
 
@@ -75,6 +71,7 @@ function startSculpture() {
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.15;
     host.append(renderer.domElement);
+    renderer.domElement.setAttribute("aria-hidden", "true");
     const scene = new THREE.Scene();
     const camera = new THREE.OrthographicCamera(-4, 4, 3, -3, .1, 60);
     camera.position.set(0, 0, 15);
@@ -91,9 +88,9 @@ function startSculpture() {
     const planes = [];
     for (let i = 0; i < 3; i++) {
         const group = new THREE.Group();
-        const rim = new THREE.Mesh(edgeGeometry, new THREE.MeshPhysicalMaterial({ color: 0x9d72f2, metalness: .65, roughness: .26, clearcoat: 1, emissive: 0x7033dd, emissiveIntensity: .14 }));
+        const rim = new THREE.Mesh(edgeGeometry, new THREE.MeshPhysicalMaterial({ color: 0x9d72f2, metalness: .45, roughness: .38, clearcoat: 1, emissive: 0x7033dd, emissiveIntensity: .06 }));
         group.add(rim);
-        const face = new THREE.Mesh(new THREE.PlaneGeometry(4.31, 3.23), new THREE.MeshBasicMaterial({ map: interfaceTexture(i), transparent: true, side: THREE.DoubleSide, depthWrite: false }));
+        const face = new THREE.Mesh(new THREE.PlaneGeometry(4.31, 3.23), new THREE.MeshBasicMaterial({ map: interfaceTexture(i, requestDraw), transparent: true, side: THREE.DoubleSide, depthWrite: false }));
         face.position.z = .09;
         face.renderOrder = i + 1;
         group.add(face);
@@ -101,41 +98,70 @@ function startSculpture() {
         outline.position.z = .115; group.add(outline);
         sculpture.add(group); planes.push(group);
     }
-    let frame = 0, start = performance.now(), scrollProgress = 0, visible = true;
+    let frame = 0, start = performance.now(), scrollProgress = 0, scrollTarget = 0, lastTime = start, visible = true;
+    let activeLayer = -1;
+    const emphasis = [0, 0, 0];
     const clamp = THREE.MathUtils.clamp;
     const ease = value => 1 - Math.pow(1 - value, 4);
     function draw(now) {
         frame = 0;
-        const progress = reducedMotion.matches ? 1 : clamp((now - start) / 1450, 0, 1);
+        const delta = Math.min((now - lastTime) / 1000, .05);
+        lastTime = now;
+        scrollProgress = reducedMotion.matches ? 0 : THREE.MathUtils.damp(scrollProgress, scrollTarget, 9, delta);
+        const progress = reducedMotion.matches ? 1 : clamp((now - start) / 1000, 0, 1);
         const spread = ease(progress);
-        sculpture.rotation.set(.17, -.51 + scrollProgress * .13, -.12);
-        sculpture.position.set(.04, .1 - scrollProgress * .3, 0);
+        sculpture.rotation.set(.12 - scrollProgress * .12, -.32 + scrollProgress * .3, -.08 + scrollProgress * .07);
+        sculpture.position.set(.04, .1 + scrollProgress * .16, 0);
         planes.forEach((plane, i) => {
             const offset = i - 1;
             const stage = ease(clamp((progress - i * .1) / .8, 0, 1));
-            plane.position.set(-offset * .7 * spread, -offset * .31 * spread, offset * .78 * spread);
-            plane.rotation.y = (1 - stage) * .25;
+            plane.position.set(-offset * (.8 + scrollProgress * .5) * spread, -offset * (.28 + scrollProgress * .18) * spread, offset * (.65 + scrollProgress * .25) * spread);
+            plane.rotation.y = (1 - stage) * .25 + offset * scrollProgress * .06;
             plane.scale.setScalar(.87 + stage * .13);
+            emphasis[i] = reducedMotion.matches ? Number(i === activeLayer) : THREE.MathUtils.damp(emphasis[i], Number(i === activeLayer), 12, delta);
+            const amount = emphasis[i];
+            plane.position.lerp(new THREE.Vector3(-.1, 0, 2.6), amount);
+            plane.rotation.y += amount * .28;
+            plane.rotation.z = amount * .06;
+            plane.scale.multiplyScalar(1 + amount * .035);
+            plane.children[1].renderOrder = amount > .1 ? 10 : i + 1;
         });
         renderer.render(scene, camera);
         host.classList.add("is-rendered");
         host.dataset.motionState = progress < 1 ? "entering" : "settled";
-        if (progress < 1 && visible && !reducedMotion.matches) frame = requestAnimationFrame(draw);
+        host.dataset.scrollProgress = scrollProgress.toFixed(3);
+        host.dataset.activeLayer = String(activeLayer);
+        const changingSelection = emphasis.some((value, i) => Math.abs(value - Number(i === activeLayer)) > .001);
+        if ((progress < 1 || Math.abs(scrollTarget - scrollProgress) > .001 || changingSelection) && visible && !reducedMotion.matches) frame = requestAnimationFrame(draw);
     }
     function requestDraw() { if (!frame && visible) frame = requestAnimationFrame(draw); }
+    const links = [...host.querySelectorAll("[data-layer]")];
+    const setActive = value => { activeLayer = value; requestDraw(); };
+    links.forEach(link => {
+        link.addEventListener("pointerenter", () => { if (matchMedia("(hover: hover)").matches) setActive(Number(link.dataset.layer)); });
+        link.addEventListener("focus", () => setActive(Number(link.dataset.layer)));
+        link.addEventListener("pointerleave", () => setActive(Number(document.activeElement?.dataset.layer ?? -1)));
+        link.addEventListener("blur", () => setActive(-1));
+    });
     function resize() {
         const { width, height } = host.getBoundingClientRect();
         if (!width || !height) return;
         const aspect = width / height;
-        const vertical = aspect < 1.1 ? 3 : 2.65;
+        const vertical = Math.max(2.35, 3.6 / aspect);
         camera.left = -vertical * aspect; camera.right = vertical * aspect;
         camera.top = vertical; camera.bottom = -vertical;
         camera.updateProjectionMatrix(); renderer.setSize(width, height); requestDraw();
     }
     new ResizeObserver(resize).observe(host);
-    new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; if (visible) requestDraw(); else cancelAnimationFrame(frame); frame = 0; }).observe(host);
-    window.addEventListener("scroll", () => { scrollProgress = reducedMotion.matches ? 0 : clamp(scrollY / 700, 0, 1); requestDraw(); }, { passive: true });
-    reducedMotion.addEventListener("change", () => { scrollProgress = 0; requestDraw(); });
+    function updateScroll() {
+        const hero = host.closest(".hero");
+        const top = hero.getBoundingClientRect().top;
+        scrollTarget = reducedMotion.matches ? 0 : clamp(-top / Math.max(hero.offsetHeight * .7, 350), 0, 1);
+        requestDraw();
+    }
+    new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; if (visible) updateScroll(); else { cancelAnimationFrame(frame); frame = 0; } }).observe(host);
+    document.addEventListener("scroll", updateScroll, { passive: true, capture: true });
+    reducedMotion.addEventListener("change", () => { scrollProgress = 0; updateScroll(); });
     document.addEventListener("visibilitychange", () => { visible = !document.hidden && host.getBoundingClientRect().bottom > 0; requestDraw(); });
     resize();
     window.addEventListener("pagehide", () => { cancelAnimationFrame(frame); renderer.dispose(); }, { once: true });

@@ -106,8 +106,13 @@
 
   <main id="main">
     <section class="hero section" id="top">
-      <div class="hero-sculpture" id="hero-sculpture" aria-hidden="true">
-        <div class="sculpture-fallback"><span></span><span></span><span></span></div>
+      <div class="hero-background" aria-hidden="true" data-running="false">
+        <div class="hero-traces">
+          <i class="hero-trace" style="--row:0;--delay:-3s"></i><i class="hero-trace" style="--row:1;--delay:-8s"></i>
+          <i class="hero-trace" style="--row:2;--delay:-1s"></i><i class="hero-trace" style="--row:3;--delay:-11s"></i>
+          <i class="hero-trace" style="--row:4;--delay:-5s"></i><i class="hero-trace" style="--row:5;--delay:-9s"></i>
+          <i class="hero-trace" style="--row:6;--delay:-2s"></i><i class="hero-trace" style="--row:7;--delay:-7s"></i>
+        </div>
       </div>
       <div class="hero-copy">
         <h1 class="eyebrow hero-heading">Développeur front-end à Casablanca · React &amp; Flutter</h1>
@@ -115,7 +120,7 @@
           <span class="hero-line"><span>DU CODE.</span></span>
           <span class="hero-line hero-line--accent"><span>DU <br class="mobile-break">CARACTÈRE.</span></span>
         </p>
-        <p class="hero-tagline">Sites vitrines, interfaces React et applications Flutter.<br>Du premier écran à la mise en ligne.</p>
+        <p class="hero-tagline">Je conçois et développe des sites web et applications aux interfaces soignées.<br><span class="hero-promise-detail">React &amp; Flutter, du premier écran à la mise en ligne.</span></p>
 
         <div class="hero-bottom">
         <div class="hero-actions">
@@ -127,12 +132,23 @@
           <img src="/images/gabriel-portrait-2026.png" width="1122" height="1402" alt="Gabriel-Halim Endam'Engone, développeur front-end" fetchpriority="high">
           <div>
             <strong>Gabriel-Halim</strong>
-            <span>Casablanca · À distance</span>
+            <span>Casablanca · À distance · Disponible</span>
           </div>
         </div>
         </div>
       </div>
 
+      <div class="hero-sculpture" id="hero-sculpture">
+        <div class="sculpture-fallback" aria-hidden="true">
+          <article class="sculpture-card sculpture-card--nfc"><strong>03 / CARTE NFC</strong><img src="/images/nfc-preview.png" alt="" loading="eager"></article>
+          <article class="sculpture-card sculpture-card--fitzone"><strong>02 / Fitzzone</strong><img src="/images/fitzone-preview.webp" alt="" loading="eager"></article>
+          <article class="sculpture-card sculpture-card--portrait"><strong>01 / GABRIEL</strong><img src="/images/gabriel-hero.jpg" alt="" loading="eager"></article>
+        </div>
+        <nav class="hero-project-links" aria-label="Projets du hero">
+          <a href="https://fitzone-pink.vercel.app/" data-layer="1" target="_blank" rel="noopener noreferrer"><strong>FitZone · Site fitness</strong><span>Voir le projet <span aria-hidden="true">↗</span></span></a>
+          <a href="https://gabriel-contact.pages.dev/" data-layer="0" target="_blank" rel="noopener noreferrer"><strong>Carte NFC · Profil numérique</strong><span>Voir le projet <span aria-hidden="true">↗</span></span></a>
+        </nav>
+      </div>
       <div class="hero-indexline" aria-label="Du concept à l'interface">
         <span>01 / Projets choisis</span>
         <span>Du concept à l'interface</span>
@@ -354,8 +370,8 @@
       <div class="contact-intro">
         <p class="eyebrow">Contact</p>
         <h2>Parlons de votre projet web.</h2>
-        <p>Basé à Casablanca, ouvert aux collaborations web, aux missions de développement frontend et aux projets
-          mêlant interface, coordination et livraison.</p>
+        <p>Un site vitrine à créer, une interface React à intégrer ou un parcours mobile Flutter à développer ? Je suis disponible à Casablanca et à distance.</p>
+        <p>Présentez-moi votre besoin, vos contenus et votre échéance. Nous pourrons préciser le périmètre et les prochaines étapes.</p>
         <div class="contact-actions">
           <a class="button primary" href="#contact-form">Parlons de votre projet</a>
         </div>
