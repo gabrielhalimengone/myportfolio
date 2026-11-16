@@ -28,9 +28,8 @@
 
 .a2-portfolio .site-header { position: relative; width: min(1280px, calc(100% - 96px)); min-height: 82px; margin: auto; padding: 0; display: grid; grid-template-columns: 1fr auto 1fr; gap: 24px; border: 0; border-bottom: 1px solid var(--line); background: var(--ink); box-shadow: none; backdrop-filter: none; }
 .site-header::after { display: none; }
-.a2-portfolio .brand { gap: 18px; color: var(--text); font: 650 16px/1.2 var(--font-body); }
-.a2-portfolio .brand-mark { display: inline-flex; flex: none; width: 36px; height: 36px; margin: 0; border: 0; border-radius: 0; background: none; box-shadow: none; }
-.a2-portfolio .brand-mark img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.a2-portfolio .brand { display: inline-flex; align-items: center; color: var(--text); }
+.a2-portfolio .brand-logo { display: block; width: 212px; height: auto; object-fit: contain; }
 .a2-portfolio .nav-links { grid-column: 2; grid-row: 1; gap: 34px; padding: 0; }
 .a2-portfolio .nav-links a { display: inline-flex; align-items: center; min-height: 44px; color: #dcd5e7; font: 500 14px var(--font-body); }
 .a2-portfolio .nav-links a:hover { color: var(--lavender); }
@@ -288,8 +287,7 @@
 @media(max-width:900px) {
     .a2-portfolio main, .a2-portfolio .site-header { width: calc(100% - 40px); }
     .a2-portfolio .site-header { min-height: 72px; grid-template-columns: 1fr auto; gap: 0; }
-    .a2-portfolio .brand { gap: 12px; font-size: 14px; }
-    .a2-portfolio .brand-mark { width: 32px; height: 32px; }
+    .a2-portfolio .brand-logo { width: min(190px, calc(100vw - 136px)); }
     .a2-portfolio .site-header .availability { display: none; }
     .a2-portfolio .menu-toggle { display: inline-flex; grid-column: 2; grid-row: 1; justify-self: end; align-items: center; gap: 10px; min-height: 44px; padding: 0; border: 0; background: none; color: var(--text); font: 13px var(--font-body); cursor: pointer; }
     .menu-toggle-icon { width: 20px; height: 12px; border-top: 1px solid currentColor; border-bottom: 1px solid currentColor; }
@@ -386,7 +384,7 @@
 }
 @media(max-width:359px) {
     .a2-portfolio .hero-copy .hero-slogan { font-size: 40px; }
-    .a2-portfolio .brand { font-size: 12px; }
+    .a2-portfolio .brand-logo { width: min(176px, calc(100vw - 120px)); }
     .work-filters { gap: 15px; }
     .phone { width: 135px; }
     .phone-composition { height: 300px; }

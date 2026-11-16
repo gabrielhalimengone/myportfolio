@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 330" role="img" aria-labelledby="title desc">
+  <title id="title">KODEVA — Digital Solutions</title>
+  <desc id="desc">Logo horizontal KODEVA adapté au fond sombre du portfolio.</desc>
+  <g transform="translate(0 15) scale(.7)">
+    <path d="M70 314V106h66v142Z" fill="#F3EFFC"/>
+    <path d="M164 314V164h66v84Z" fill="#F3EFFC"/>
+    <path d="M258 314V70h112v66h-46v112Z" fill="#FF5900"/>
+  </g>
+  <g fill="#F3EFFC" font-family="Arial,Helvetica,sans-serif">
+    <text x="350" y="150" font-size="65" font-weight="700" letter-spacing="2">KODEVA</text>
+    <text x="353" y="202" font-size="23" letter-spacing="6">DIGITAL SOLUTIONS</text>
+  </g>
+</svg>

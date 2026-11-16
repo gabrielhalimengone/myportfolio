@@ -13,10 +13,16 @@ test("homepage has one descriptive heading and retains Google verification", () 
 });
 
 test("navigation and favicon use the dark-background logo variant", () => {
-    const logo = "elan-symbol-on-dark.svg";
-    assert.match(html, new RegExp(`<link rel="icon" type="image/svg\\+xml" href="/images/${logo}">`));
-    assert.match(html, new RegExp(`<span class="brand-mark" aria-hidden="true"><img src="/images/${logo}"`));
-    assert.ok(existsSync(new URL(`../public/images/${logo}`, import.meta.url)));
+    const logo = "kodeva-horizontal.svg";
+    const mark = "kodeva-mark.svg";
+    assert.match(html, new RegExp(`<link rel="icon" type="image/svg\\+xml" href="/images/${mark}">`));
+    assert.match(html, new RegExp(`<img class="brand-logo" src="/images/${logo}"[^>]*alt="KODEVA Digital Solutions">`));
+    for (const asset of [logo, mark]) {
+        assert.ok(existsSync(new URL(`../public/images/${asset}`, import.meta.url)));
+    }
+    const svg = readFileSync(new URL(`../public/images/${logo}`, import.meta.url), "utf8");
+    assert.match(svg, /fill="#F3EFFC"/);
+    assert.match(svg, /fill="#FF5900"/);
 });
 
 test("metadata and crawl files use the same production origin", () => {

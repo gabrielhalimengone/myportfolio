@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 250" role="img" aria-labelledby="title">
+  <title id="title">Symbole KODEVA</title>
+  <g transform="translate(0 15) scale(.7)">
+    <path d="M70 314V106h66v142Z" fill="#F3EFFC"/>
+    <path d="M164 314V164h66v84Z" fill="#F3EFFC"/>
+    <path d="M258 314V70h112v66h-46v112Z" fill="#FF5900"/>
+  </g>
+</svg>
