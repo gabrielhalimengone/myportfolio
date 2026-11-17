@@ -30,7 +30,7 @@ export default defineConfig(({ mode }) => {
                 this.emitFile({
                     type: "asset",
                     fileName: "_routes.json",
-                    source: JSON.stringify({ version: 1, include: ["/api/*"], exclude: [] })
+                    source: JSON.stringify({ version: 1, include: ["/", "/index.html", "/api/*"], exclude: [] })
                 });
             }
         }],

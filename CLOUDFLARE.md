@@ -14,8 +14,10 @@ Le formulaire WhatsApp conserve son fonctionnement actuel.
 6. Le nom dans `wrangler.toml` doit correspondre au nom du projet Pages.
 
 Le build compile les sources React et inclut les captures des projets, les polices,
-`robots.txt`, `sitemap.xml` et `_routes.json`. Seules les routes `/api/*` invoquent
-une Function. Les sources, les tests et les secrets ne font pas partie de `dist`.
+`robots.txt`, `sitemap.xml` et `_routes.json`. Celui-ci limite les Functions à
+`/`, `/index.html` et `/api/*`. La Function API traite `/api/*` et
+`functions/_middleware.js` redirige les URLs de page de `www` vers l'hôte canonique.
+Les sources, les tests et les secrets ne font pas partie de `dist`.
 Le fichier de vérification IndexNow placé dans `public/` est également copié à la
 racine publiée pour permettre aux moteurs participants de vérifier les notifications
 d’URL.
@@ -52,9 +54,9 @@ Sans `SITE_URL`, tous les builds utilisent l'adresse de production stable
 Configurer `SITE_URL` avant la mise en production sur le domaine definitif.
 
 Le domaine principal repond deja. Dans Pages > Custom domains, ajouter aussi
-`www.gabrielhalim-dev.com` puis verifier son activation HTTPS. Creer ensuite
-une redirection permanente de www vers le domaine principal en conservant
-le chemin et les parametres. Ne pas ajouter uniquement un CNAME sans associer
+`www.gabrielhalim-dev.com` puis verifier son activation HTTPS. Le middleware
+Pages redirige en 301 la page d'accueil et `/index.html` vers
+`https://gabrielhalim-dev.com`. Ne pas ajouter uniquement un CNAME sans associer
 le sous-domaine au projet Pages.
 
 Si une variable de build `SITE_URL` existe deja dans Cloudflare, la remplacer
