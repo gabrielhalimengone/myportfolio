@@ -16,6 +16,9 @@ Le formulaire WhatsApp conserve son fonctionnement actuel.
 Le build compile les sources React et inclut les captures des projets, les polices,
 `robots.txt`, `sitemap.xml` et `_routes.json`. Seules les routes `/api/*` invoquent
 une Function. Les sources, les tests et les secrets ne font pas partie de `dist`.
+Le fichier de vérification IndexNow placé dans `public/` est également copié à la
+racine publiée pour permettre aux moteurs participants de vérifier les notifications
+d’URL.
 
 ## Resend
 
